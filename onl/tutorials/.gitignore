@@ -1,4 +1,5 @@
  # Ignore ipynb checkpoint files
 *ipynb_checkpoints/*
-# Ignore Mac Folder Attribute files
+
+# Ignore system files
 *DS_Store*
