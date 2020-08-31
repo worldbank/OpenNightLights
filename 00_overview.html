@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Content in Jupyter Book &#8212; My sample book</title>
+    <title>Overview &#8212; My sample book</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -73,7 +73,7 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="00_overview.html">
+  <a class="reference internal" href="#">
    Overview
   </a>
  </li>
@@ -118,9 +118,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/content.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/00_overview.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -145,7 +145,19 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorial-organization">
+   Tutorial organization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -154,10 +166,37 @@
         
               <div>
                 
-  <div class="section" id="content-in-jupyter-book">
-<h1>Content in Jupyter Book<a class="headerlink" href="#content-in-jupyter-book" title="Permalink to this headline">¶</a></h1>
-<p>There are many ways to write content in Jupyter Book. This short section
-covers a few tips for how to do so.</p>
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the World Bank’s Open Night Lights tutorial. We hope that this tutorial will help you better understand the power of remote sensing data as well as provide guidance on the tools to work with these data.</p>
+<p>These tutorials use Jupyter notebooks, which allow them to combine written and visual content with executable code.</p>
+<p>We will provide guidance on the software tools you’ll need to work with these tutorials. Only a very basic understanding of Python and a standard personal computer are required.</p>
+<div class="section" id="tutorial-organization">
+<h2>Tutorial organization<a class="headerlink" href="#tutorial-organization" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Module 1: Introduction (60 min)</strong></p></li>
+<li><p><strong>Module 2: Band math and mosaicing (45 min)</strong></p></li>
+<li><p><strong>Module 3: Data analysis (45 min)</strong></p></li>
+<li><p><strong>Module 4: Charting (20 min)</strong></p></li>
+<li><p><strong>Module 5: Final exercise (30 min)</strong></p></li>
+<li><p><strong>Glossary</strong></p></li>
+<li><p><strong>Technical Resources</strong></p></li>
+</ul>
+<p><strong>Total time: 200 minutes (3 hrs 20 min)</strong></p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-info">
+Throughout the tutorial, technical terms and definitions are highlighted in blue. You can also find a full list of terms in the Glossary.
+</div>
+<div class="alert alert-success">
+Links to helpful resources and documentation on tools are in green. You can also find a full list of resources in the Technical Resources section.
+</div>
+<div class="alert alert-warning">
+Occasionally you'll see a yellow box helping to navigate potential trouble-shooting issues.
+</div><div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
