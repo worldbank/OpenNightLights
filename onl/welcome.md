@@ -8,8 +8,8 @@ These tutorials use Jupyter notebooks, which allow them to combine written and v
 We will provide guidance on the software tools you'll need to work with these tutorials. Only a very basic understanding of Python and a standard personal computer are required.
 
 
-**Tutorial organization**
-
+Tutorial organization
+---------------------
 - **Module 1: Introduction (60 min)**
 
 - **Module 2: Band math and mosaicing (45 min)**
@@ -26,8 +26,8 @@ We will provide guidance on the software tools you'll need to work with these tu
 
 **Total time: 200 minutes (3 hrs 20 min)**
 
-**References**
-
+References
+----------
 <div class="alert alert-info">
 Throughout the tutorial, technical terms and definitions are highlighted in blue. You can also find a full list of terms in the Glossary.
 </div>
