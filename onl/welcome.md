@@ -1,3 +1,6 @@
+Welcome
+=========
+
 Welcome to the World Bank's Open Night Lights tutorial. We hope that this tutorial will help you better understand the power of remote sensing data as well as provide guidance on the tools to work with these data.
 
 These tutorials use Jupyter notebooks, which allow them to combine written and visual content with executable code. 
