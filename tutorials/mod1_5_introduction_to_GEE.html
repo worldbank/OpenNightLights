@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Introduction to Google Earth Engine (GEE) (10 min) &#8212; Open Nighttime Lights</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Practical exercise: image visualization (10 min)" href="mod1_7_practical_exercise-image_visualization.html" />
+    <link rel="prev" title="4. Introduction to Jupyter notebooks (10 min)" href="mod1_4_introduction_to_Jupyter_notebooks.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/wb_logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Nighttime Lights</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Module 1 Introduction
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_1_introduction_to_remote_sensing.html">
+   1. Introduction to remote sensing (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html">
+   2. Introduction to nighttime light data (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_3_getting_started_with_Python.html">
+   3. Getting started with Python (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_4_introduction_to_Jupyter_notebooks.html">
+   4. Introduction to Jupyter notebooks (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Introduction to Google Earth Engine (GEE) (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_7_practical_exercise-image_visualization.html">
+   6. Practical exercise: image visualization (10 min)
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod1_5_introduction_to_GEE.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#google-earth-engine-gee-overview">
+   5.1. Google Earth Engine (GEE) Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gee-access">
+   5.2. GEE Access
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-geemap">
+   5.3. Introduction to geemap
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-started">
+     5.3.1. Getting started
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-google-earth-engine-gee-10-min">
+<h1><span class="section-number">5. </span>Introduction to Google Earth Engine (GEE) (10 min)<a class="headerlink" href="#introduction-to-google-earth-engine-gee-10-min" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="google-earth-engine-gee-overview">
+<h2><span class="section-number">5.1. </span>Google Earth Engine (GEE) Overview<a class="headerlink" href="#google-earth-engine-gee-overview" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+<a href="https://earthengine.google.com/" class="alert-link">Google Earth Engine (GEE)</a> is a cloud-based platform for planetary-scale geospatial analysis which allows to process a variety of geographical data at scale and handle large geographical datasets. 
+</div>
+<p>Since geographical data are often large and complicated to store, GEE provides a quickly accessible collection of ready-to-use data products. In addition, it is open and free to the public (for non-commercial use).</p>
+<p>GEE consists of a multi-petabyte “ready-to-use” data catalog alongside a high-performance, intrinsically parallel computation service. It can be accessed and controlled through an Internet-accessible application programming interface (API) and an associated web-based interactive development environment (IDE) that enables rapid prototyping and visualization of results <span class="bibtex" id="id1">[gorelick2017google]</span>.</p>
+<p>Because all the datasets are available on the GEE platform, there is no need to manage the data, download them, change the file format, or update the geographic projection. It uses the power of thousands of computers located in Google data centers to carry out its heavy processing. This distributed network allows the user to finish a task in a few minutes for small areas and few days for a world-scale study.</p>
+<p>GEE provides access to numerous remotely sensed datasets and derived products, including DMSP-OLS and VIIRS DNB. Some of the data is already provided  in the platform processed and “ready-to-use”.</p>
+<div class="alert alert-success">
+The GEE platform provides <a href="https://developers.google.com/earth-engine/" class="alert-link">comprehensive documentation</a> and tutorials with videos as well as an  Application Programming Interface (API) dictionary to help users to learn how to write and use every JavaScript function in GEE. 
+</div>
+<div class="alert alert-success">
+<a href="https://groups.google.com/u/1/g/google-earth-engine-developers?pli=1" class="alert-link">The GEE developer forum</a> is a very helpful resource for beginners. On this forum it is possible to directly ask a question to the GEE community including GEE programmers and founders. 
+</div>
+</div>
+<div class="section" id="gee-access">
+<h2><span class="section-number">5.2. </span>GEE Access<a class="headerlink" href="#gee-access" title="Permalink to this headline">¶</a></h2>
+<p>Accessing GEE is easy. Aspiring users will first need to <a href="https://signup.earthengine.google.com/" class="alert-link">sign up to the platform</a> with their Google account. It is the same account, people use to access Youtube, Google drive, Gmail and any Google service. Google usually gives access to new users within 24 hours. Then, all a user needs to access GEE from anywhere in the world is an internet connection.</p>
+<p>Data in GEE can be analyzed in two ways:</p>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>through the Javascript API via the GEE code editor, or</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>a Python API, geemap, that can be accessed through any Python environment, such as Jupyter notebooks.</p></li>
+</ol>
+</li>
+</ul>
+<p><strong>In this course:</strong> we will run these processes through Jupyter notebooks Python environment.</p>
+</div>
+<div class="section" id="introduction-to-geemap">
+<h2><span class="section-number">5.3. </span>Introduction to geemap<a class="headerlink" href="#introduction-to-geemap" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+<a href="https://geemap.readthedocs.io/en/latest/readme.html" class="alert-link">geemap</a> is a Python package for interactive mapping with GEE.
+</div>
+<p>As noted, GEE provides both JavaScript and Python APIs for making computational requests to the Earth Engine servers; however, the documentation and functionality of the Python API is rather limited.</p>
+<p>geemap was designed to fill this gap and enables users to analyze and visualize Earth Engine datasets interactively – including within a Jupyter environment. Additionally, the automated JavaScript-to-Python conversion module of the geemap package reduces the time needed to convert existing GEE JavaScripts to Python code.</p>
+<p>The key functionality of geemap is organized into several modules <span class="bibtex" id="id2">[wu2020geemap]</span>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">geemap</span></code>: the main module for interactive mapping with Google Earth Engine, ipyleaflet, and ipywidgets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eefolium</span></code>: a module for interactive mapping with Earth Engine and folium. It is designed for users to run geemap with Google Colab. (Note: Google colab doesnt currently integrate with ipyleaflet)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conversion</span></code>: utilities for automatically converting Earth Engine JavaScripts to Python scripts and Jupyter notebooks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">basemaps</span></code>: a module for adding various XYZ and WMS tiled basemaps.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">legends</span></code>: a module for adding customized legends to interactive maps.</p></li>
+</ul>
+<div class="section" id="getting-started">
+<h3><span class="section-number">5.3.1. </span>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h3>
+<p>geemap is not included in the standard Python library, which means you must download and install it. You can download this using pip (and remember if you created a virtual environment, activate that environment first). In the command line, enter:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">geemap</span></code></p>
+<p>Or, if you installed Anaconda, you can use the conda package manager, via the “conda-forge” channel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install mamba -c conda-forge
+$ mamba install geemap -c conda-forge
+</pre></div>
+</div>
+<p>Recall that you can also run command line commands from Jupyter notebooks using the bang. We’ve already installed geemap, but for illustrative purpose, here we’ll do it again.</p>
+<p>Note that because this installation asks you if you want to proceed (you do), you’ll want to set the <code class="docutils literal notranslate"><span class="pre">-y</span></code> flag, which will automatically answer yes to that prompt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! conda install mamba -c conda-forge -y
+! mamba install geemap -c conda-forge -y
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): - 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>done
+Solving environment: / 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>/ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>- 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>\ 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>| 
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>done
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+# All requested packages already installed.
+
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+                  __    __    __    __
+                 /  \  /  \  /  \  /  \
+                /    \/    \/    \/    \
+███████████████/  /██/  /██/  /██/  /████████████████████████
+              /  / \   / \   / \   / \  \____
+             /  /   \_/   \_/   \_/   \    o \__,
+            / _/                       \_____/  `
+            |/
+        ███╗   ███╗ █████╗ ███╗   ███╗██████╗  █████╗
+        ████╗ ████║██╔══██╗████╗ ████║██╔══██╗██╔══██╗
+        ██╔████╔██║███████║██╔████╔██║██████╔╝███████║
+        ██║╚██╔╝██║██╔══██║██║╚██╔╝██║██╔══██╗██╔══██║
+        ██║ ╚═╝ ██║██║  ██║██║ ╚═╝ ██║██████╔╝██║  ██║
+        ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝ ╚═╝  ╚═╝
+
+        Supported by @QuantStack
+
+        GitHub:  https://github.com/QuantStack/mamba
+        Twitter: https://twitter.com/QuantStack
+
+█████████████████████████████████████████████████████████████
+
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Getting  conda-forge linux-64
+Getting  conda-forge noarch
+Getting  pkgs/main linux-64
+Getting  pkgs/main noarch
+Getting  pkgs/r linux-64
+Getting  pkgs/r noarch
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+Looking for: [&#39;geemap&#39;, &#39;python 3.7.7&#39;]
+
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>117160 packages in https://conda.anaconda.org/conda-forge/linux-64
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>38110 packages in https://conda.anaconda.org/conda-forge/noarch
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>17585 packages in https://repo.anaconda.com/pkgs/main/linux-64
+1866 packages in https://repo.anaconda.com/pkgs/main/noarch
+6637 packages in https://repo.anaconda.com/pkgs/r/linux-64
+5025 packages in https://repo.anaconda.com/pkgs/r/noarch
+</pre></div>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>
+# All requested packages already installed.
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>You only need to install geemap once, but you’ll have to import it into any Python script or Jupyter notebook that uses it, which is as simple as typing this line of code in your Jupyter notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geemap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With geemap imported, your Python session or Jupyter notebook is now ready to call on the entire library of GEE images/image collections, etc, and will have the same functionality as the code editor in the GEE console.</p>
+<p>Here is a partial list of those functions:</p>
+<ul class="simple">
+<li><p>Automated conversion from Earth Engine JavaScripts to Python scripts and Jupyter notebooks.</p></li>
+<li><p>Displaying Earth Engine data layers for interactive mapping.</p></li>
+<li><p>Supporting Earth Engine JavaScript API-styled functions in Python, such as Map.addLayer(), Map.setCenter(), Map.centerObject(), Map.setOptions().</p></li>
+<li><p>Creating split-panel maps with Earth Engine data.</p></li>
+<li><p>Retrieving Earth Engine data interactively using the Inspector Tool.</p></li>
+<li><p>Interactive plotting of Earth Engine data by simply clicking on the map.</p></li>
+<li><p>Converting data format between GeoJSON and Earth Engine.</p></li>
+<li><p>Using drawing tools to interact with Earth Engine data.</p></li>
+<li><p>Using shapefiles with Earth Engine without having to upload data to one’s GEE account.</p></li>
+<li><p>Exporting Earth Engine FeatureCollection to other formats (i.e., shp, csv, json, kml, kmz) using only one line of code.</p></li>
+<li><p>Exporting Earth Engine Image and ImageCollection as GeoTIFF.</p></li>
+<li><p>Extracting pixels from an Earth Engine Image into a 3D numpy array.</p></li>
+<li><p>Calculating zonal statistics by group (e.g., calculating land over composition of each state/country).</p></li>
+<li><p>Adding a customized legend for Earth Engine data.</p></li>
+<li><p>Converting Earth Engine JavaScripts to Python code directly within Jupyter notebook.</p></li>
+<li><p>Adding animated text to GIF images generated from Earth Engine data.</p></li>
+<li><p>Adding colorbar and images to GIF animations generated from Earth Engine data.</p></li>
+<li><p>Creating Landsat time lapse animations with animated text using Earth Engine.</p></li>
+<li><p>Searching places and datasets from Earth Engine Data Catalog.</p></li>
+<li><p>Using time series inspector to visualize landscape changes over time.</p></li>
+<li><p>Exporting Earth Engine maps as HTML files and PNG images.</p></li>
+<li><p>Searching Earth Engine API documentation within Jupyter notebooks.</p></li>
+<li><p>Importing Earth Engine assets from personal account.</p></li>
+<li><p>Publishing interactive GEE maps directly within Jupyter notebook.</p></li>
+<li><p>Adding local raster datasets (e.g., GeoTIFF) to the map.</p></li>
+</ul>
+<div class="alert alert-success">
+Like many popular Python packages, geemap provides <a href="https://geemap.readthedocs.io/en/latest/readme.html#introduction" class="alert-link">comprehensive and clear documentation.</a></div>
+<div class="alert alert-success">
+And <a href="https://github.com/giswqs/geemap/tree/master/examples" class="alert-link">examples and video tutorials.</a></div></div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"901a609c8aec4e6fa8bea35fd03cadce": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Google", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Google Maps", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}", "visible": true}}, "0e24d748a9b647c591a12cf291c52260": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Google", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Google Satellite", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}", "visible": true}}, "66c5e3c65dd141ffbec7e8a0478e4d5f": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Google", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Google Terrain", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}", "visible": true}}, "ae6af2bc41bc4e9a8f8ea69638acdcb2": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Google", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Google Satellite", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}", "visible": true}}, "4e0678929dc64c0ea2ff8028618f6c8e": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Satellite", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "8092a155b8ea408da8e9e88a60af178e": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Ocean", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://services.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "3d30eecdcb8447ec937863c5991b5ab4": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Satellite", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "a11b1c1cba8b441c9b968f8c3e4f9d5c": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Standard", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "9fefc0dd06614310ae6328240cc82859": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Terrain", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "e5e034b529c7424aba45cf1e4f57bccd": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Transportation", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "0f98d065b4c94ac78efdd559d06e5607": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Topo World", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "2df3b9cb25d74e9b92b12d1d44e6b333": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri National Geographic", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "17ad778f1c8648519bda6a338b86a924": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Shaded Relief", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "6adc64add87a468d8c67db213a2b14d6": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Esri", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Esri Physical Map", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://services.arcgisonline.com/arcgis/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "fd485485db5e4de1b2439afff62f8c48": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "FWS", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "1", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "FWS NWI Wetlands", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.fws.gov/wetlands/arcgis/services/Wetlands/MapServer/WMSServer?", "visible": true}}, "92a6117763424b89b9022c39d0563794": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "FWS", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "0", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "FWS NWI Wetlands Raster", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.fws.gov/wetlands/arcgis/services/Wetlands_Raster/ImageServer/WMSServer?", "visible": true}}, "0bcdfaf6ff464c5787813043a445a784": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Google", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Google Maps", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}", "visible": true}}, "70b043993ad04c88b602c53409614561": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Google", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Google Satellite", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}", "visible": true}}, "c01e27d22e2d444984e786d011499e30": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Google", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Google Terrain", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}", "visible": true}}, "cf4b91f1c95c48eeba62a8db2fe0b04b": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Google", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Google Satellite", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}", "visible": true}}, "ed1bc4f76744401c8a967eb23c84f139": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "MRLC", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "NLCD_2016_Land_Cover_L48", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "NLCD 2016 CONUS Land Cover", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.mrlc.gov/geoserver/mrlc_display/NLCD_2016_Land_Cover_L48/wms?", "visible": true}}, "20acb24c2385433e9687c6efa9a84c26": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "MRLC", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "NLCD_2013_Land_Cover_L48", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "NLCD 2013 CONUS Land Cover", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.mrlc.gov/geoserver/mrlc_display/NLCD_2013_Land_Cover_L48/wms?", "visible": true}}, "76f388f96065493c9c468c14033e2b0e": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "MRLC", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "NLCD_2011_Land_Cover_L48", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "NLCD 2011 CONUS Land Cover", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.mrlc.gov/geoserver/mrlc_display/NLCD_2011_Land_Cover_L48/wms?", "visible": true}}, "441f9fce4cf946ed9571aca260bb615a": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "MRLC", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "NLCD_2008_Land_Cover_L48", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "NLCD 2008 CONUS Land Cover", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.mrlc.gov/geoserver/mrlc_display/NLCD_2008_Land_Cover_L48/wms?", "visible": true}}, "d05bc9f4182e47cbab0ebe6bb306f8e5": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "MRLC", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "NLCD_2006_Land_Cover_L48", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "NLCD 2006 CONUS Land Cover", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.mrlc.gov/geoserver/mrlc_display/NLCD_2006_Land_Cover_L48/wms?", "visible": true}}, "53ae0e573fd748d995d6fc7ed4f69510": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "MRLC", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "NLCD_2004_Land_Cover_L48", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "NLCD 2004 CONUS Land Cover", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.mrlc.gov/geoserver/mrlc_display/NLCD_2004_Land_Cover_L48/wms?", "visible": true}}, "2bafed41ba1542f5ad2d3e1680ec33a3": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "MRLC", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "NLCD_2001_Land_Cover_L48", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "NLCD 2001 CONUS Land Cover", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://www.mrlc.gov/geoserver/mrlc_display/NLCD_2001_Land_Cover_L48/wms?", "visible": true}}, "e0b92842c38b418fa35508c9e6bdf1e5": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "USGS", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "0", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "USGS NAIP Imagery", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://services.nationalmap.gov/arcgis/services/USGSNAIPImagery/ImageServer/WMSServer?", "visible": true}}, "5e42acaa550648e89c74e06aa32015f6": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "USGS", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "0", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "USGS Hydrography", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://basemap.nationalmap.gov/arcgis/services/USGSHydroCached/MapServer/WMSServer?", "visible": true}}, "784805328dd844948734b5927cdcba86": {"model_name": "LeafletWMSLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletWMSLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletWMSLayerView", "attribution": "USGS", "base": false, "bottom": true, "crs": {"name": "EPSG3857", "custom": false}, "detect_retina": false, "format": "image/png", "layers": "3DEPElevation:None", "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "USGS 3DEP Elevation", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "format", "layers", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "styles", "tile_size", "tms", "transparent", "uppercase"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "styles": "", "tile_size": 256, "tms": false, "transparent": true, "uppercase": false, "url": "https://elevation.nationalmap.gov/arcgis/services/3DEPElevation/ImageServer/WMSServer?", "visible": true}}, "5994816c6d7f4837a602991882b80971": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map data (c) <a href=\"https://openstreetmap.org\">OpenStreetMap</a> contributors", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 19, "min_native_zoom": 0, "min_zoom": 1, "name": "OpenStreetMap.Mapnik", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", "visible": true}}, "2a0aa68ebe6b4d6d9294fea338fe4f94": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 1, "name": "OpenStreetMap.BlackAndWhite", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png", "visible": true}}, "3bb3ff934ed74028a8cea27aea7113a4": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 1, "name": "OpenStreetMap.DE", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png", "visible": true}}, "b2901d413a07458cb0bcfad0af320412": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "&copy; Openstreetmap France | &copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 20, "min_native_zoom": 0, "min_zoom": 1, "name": "OpenStreetMap.France", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", "visible": true}}, "5f5fbf455510435da405ffb8f1ed01d5": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>, Tiles courtesy of <a href=\"http://hot.openstreetmap.org/\" target=\"_blank\">Humanitarian OpenStreetMap Team</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 19, "min_native_zoom": 0, "min_zoom": 1, "name": "OpenStreetMap.HOT", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", "visible": true}}, "09f6131e88bf4a9b941edf862bb35b3d": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map data: &copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>, <a href=\"http://viewfinderpanoramas.org\">SRTM</a> | Map style: &copy; <a href=\"https://opentopomap.org\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">CC-BY-SA</a>)", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 17, "min_native_zoom": 0, "min_zoom": 1, "name": "OpenTopoMap", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", "visible": true}}, "164884431b374cf59a37f2e47a8a08fc": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Tiles courtesy of <a href=\"http://openstreetmap.se/\" target=\"_blank\">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 1, "name": "Hydda.Full", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png", "visible": true}}, "e0088839c02a49dda7a94669a60222e0": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Tiles courtesy of <a href=\"http://openstreetmap.se/\" target=\"_blank\">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 1, "name": "Hydda.Base", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png", "visible": true}}, "d9e550ec339b405989a55cd529750f52": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 20, "min_native_zoom": 0, "min_zoom": 1, "name": "Esri.WorldStreetMap", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "61f96a9637824a328b3a3b87d32311b5": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Tiles &copy; Esri &mdash; Copyright: &copy;2012 DeLorme", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 11, "min_native_zoom": 0, "min_zoom": 1, "name": "Esri.DeLorme", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://server.arcgisonline.com/ArcGIS/rest/services/Specialty/DeLorme_World_Base_Map/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "e100ec69151d4ca6a27cfe5b725306e4": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 20, "min_native_zoom": 0, "min_zoom": 1, "name": "Esri.WorldTopoMap", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "1d8617da55e9437f9aaca2b3676efaeb": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 20, "min_native_zoom": 0, "min_zoom": 1, "name": "Esri.WorldImagery", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "2fafd9a40fe646459724a6e60323fe87": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 16, "min_native_zoom": 0, "min_zoom": 1, "name": "Esri.NatGeoWorldMap", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}", "visible": true}}, "646f54dc918248f292e80050d62ac94c": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 19, "min_native_zoom": 0, "min_zoom": 1, "name": "HikeBike.HikeBike", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png", "visible": true}}, "729e7bcd627c4e67a276ca9cc4b76d65": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> &amp; USGS", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 20, "min_native_zoom": 0, "min_zoom": 1, "name": "MtbMap", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://tile.mtbmap.cz/mtbmap_tiles/{z}/{x}/{y}.png", "visible": true}}, "bd04149a250d422e924cfadece8f3f26": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> &copy; <a href=\"http://cartodb.com/attributions\">CartoDB</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 20, "min_native_zoom": 0, "min_zoom": 1, "name": "CartoDB.Positron", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", "visible": true}}, "21382e030b4a43f498b3e863c4c4c235": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a> &copy; <a href=\"http://cartodb.com/attributions\">CartoDB</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 20, "min_native_zoom": 0, "min_zoom": 1, "name": "CartoDB.DarkMatter", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png", "visible": true}}, "9cda17d43d62460a9c76544c230be379": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 9, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.ModisTerraTrueColorCR", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_TrueColor/default/2020-08-31/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg", "visible": true}}, "6ac3eda5570640208bbc8bd9f5065b51": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 9, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.ModisTerraBands367CR", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_Bands367/default/2020-08-31/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg", "visible": true}}, "7072e2607611424f87c83bb5e2e7b5eb": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 9, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.ModisTerraBands721CR", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_Bands721/default/2020-08-31/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg", "visible": true}}, "7f024e8d611f49619fabd431541e9cae": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 9, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.ModisAquaTrueColorCR", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Aqua_CorrectedReflectance_TrueColor/default/2020-08-31/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg", "visible": true}}, "6a92cbad57e7478d9fafac155f0a24d2": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 9, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.ModisAquaBands721CR", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Aqua_CorrectedReflectance_Bands721/default/2020-08-31/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg", "visible": true}}, "6ae1e7a28db94563bb0222cacff0c1cc": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 9, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.ViirsTrueColorCR", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_CorrectedReflectance_TrueColor/default/2020-08-31/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg", "visible": true}}, "5cf69b61baa148daad625418b4fb4667": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 8, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.ViirsEarthAtNight2012", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "http://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_Black_Marble/default/2012-01-01/GoogleMapsCompatible_Level8/{z}/{y}/{x}.png", "visible": true}}, "1b27d092771f4518ae6e93b7db7fb474": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 5, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.BlueMarble3413", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3413/best/BlueMarble_NextGeneration/default/EPSG3413_500m/{z}/{y}/{x}.jpeg", "visible": true}}, "4a1f2cebd8814b2daca41877714ccd44": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 5, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.BlueMarble3031", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3031/best/BlueMarble_NextGeneration/default/EPSG3031_500m/{z}/{y}/{x}.jpeg", "visible": true}}, "e333d2c37c964b2e8a9303840d8fd694": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "\nImagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href=\"https://earthdata.nasa.gov\">ESDIS</a>) with funding provided by NASA/HQ.\n", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 8, "min_native_zoom": 0, "min_zoom": 1, "name": "NASAGIBS.BlueMarble", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_NextGeneration/default/EPSG3857_500m/{z}/{y}/{x}.jpeg", "visible": true}}, "b08b3d69af7f4a58afaf43976647ad18": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map tiles by <a href=\"https://labs.strava.com/heatmap\">Strava 2017</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 15, "min_native_zoom": 0, "min_zoom": 1, "name": "Strava.All", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://heatmap-external-a.strava.com//tiles/all/hot/{z}/{x}/{y}.png?v=19", "visible": true}}, "10e3740307ec43c293526e6b38156620": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map tiles <a href=\"https://labs.strava.com/heatmap\">Strava 2017</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 15, "min_native_zoom": 0, "min_zoom": 1, "name": "Strava.Ride", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://heatmap-external-a.strava.com//tiles/ride/hot/{z}/{x}/{y}.png?v=19", "visible": true}}, "5e0b247967114763b9fd998bf581c5c4": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map tiles by <a href=\"https://labs.strava.com/heatmap\">Strava 2017</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 15, "min_native_zoom": 0, "min_zoom": 1, "name": "Strava.Run", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://heatmap-external-a.strava.com//tiles/run/bluered/{z}/{x}/{y}.png?v=19", "visible": true}}, "c9fe5397231d4ed2920589a684fe8901": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map tiles by <a href=\"https://labs.strava.com/heatmap\">Strava 2017</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 15, "min_native_zoom": 0, "min_zoom": 1, "name": "Strava.Water", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://heatmap-external-a.strava.com//tiles/water/blue/{z}/{x}/{y}.png?v=19", "visible": true}}, "a2a1f77a9a7a4290a1d189eadece6681": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map tiles by <a href=\"https://labs.strava.com/heatmap\">Strava 2017</a>", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 15, "min_native_zoom": 0, "min_zoom": 1, "name": "Strava.Winter", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://heatmap-external-a.strava.com//tiles/winter/hot/{z}/{x}/{y}.png?v=19", "visible": true}}, "ee2f5e0bc5264a639ad5a6e16aa23a8e": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map tiles by <a href=\"http://stamen.com/\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org/\">OpenStreetMap</a>, under <a href=\"http://creativecommons.org/licenses/by-sa/3.0\">CC BY SA</a>.", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 0, "name": "Stamen.Terrain", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://stamen-tiles-a.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png", "visible": true}}, "e2451c31e1904ad9b4d985f028fe0213": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map tiles by <a href=\"http://stamen.com/\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org/\">OpenStreetMap</a>, under <a href=\"http://creativecommons.org/licenses/by-sa/3.0\">CC BY SA</a>.", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 20, "min_native_zoom": 0, "min_zoom": 0, "name": "Stamen.Toner", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://stamen-tiles-a.a.ssl.fastly.net/toner/{z}/{x}/{y}.png", "visible": true}}, "fed73a15ccda423a9eedf2d4cc02b947": {"model_name": "LeafletTileLayerModel", "model_module": "jupyter-leaflet", "model_module_version": "^0.13.2", "state": {"_model_module": "jupyter-leaflet", "_model_module_version": "^0.13.2", "_model_name": "LeafletTileLayerModel", "_view_count": null, "_view_module": "jupyter-leaflet", "_view_module_version": "^0.13.2", "_view_name": "LeafletTileLayerView", "attribution": "Map tiles by <a href=\"http://stamen.com/\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org/\">OpenStreetMap</a>, under <a href=\"http://creativecommons.org/licenses/by-sa/3.0\">CC BY SA</a>.", "base": false, "bottom": true, "detect_retina": false, "loading": false, "max_native_zoom": 18, "max_zoom": 18, "min_native_zoom": 0, "min_zoom": 1, "name": "Stamen.Watercolor", "no_wrap": false, "opacity": 1.0, "options": ["attribution", "detect_retina", "max_native_zoom", "max_zoom", "min_native_zoom", "min_zoom", "no_wrap", "tile_size", "tms"], "popup": null, "popup_max_height": null, "popup_max_width": 300, "popup_min_width": 50, "show_loading": false, "tile_size": 256, "tms": false, "url": "https://stamen-tiles-a.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png", "visible": true}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="mod1_4_introduction_to_Jupyter_notebooks.html" title="previous page"><span class="section-number">4. </span>Introduction to Jupyter notebooks (10 min)</a>
+    <a class='right-next' id="next-link" href="mod1_7_practical_exercise-image_visualization.html" title="next page"><span class="section-number">6. </span>Practical exercise: image visualization (10 min)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By World Bank, New Light Technologies, Inc.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
