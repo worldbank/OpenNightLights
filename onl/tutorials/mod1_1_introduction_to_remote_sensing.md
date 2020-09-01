@@ -1,6 +1,6 @@
-# 1. Introduction to remote sensing (10 min)
+# Introduction to remote sensing (10 min)
 
-## 1. 1 What is remote sensing?
+## What is remote sensing?
 
 <div class="alert alert-info">
 <b>Remote sensing</b> is the science of identifying, observing, collecting and measuring objects without coming into direct contact with them.
@@ -53,7 +53,7 @@ Electromagnetic spectrum<br>
 Source: {cite}`phdthesis`
 ```
 
-## 1.2 Spatial, spectral and temporal resolutions in remote sensing
+## Spatial, spectral and temporal resolutions in remote sensing
 
 Remotely sensed sensors are characterized by different resolutions which will impact the decision as to which data to use and for which application (this is often referred to as “Fit-for-Purpose” technologies.
 
@@ -128,7 +128,7 @@ Source: {cite}`warner2009remote`
 
 **In this course:** we will be using VIIRS-DNB data, which is collected every 12 hours, once during the day and once during the night (at approximately 1:30 am local time). We’re only interested in the nighttime pass, so our data has a daily temporal resolution.  However, as we will learn, it’s helpful to aggregate data to account for noise, such as cloud-cover, so our final analysis may end up using composite data that has time periods of up to a month or a year.
 
-## 1.3 Applications of remotely-sensed derived data in socio-economic research
+## Applications of remotely-sensed derived data in socio-economic research
 
 The use of remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard {cite}`donaldson2016view` outline some advantages of using remotely sensed data for economic research applications:
 
