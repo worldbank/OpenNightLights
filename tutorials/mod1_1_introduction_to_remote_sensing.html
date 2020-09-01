@@ -212,18 +212,13 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#raster-vs-vector-data">
-   1.3 Raster vs. Vector data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications-of-remotely-sensed-derived-data-in-socio-economic-research">
-   1.4 Applications of remotely-sensed derived data in socio-economic research
+   1.3 Applications of remotely-sensed derived data in socio-economic research
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sub-module-references">
-   Sub-module references:
+  <a class="reference internal nav-link" href="#references">
+   References:
   </a>
  </li>
 </ul>
@@ -244,8 +239,11 @@
 <b>Remote sensing</b> is the science of identifying, observing, collecting and measuring objects without coming into direct contact with them.
 </div>
 <p>This can be accomplished through many devices that carry sensors and capture the characteristics of Earth remotely.</p>
-<p><img alt="remote sensing" src="../_images/mod1-remote_sensing.png" /></p>
-<p>Source: <a href="https://svs.gsfc.nasa.gov/30892" class="alert-link">NASA’s Goddard Space Flight Center</a></p>
+<div class="figure align-default" id="remote-sensing">
+<img alt="../_images/mod1-remote_sensing.png" src="../_images/mod1-remote_sensing.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Remote sensing<br>
+Source: <a class="bibtex reference internal" href="#nasa-goddard-2017" id="id1">[Cen17]</a></span><a class="headerlink" href="#remote-sensing" title="Permalink to this image">¶</a></p>
+</div>
 <p>Sensors on board satellites also record the electromagnetic energy that is reflected or emitted from objects on Earth.</p>
 <div class="section" id="passive-and-active-sensors">
 <h3>Passive and Active Sensors<a class="headerlink" href="#passive-and-active-sensors" title="Permalink to this headline">¶</a></h3>
@@ -260,12 +258,18 @@
 <h4>Passive remote sensing<a class="headerlink" href="#passive-remote-sensing" title="Permalink to this headline">¶</a></h4>
 <p>The energy of the sun is composed of many kinds of radiation, some of it is contained in the visible part of the electromagnetic spectrum, which are commonly stored as values in the Red, Green, and Blue bands of the spectrum (R,G,B).</p>
 <p>Meaningful information is also contained in parts of the spectrum outside the range of human vision, including infrared (IR) and ulta-violet (UV).</p>
-<p><img alt="light_spectrum" src="../_images/mod1-light_spectrum.png" /></p>
-<p>Source: <a href="https://api.semanticscholar.org/CorpusID:59500487" class="alert-link">Hudedmani, M. G., Soppimath, V., &amp; Jambotkar, C. (2017). A Study of Materials for Solar PV Technology and Challenges. European Journal of Applied Engineering and Scientific Research, 5, 1-13.</a></p>
+<div class="figure align-default" id="light-spectrum">
+<img alt="../_images/mod1-light_spectrum.png" src="../_images/mod1-light_spectrum.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Electromagnetic spectrum<br>
+Source: <a class="bibtex reference internal" href="#hudedmani2017aso" id="id2">[HSJ17]</a></span><a class="headerlink" href="#light-spectrum" title="Permalink to this image">¶</a></p>
+</div>
 <p>The energy of the sun is absorbed or scattered  through the atmosphere before it reaches earth.</p>
 <p>In Remote Sensing analysis we aim to learn about objects on Earth through studying the radiation reflected and/or emitted by them.</p>
-<p><img alt="radiation" src="../_images/mod1-radiation.png" /></p>
-<p>Source: <a href="https://www.researchgate.net/figure/The-effect-of-atmosphere-on-radiation-passing-through-it-wwwremote-sensingnet_fig7_283355006" class="alert-link">DANESHGAR, SABA. “Remote sensing observations for monitoring coastal zones: Volturno river mouth case study.” (2015)</a></p>
+<div class="figure align-default" id="radiation">
+<img alt="../_images/mod1-radiation.png" src="../_images/mod1-radiation.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Electromagnetic spectrum<br>
+Source: <a class="bibtex reference internal" href="#phdthesis" id="id3">[Dan15]</a></span><a class="headerlink" href="#radiation" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -277,13 +281,19 @@
 <div class="alert alert-info">
 <b>Spatial resolution</b> signifies the size of the smallest object that can be detected as an individual entity from a given altitude and in a given point of time, i.e. the ground surface area that forms one pixel in the image. 
 </div>
-<p><strong>Landsat-7 (30m)</strong>
-<img alt="30m" src="../_images/mod1-landsat7.png" /></p>
-<p><strong>Sentinel-2 (30m)</strong>
-<img alt="10m" src="../_images/mod1-sentinel2.png" /></p>
-<p><strong>Worldview (30cm)</strong>
-<img alt="30cm" src="../_images/mod1-worldview.png" /></p>
-<p><strong>In this course:</strong> we will be working with VIIRS-DNB data, which has a spatial resolution of about 500m per pixel at the equator.</p>
+<div class="figure align-default" id="landsat-7">
+<img alt="../_images/mod1-landsat7.png" src="../_images/mod1-landsat7.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Landsat-7 (30m)</span><a class="headerlink" href="#landsat-7" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="sentinel2">
+<img alt="../_images/mod1-sentinel2.png" src="../_images/mod1-sentinel2.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Sentinel-2 (30m)</span><a class="headerlink" href="#sentinel2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="worldview">
+<img alt="../_images/mod1-worldview.png" src="../_images/mod1-worldview.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Worldview (30m)</span><a class="headerlink" href="#worldview" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>In this course:</strong> we will be working primarily with VIIRS-DNB and DMSP-OLS VNIR band data. Their spatial resolution is approximately 500m by 500m and 1Km by 1Km, respectively.</p>
 </div>
 <div class="section" id="spectral-resolution">
 <h3>Spectral resolution<a class="headerlink" href="#spectral-resolution" title="Permalink to this headline">¶</a></h3>
@@ -291,8 +301,11 @@
 <b>Spectral resolution</b> signifies the sensitivity of the sensor, or the number and width of spectral bands of the sensor. The higher the spectral resolution, the narrower the wavelength range for a given channel or band. 
 </div>
 <p>Typically, multispectral imagery refers to 3 to 10 bands, while hyperspectral imagery consists of hundreds or thousands of (narrower) bands (i.e. higher spectral resolution).</p>
-<p><img alt="multi_and_hyperspectral" src="../_images/mod1-hyperspectral.png" /></p>
-<p>Source: https://gisgeography.com/multispectral-vs-hyperspectral-imagery-explained</p>
+<div class="figure align-default" id="multi-and-hyperspectral">
+<img alt="../_images/mod1-hyperspectral.png" src="../_images/mod1-hyperspectral.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Multispectral and hyperspectral imagery<br>
+Source: <a class="bibtex reference internal" href="#gisgeography" id="id4">[Geo]</a></span><a class="headerlink" href="#multi-and-hyperspectral" title="Permalink to this image">¶</a></p>
+</div>
 <p><strong>In this course:</strong> we will be working with VIIRS-DNB data, which is a single panchromatic channel covering the wavelengths ranging from 500 to 900 nanometers.</p>
 <div class="alert alert-success">
 For detailed information on the VIIRS instrument, see the <a href="https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf" class="alert-link">VIIRS Users Guide Technical Report</a>
@@ -308,47 +321,97 @@ For detailed information on the VIIRS instrument, see the <a href="https://ncc.n
 <div class="section" id="trade-offs-in-remote-sensing-resolution">
 <h3>Trade-offs in remote sensing resolution:<a class="headerlink" href="#trade-offs-in-remote-sensing-resolution" title="Permalink to this headline">¶</a></h3>
 <p>There is an inherent tradeoff between spatial, spectral and temporal resolutions. Typically, the higher the spatial resolution, the lower the spectral and the temporal resolution and the higher the temporal resolution, the lower the spatial and spectral resolutions.</p>
-<p><img alt="res_trade-offs" src="../_images/mod1-res_tradeoffs.png" /></p>
-<p>Source: https://dx.doi.org/10.4135/9780857021052.n1</p>
+<div class="figure align-default" id="res-trade-offs">
+<img alt="../_images/mod1-res_tradeoffs.png" src="../_images/mod1-res_tradeoffs.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Trade-offs with spatial, spectral, and temporal resolution<br>
+Source: <a class="bibtex reference internal" href="#warner2009remote" id="id5">[WNF09]</a></span><a class="headerlink" href="#res-trade-offs" title="Permalink to this image">¶</a></p>
+</div>
 <p><strong>In this course:</strong> we will be using VIIRS-DNB data, which is collected every 12 hours, once during the day and once during the night (at approximately 1:30 am local time). We’re only interested in the nighttime pass, so our data has a daily temporal resolution.  However, as we will learn, it’s helpful to aggregate data to account for noise, such as cloud-cover, so our final analysis may end up using composite data that has time periods of up to a month or a year.</p>
 </div>
 </div>
-<div class="section" id="raster-vs-vector-data">
-<h2>1.3 Raster vs. Vector data<a class="headerlink" href="#raster-vs-vector-data" title="Permalink to this headline">¶</a></h2>
-<p>Geospatial data from the “real world” can be stored in different types formats or data types: In this course we will work with two types of geospatial data stored as either a raster or a vector format.</p>
-<div class="alert alert-info">
-Data stored in a <b>raster format</b> is arranged in a regular grid of cells, without storing the coordinates of each point (namely, a cell, or a pixel).
-</div>
-<p>The coordinates of the corner points and the spacing of the grid can be used to calculate (rather than to store) the coordinates of each point in the grid. Any given point in the grid stores one or more values (in one or more bands). A satellite image, any image you take with a camera or even a map you are looking at are examples of data stored in a raster format. The image is composed of pixels that are organized in rows and columns, with values and location. The size of a given pixel depends on the spatial resolution of the sensor. Raster files are often composed out of multiple bands (channels). Each band represents, for example, the amount of electromagnetic radiation reflected from the surface on Earth along multiple regions of the electromagnetic spectrum.</p>
-<p>Raster data is typically used to represent continuous surfaces, where knowing the exact boundaries in high precision are less of importance.</p>
-<div class="alert alert-info">
-Data stored in a <b>vector format</b> is stored in a way -- as a formula -- that the X and Y coordinates are stored for each point. Data can be represented, for example, as points, lines and polygons.
-</div>
-<p>A point is a line with only one coordinate (X and Y) and an area is a line that closes on itself to enclose a region (a line will have two coordinates). Polygons are used to represent the area and perimeter of a geographic feature. Vector data stores features in their original resolution, without aggregation. Vector data is often used to define centers or edges of features.</p>
-<p><img alt="raster_vector" src="../_images/mod1-rastervector1.png" />
-<img alt="raster_vector2" src="../_images/mod1-rastervector2.png" /></p>
-<p>Source: http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/</p>
-</div>
 <div class="section" id="applications-of-remotely-sensed-derived-data-in-socio-economic-research">
-<h2>1.4 Applications of remotely-sensed derived data in socio-economic research<a class="headerlink" href="#applications-of-remotely-sensed-derived-data-in-socio-economic-research" title="Permalink to this headline">¶</a></h2>
-<p>The use of remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard, 2016 [1] outline some advantages of using remotely sensed data for economic research applications:</p>
+<h2>1.3 Applications of remotely-sensed derived data in socio-economic research<a class="headerlink" href="#applications-of-remotely-sensed-derived-data-in-socio-economic-research" title="Permalink to this headline">¶</a></h2>
+<p>The use of remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard <a class="bibtex reference internal" href="#donaldson2016view" id="id6">[DS16]</a> outline some advantages of using remotely sensed data for economic research applications:</p>
 <p><strong>1. Improved accessibility to information difficult to obtain by other means:</strong></p>
 <p>Remote sensing technologies can collect panel data at low marginal cost, repeatedly, and at large scale, providing proxies for a wide range of characteristics that are hard (or impossible) to measure by other means.</p>
 <p><strong>2. High(er) spatial resolution:</strong></p>
 <p>Remotely sensed data are typically available at a higher spatial resolution than other traditional data sources. A variety of publicly available satellite imagery that is used by economists provides measurements of every location on Earth and are not constrained to a specific scale in which the data was collected at or aggregated to.</p>
 <p><strong>3. Wide geographic coverage and high spatial resolution:</strong></p>
 <p>Data collected by satellites provide continuous and consistent observations  of phenomena on Earth, regardless of the conditions on the ground (e.g. political strife or natural disasters), across borders, including inaccessible locations and with a uniform spatial sampling. Satellites collect data at a substantial temporal coverage, capturing every location on Earth on a daily or weekly basis, with some of the satellites capturing every location on Earth since the 1970s.</p>
-<p><strong>4. Nighttime lights are especially useful for socio-economic research and applications:</strong></p>
-<p>There is a strong correlation between nighttime lights and GDP measures at the national or state level (e.g. Henderson et al. (2012) [2], Gosh et al. (2010) [3]). Nighttime lights can be used as a proxy for measuring Gross State Product (GSP) or Gross Domestic Product (GDP), especially over periods or regions where this data is not available. Similarly, changes in nighttime light intensity can be used as an additional measure of income growth, for example, at the national level, when  no measures of income growth are available.</p>
-<p>TO DO: Add remaining examples</p>
+<p><strong>As you will see, nighttime lights are especially useful for a variety of socio-economic research and applications.</strong> There
+is a strong correlation between nighttime lights and Gross State Product (GSP)
+or Gross Domestic Product (GDP) measures, at the national, state and regional levels <a class="bibtex reference internal" href="#henderson2012measuring" id="id7">[HSW12]</a><a class="bibtex reference internal" href="#ghosh2010shedding" id="id8">[GLPDE+10]</a><a class="bibtex reference internal" href="#chen2011using" id="id9">[CN11]</a>
+or even at a more granular resolution. <a class="reference internal" href="#henderson"><span class="std std-numref">Fig. 9</span></a>,<a class="reference internal" href="#gosh"><span class="std std-numref">Fig. 10</span></a> Thus, nighttime light observations can be used as a
+proxy for economic activity, especially over periods or regions where this data is not
+available or where the statistical systems are of low quality or when no recent population or
+economic censuses are available. Similarly, changes in nighttime light intensity can be used by
+economists as an additional measure of income growth when no measures of income growth are available.</p>
+<div class="figure align-default" id="henderson">
+<img alt="../_images/mod1-henderson.png" src="../_images/mod1-henderson.png" />
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Correlation between nighttime lights and GDP (from Henderson et al., 2012) <a class="bibtex reference internal" href="#henderson2012measuring" id="id10">[HSW12]</a></span><a class="headerlink" href="#henderson" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="sub-module-references">
-<h2>Sub-module references:<a class="headerlink" href="#sub-module-references" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Donaldson, Dave, and Adam Storeygard. “The view from above: Applications of satellite data in economics.” Journal of Economic Perspectives 30.4 (2016): 171-98.</p></li>
-<li><p>Henderson, J. V., A. Storeygard, and D. N.Weil. 2012. “Measuring Economic Growth from Outer Space.” American Economic Review 102 (2): 994–1028.</p></li>
-<li><p>Ghosh, T., L Powell, R., D Elvidge, C., E Baugh, K., C Sutton, P., &amp; Anderson, S. (2010). Shedding light on the global distribution of economic activity. The Open Geography Journal, 3(1).</p></li>
-</ol>
+<div class="figure align-default" id="gosh">
+<img alt="../_images/mod1-gosh.png" src="../_images/mod1-gosh.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">GDP or GSP vs Sum Of Lights<a class="bibtex reference internal" href="#ghosh2010shedding" id="id11">[GLPDE+10]</a></span><a class="headerlink" href="#gosh" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Comparing nighttime lights and a series of socio-economic indicators:</strong>
+Proville et al. (2017) <a class="bibtex reference internal" href="#proville2017night" id="id12">[PZAW17]</a> examined trends observed by DMSP-OLS
+in the period 1992-2013 and their correlation with a series of socio-economic indicators. <a class="reference internal" href="#proville"><span class="std std-numref">Fig. 11</span></a>
+They found the strongest correlations between nighttime lights, electricity consumption,
+CO2 emissions, and GDP, followed by population, CH4 emissions, N2O emissions, poverty and
+F-gas emissions.</p>
+<div class="figure align-default" id="proville">
+<img alt="../_images/mod1-proville.png" src="../_images/mod1-proville.png" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Various socio-economic indicators vs DMSP-OLS nighttime lights measures<a class="bibtex reference internal" href="#proville2017night" id="id13">[PZAW17]</a></span><a class="headerlink" href="#proville" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Natural characteristics of Earth and nighttime lights:</strong>
+Henderson et al. (2018) <a class="bibtex reference internal" href="#henderson2018global" id="id14">[HSSW18]</a> explored whether - and which - of the natural
+characteristics of Earth can explain the spatial distribution of economic activity worldwide,
+at least according to nighttime lights. The authors found that 24 physical geographic
+attributes can explain up to 47% of worldwide variation and up to 35% of the variation of
+lights within countries. Among countries that developed early, agricultural variables
+incrementally explain over 6 times as much variation in lights as do trade variables.
+On the other hand, among late developing countries, the same ratio is only about 1.5,
+despite the fact that these countries are far more dependent on agriculture.</p>
+</div>
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/mod1_1_introduction_to_remote_sensing-0"><dl class="citation">
+<dt class="bibtex label" id="nasa-goddard-2017"><span class="brackets"><a class="fn-backref" href="#id1">Cen17</a></span></dt>
+<dd><p>NASA’s Goddard Space Flight Center. <em>Remotely Sensing Our Planet</em>. 2017. URL: <a class="reference external" href="https://svs.gsfc.nasa.gov/30892">https://svs.gsfc.nasa.gov/30892</a>.</p>
+</dd>
+<dt class="bibtex label" id="chen2011using"><span class="brackets"><a class="fn-backref" href="#id9">CN11</a></span></dt>
+<dd><p>Xi Chen and William D Nordhaus. Using luminosity data as a proxy for economic statistics. <em>Proceedings of the National Academy of Sciences</em>, 108(21):8589–8594, 2011.</p>
+</dd>
+<dt class="bibtex label" id="phdthesis"><span class="brackets"><a class="fn-backref" href="#id3">Dan15</a></span></dt>
+<dd><p>Saba Daneshgar. <em>Remote sensing observations for monitoring coastal zones, Volturno River mouth case study</em>. PhD thesis, Ghent University, 04 2015. <a class="reference external" href="https://doi.org/10.13140/RG.2.1.3806.9209">doi:10.13140/RG.2.1.3806.9209</a>.</p>
+</dd>
+<dt class="bibtex label" id="donaldson2016view"><span class="brackets"><a class="fn-backref" href="#id6">DS16</a></span></dt>
+<dd><p>Dave Donaldson and Adam Storeygard. The view from above: applications of satellite data in economics. <em>Journal of Economic Perspectives</em>, 30(4):171–98, 2016.</p>
+</dd>
+<dt class="bibtex label" id="gisgeography"><span class="brackets"><a class="fn-backref" href="#id4">Geo</a></span></dt>
+<dd><p>GIS Geography. <em>Multispectral vs Hyperspectral Imagery Explained - GIS Geography</em>. URL: <a class="reference external" href="https://gisgeography.com/multispectral-vs-hyperspectral-imagery-explained/">https://gisgeography.com/multispectral-vs-hyperspectral-imagery-explained/</a>.</p>
+</dd>
+<dt class="bibtex label" id="ghosh2010shedding"><span class="brackets">GLPDE+10</span><span class="fn-backref">(<a href="#id8">1</a>,<a href="#id11">2</a>)</span></dt>
+<dd><p>Tilottama Ghosh, Rebecca L Powell, Christopher D Elvidge, Kimberly E Baugh, Paul C Sutton, and Sharolyn Anderson. Shedding light on the global distribution of economic activity. <em>The Open Geography Journal</em>, 2010.</p>
+</dd>
+<dt class="bibtex label" id="henderson2018global"><span class="brackets"><a class="fn-backref" href="#id14">HSSW18</a></span></dt>
+<dd><p>J Vernon Henderson, Tim Squires, Adam Storeygard, and David Weil. The global distribution of economic activity: nature, history, and the role of trade. <em>The Quarterly Journal of Economics</em>, 133(1):357–406, 2018.</p>
+</dd>
+<dt class="bibtex label" id="henderson2012measuring"><span class="brackets">HSW12</span><span class="fn-backref">(<a href="#id7">1</a>,<a href="#id10">2</a>)</span></dt>
+<dd><p>J Vernon Henderson, Adam Storeygard, and David N Weil. Measuring economic growth from outer space. <em>American economic review</em>, 102(2):994–1028, 2012.</p>
+</dd>
+<dt class="bibtex label" id="hudedmani2017aso"><span class="brackets"><a class="fn-backref" href="#id2">HSJ17</a></span></dt>
+<dd><p>Mallikarjun. G. Hudedmani, Vishwanath.M Soppimath, and Chaitanya. K. Jambotkar. A study of materials for solar pv technology and challenges. In <em>A Study of Materials for Solar PV Technology and Challenges</em>. 2017.</p>
+</dd>
+<dt class="bibtex label" id="proville2017night"><span class="brackets">PZAW17</span><span class="fn-backref">(<a href="#id12">1</a>,<a href="#id13">2</a>)</span></dt>
+<dd><p>Jeremy Proville, Daniel Zavala-Araiza, and Gernot Wagner. Night-time lights: a global, long term look at links to socio-economic trends. <em>PloS one</em>, 12(3):e0174610, 2017.</p>
+</dd>
+<dt class="bibtex label" id="warner2009remote"><span class="brackets"><a class="fn-backref" href="#id5">WNF09</a></span></dt>
+<dd><p>Timothy A Warner, M Duane Nellis, and Giles M Foody. Remote sensing scale and data selection issues. <em>The SAGE handbook of remote sensing</em>, 2:568, 2009.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 

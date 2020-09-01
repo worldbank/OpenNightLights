@@ -8,10 +8,13 @@
  
 This can be accomplished through many devices that carry sensors and capture the characteristics of Earth remotely.
 
-![remote sensing](img/mod1-remote_sensing.png)
-
-Source: <a href="https://svs.gsfc.nasa.gov/30892" class="alert-link">NASA's Goddard Space Flight Center</a>
-
+```{figure} img/mod1-remote_sensing.png
+---
+name: remote-sensing
+---
+Remote sensing<br>
+Source: {cite}`NASA_goddard_2017`
+```
 Sensors on board satellites also record the electromagnetic energy that is reflected or emitted from objects on Earth.
 
 ### Passive and Active Sensors
@@ -30,17 +33,25 @@ The energy of the sun is composed of many kinds of radiation, some of it is cont
 
 Meaningful information is also contained in parts of the spectrum outside the range of human vision, including infrared (IR) and ulta-violet (UV).
 
-![light_spectrum](img/mod1-light_spectrum.png)
-
-Source: <a href="https://api.semanticscholar.org/CorpusID:59500487" class="alert-link">Hudedmani, M. G., Soppimath, V., & Jambotkar, C. (2017). A Study of Materials for Solar PV Technology and Challenges. European Journal of Applied Engineering and Scientific Research, 5, 1-13.</a>
+```{figure} img/mod1-light_spectrum.png
+---
+name: light-spectrum
+---
+Electromagnetic spectrum<br>
+Source: {cite}`Hudedmani2017ASO`
+```
 
 The energy of the sun is absorbed or scattered  through the atmosphere before it reaches earth.
 
 In Remote Sensing analysis we aim to learn about objects on Earth through studying the radiation reflected and/or emitted by them. 
 
-![radiation](img/mod1-radiation.png)
-
-Source: <a href="https://www.researchgate.net/figure/The-effect-of-atmosphere-on-radiation-passing-through-it-wwwremote-sensingnet_fig7_283355006" class="alert-link">DANESHGAR, SABA. "Remote sensing observations for monitoring coastal zones: Volturno river mouth case study." (2015)</a>
+```{figure} img/mod1-radiation.png
+---
+name: radiation
+---
+Electromagnetic spectrum<br>
+Source: {cite}`phdthesis`
+```
 
 ## 1.2 Spatial, spectral and temporal resolutions in remote sensing
 
@@ -52,16 +63,28 @@ Remotely sensed sensors are characterized by different resolutions which will im
 <b>Spatial resolution</b> signifies the size of the smallest object that can be detected as an individual entity from a given altitude and in a given point of time, i.e. the ground surface area that forms one pixel in the image. 
 </div>
 
-**Landsat-7 (30m)**
-![30m](img/mod1-landsat7.png)
+```{figure} img/mod1-landsat7.png
+---
+name: landsat-7
+---
+Landsat-7 (30m)
+```
 
-**Sentinel-2 (30m)**
-![10m](img/mod1-sentinel2.png)
+```{figure} img/mod1-sentinel2.png
+---
+name: sentinel2
+---
+Sentinel-2 (30m)
+```
 
-**Worldview (30cm)**
-![30cm](img/mod1-worldview.png)
+```{figure} img/mod1-worldview.png
+---
+name: worldview
+---
+Worldview (30m)
+```
 
-**In this course:** we will be working with VIIRS-DNB data, which has a spatial resolution of about 500m per pixel at the equator.
+**In this course:** we will be working primarily with VIIRS-DNB and DMSP-OLS VNIR band data. Their spatial resolution is approximately 500m by 500m and 1Km by 1Km, respectively.
 
 ### Spectral resolution
 <div class="alert alert-info">
@@ -70,9 +93,13 @@ Remotely sensed sensors are characterized by different resolutions which will im
 
 Typically, multispectral imagery refers to 3 to 10 bands, while hyperspectral imagery consists of hundreds or thousands of (narrower) bands (i.e. higher spectral resolution).
 
-![multi_and_hyperspectral](img/mod1-hyperspectral.png)
-
-Source: https://gisgeography.com/multispectral-vs-hyperspectral-imagery-explained
+```{figure} img/mod1-hyperspectral.png
+---
+name: multi_and_hyperspectral
+---
+Multispectral and hyperspectral imagery<br>
+Source: {cite}`GISGeography`
+```
 
 **In this course:** we will be working with VIIRS-DNB data, which is a single panchromatic channel covering the wavelengths ranging from 500 to 900 nanometers.
 
@@ -91,39 +118,19 @@ Generally speaking, the larger the swath width of a satellite, which you can  th
 ### Trade-offs in remote sensing resolution:
 There is an inherent tradeoff between spatial, spectral and temporal resolutions. Typically, the higher the spatial resolution, the lower the spectral and the temporal resolution and the higher the temporal resolution, the lower the spatial and spectral resolutions.
 
-![res_trade-offs](img/mod1-res_tradeoffs.png)
-
-Source: https://dx.doi.org/10.4135/9780857021052.n1
-
+```{figure} img/mod1-res_tradeoffs.png
+---
+name: res_trade-offs
+---
+Trade-offs with spatial, spectral, and temporal resolution<br>
+Source: {cite}`warner2009remote`
+```
 
 **In this course:** we will be using VIIRS-DNB data, which is collected every 12 hours, once during the day and once during the night (at approximately 1:30 am local time). We’re only interested in the nighttime pass, so our data has a daily temporal resolution.  However, as we will learn, it’s helpful to aggregate data to account for noise, such as cloud-cover, so our final analysis may end up using composite data that has time periods of up to a month or a year.
 
-## 1.3 Raster vs. Vector data
+## 1.3 Applications of remotely-sensed derived data in socio-economic research
 
-Geospatial data from the “real world” can be stored in different types formats or data types: In this course we will work with two types of geospatial data stored as either a raster or a vector format.
-
-<div class="alert alert-info">
-Data stored in a <b>raster format</b> is arranged in a regular grid of cells, without storing the coordinates of each point (namely, a cell, or a pixel).
-</div>
-    
-The coordinates of the corner points and the spacing of the grid can be used to calculate (rather than to store) the coordinates of each point in the grid. Any given point in the grid stores one or more values (in one or more bands). A satellite image, any image you take with a camera or even a map you are looking at are examples of data stored in a raster format. The image is composed of pixels that are organized in rows and columns, with values and location. The size of a given pixel depends on the spatial resolution of the sensor. Raster files are often composed out of multiple bands (channels). Each band represents, for example, the amount of electromagnetic radiation reflected from the surface on Earth along multiple regions of the electromagnetic spectrum.
-
-Raster data is typically used to represent continuous surfaces, where knowing the exact boundaries in high precision are less of importance. 
-
-<div class="alert alert-info">
-Data stored in a <b>vector format</b> is stored in a way -- as a formula -- that the X and Y coordinates are stored for each point. Data can be represented, for example, as points, lines and polygons.
-</div>
-
-A point is a line with only one coordinate (X and Y) and an area is a line that closes on itself to enclose a region (a line will have two coordinates). Polygons are used to represent the area and perimeter of a geographic feature. Vector data stores features in their original resolution, without aggregation. Vector data is often used to define centers or edges of features.
-
-![raster_vector](img/mod1-rastervector1.png)
-![raster_vector2](img/mod1-rastervector2.png)
-
-Source: http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/
-
-## 1.4 Applications of remotely-sensed derived data in socio-economic research
-
-The use of remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard, 2016 [1] outline some advantages of using remotely sensed data for economic research applications:
+The use of remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard {cite}`donaldson2016view` outline some advantages of using remotely sensed data for economic research applications:
 
 **1. Improved accessibility to information difficult to obtain by other means:**
 
@@ -137,17 +144,54 @@ Remotely sensed data are typically available at a higher spatial resolution than
 
 Data collected by satellites provide continuous and consistent observations  of phenomena on Earth, regardless of the conditions on the ground (e.g. political strife or natural disasters), across borders, including inaccessible locations and with a uniform spatial sampling. Satellites collect data at a substantial temporal coverage, capturing every location on Earth on a daily or weekly basis, with some of the satellites capturing every location on Earth since the 1970s. 
 
-**4. Nighttime lights are especially useful for socio-economic research and applications:**
+**As you will see, nighttime lights are especially useful for a variety of socio-economic research and applications.** There 
+is a strong correlation between nighttime lights and Gross State Product (GSP) 
+or Gross Domestic Product (GDP) measures, at the national, state and regional levels {cite}`henderson2012measuring,ghosh2010shedding,chen2011using`
+or even at a more granular resolution. {numref}`henderson`,{numref}`gosh` Thus, nighttime light observations can be used as a 
+proxy for economic activity, especially over periods or regions where this data is not 
+available or where the statistical systems are of low quality or when no recent population or 
+economic censuses are available. Similarly, changes in nighttime light intensity can be used by 
+economists as an additional measure of income growth when no measures of income growth are available. 
 
-There is a strong correlation between nighttime lights and GDP measures at the national or state level (e.g. Henderson et al. (2012) [2], Gosh et al. (2010) [3]). Nighttime lights can be used as a proxy for measuring Gross State Product (GSP) or Gross Domestic Product (GDP), especially over periods or regions where this data is not available. Similarly, changes in nighttime light intensity can be used as an additional measure of income growth, for example, at the national level, when  no measures of income growth are available.
+```{figure} img/mod1-henderson.png
+---
+name: henderson
+---
+Correlation between nighttime lights and GDP (from Henderson et al., 2012) {cite}`henderson2012measuring`
+```
 
-TO DO: Add remaining examples
+```{figure} img/mod1-gosh.png
+---
+name: gosh
+---
+GDP or GSP vs Sum Of Lights{cite}`ghosh2010shedding`
+```
 
-## Sub-module references:
+**Comparing nighttime lights and a series of socio-economic indicators:** 
+Proville et al. (2017) {cite}`proville2017night` examined trends observed by DMSP-OLS 
+in the period 1992-2013 and their correlation with a series of socio-economic indicators. {numref}`proville`
+They found the strongest correlations between nighttime lights, electricity consumption, 
+CO2 emissions, and GDP, followed by population, CH4 emissions, N2O emissions, poverty and 
+F-gas emissions.  
 
-1. Donaldson, Dave, and Adam Storeygard. "The view from above: Applications of satellite data in economics." Journal of Economic Perspectives 30.4 (2016): 171-98.
+```{figure} img/mod1-proville.png
+---
+name: proville
+---
+Various socio-economic indicators vs DMSP-OLS nighttime lights measures{cite}`proville2017night`
+```
 
-2. Henderson, J. V., A. Storeygard, and D. N.Weil. 2012. “Measuring Economic Growth from Outer Space.” American Economic Review 102 (2): 994–1028.
+**Natural characteristics of Earth and nighttime lights:**
+Henderson et al. (2018) {cite}`henderson2018global` explored whether - and which - of the natural 
+characteristics of Earth can explain the spatial distribution of economic activity worldwide, 
+at least according to nighttime lights. The authors found that 24 physical geographic 
+attributes can explain up to 47% of worldwide variation and up to 35% of the variation of 
+lights within countries. Among countries that developed early, agricultural variables 
+incrementally explain over 6 times as much variation in lights as do trade variables. 
+On the other hand, among late developing countries, the same ratio is only about 1.5, 
+despite the fact that these countries are far more dependent on agriculture.
 
-3. Ghosh, T., L Powell, R., D Elvidge, C., E Baugh, K., C Sutton, P., & Anderson, S. (2010). Shedding light on the global distribution of economic activity. The Open Geography Journal, 3(1).
-
+## References:
+```{bibliography} ../references.bib
+:filter: docname in docnames
+```
