@@ -38,7 +38,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Practical exercise: image visualization (10 min)" href="mod1_7_practical_exercise-image_visualization.html" />
+    <link rel="next" title="2. Introduction to nighttime light data (10 min)" href="mod1_2_introduction_to_nighttime_light_data.html" />
     <link rel="prev" title="Welcome" href="../welcome.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,8 +91,13 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html">
+   2. Introduction to nighttime light data (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mod1_7_practical_exercise-image_visualization.html">
-   7. Practical exercise: image visualization (10 min)
+   3. Practical exercise: image visualization (10 min)
   </a>
  </li>
 </ul>
@@ -167,17 +172,17 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-remote-sensing">
-   1. 1 What is remote sensing?
+   1.1. What is remote sensing?
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#passive-and-active-sensors">
-     Passive and Active Sensors
+     1.1.1. Passive and Active Sensors
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#passive-remote-sensing">
-       Passive remote sensing
+       1.1.1.1. Passive remote sensing
       </a>
      </li>
     </ul>
@@ -186,39 +191,39 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spatial-spectral-and-temporal-resolutions-in-remote-sensing">
-   1.2 Spatial, spectral and temporal resolutions in remote sensing
+   1.2. Spatial, spectral and temporal resolutions in remote sensing
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spatial-resolution">
-     Spatial resolution
+     1.2.1. Spatial resolution
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spectral-resolution">
-     Spectral resolution
+     1.2.2. Spectral resolution
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#temporal-resolution">
-     Temporal resolution
+     1.2.3. Temporal resolution
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#trade-offs-in-remote-sensing-resolution">
-     Trade-offs in remote sensing resolution:
+     1.2.4. Trade-offs in remote sensing resolution:
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#applications-of-remotely-sensed-derived-data-in-socio-economic-research">
-   1.3 Applications of remotely-sensed derived data in socio-economic research
+   1.3. Applications of remotely-sensed derived data in socio-economic research
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   References:
+   1.4. References:
   </a>
  </li>
 </ul>
@@ -232,21 +237,21 @@
               <div>
                 
   <div class="section" id="introduction-to-remote-sensing-10-min">
-<h1>1. Introduction to remote sensing (10 min)<a class="headerlink" href="#introduction-to-remote-sensing-10-min" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1. </span>Introduction to remote sensing (10 min)<a class="headerlink" href="#introduction-to-remote-sensing-10-min" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-remote-sensing">
-<h2>1. 1 What is remote sensing?<a class="headerlink" href="#what-is-remote-sensing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1. </span>What is remote sensing?<a class="headerlink" href="#what-is-remote-sensing" title="Permalink to this headline">¶</a></h2>
 <div class="alert alert-info">
 <b>Remote sensing</b> is the science of identifying, observing, collecting and measuring objects without coming into direct contact with them.
 </div>
 <p>This can be accomplished through many devices that carry sensors and capture the characteristics of Earth remotely.</p>
 <div class="figure align-default" id="remote-sensing">
 <img alt="../_images/mod1-remote_sensing.png" src="../_images/mod1-remote_sensing.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Remote sensing<br>
+<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Remote sensing<br>
 Source: <a class="bibtex reference internal" href="#nasa-goddard-2017" id="id1">[Cen17]</a></span><a class="headerlink" href="#remote-sensing" title="Permalink to this image">¶</a></p>
 </div>
 <p>Sensors on board satellites also record the electromagnetic energy that is reflected or emitted from objects on Earth.</p>
 <div class="section" id="passive-and-active-sensors">
-<h3>Passive and Active Sensors<a class="headerlink" href="#passive-and-active-sensors" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.1.1. </span>Passive and Active Sensors<a class="headerlink" href="#passive-and-active-sensors" title="Permalink to this headline">¶</a></h3>
 <p>Sensors on board satellites can be classified into two main categories: Passive and Active.</p>
 <div class="alert alert-info">
 <b>Passive sensors</b> record the natural energy that is (naturally) reflected or emitted from the Earth's surface. 
@@ -255,55 +260,55 @@ Source: <a class="bibtex reference internal" href="#nasa-goddard-2017" id="id1">
 <b>Active sensors</b> use internal stimuli to collect data, and provide their own energy source for illumination. 
 </div>
 <div class="section" id="passive-remote-sensing">
-<h4>Passive remote sensing<a class="headerlink" href="#passive-remote-sensing" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">1.1.1.1. </span>Passive remote sensing<a class="headerlink" href="#passive-remote-sensing" title="Permalink to this headline">¶</a></h4>
 <p>The energy of the sun is composed of many kinds of radiation, some of it is contained in the visible part of the electromagnetic spectrum, which are commonly stored as values in the Red, Green, and Blue bands of the spectrum (R,G,B).</p>
 <p>Meaningful information is also contained in parts of the spectrum outside the range of human vision, including infrared (IR) and ulta-violet (UV).</p>
 <div class="figure align-default" id="light-spectrum">
 <img alt="../_images/mod1-light_spectrum.png" src="../_images/mod1-light_spectrum.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Electromagnetic spectrum<br>
+<p class="caption"><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Electromagnetic spectrum<br>
 Source: <a class="bibtex reference internal" href="#hudedmani2017aso" id="id2">[HSJ17]</a></span><a class="headerlink" href="#light-spectrum" title="Permalink to this image">¶</a></p>
 </div>
 <p>The energy of the sun is absorbed or scattered  through the atmosphere before it reaches earth.</p>
 <p>In Remote Sensing analysis we aim to learn about objects on Earth through studying the radiation reflected and/or emitted by them.</p>
 <div class="figure align-default" id="radiation">
 <img alt="../_images/mod1-radiation.png" src="../_images/mod1-radiation.png" />
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Electromagnetic spectrum<br>
+<p class="caption"><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Electromagnetic spectrum<br>
 Source: <a class="bibtex reference internal" href="#phdthesis" id="id3">[Dan15]</a></span><a class="headerlink" href="#radiation" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="spatial-spectral-and-temporal-resolutions-in-remote-sensing">
-<h2>1.2 Spatial, spectral and temporal resolutions in remote sensing<a class="headerlink" href="#spatial-spectral-and-temporal-resolutions-in-remote-sensing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>Spatial, spectral and temporal resolutions in remote sensing<a class="headerlink" href="#spatial-spectral-and-temporal-resolutions-in-remote-sensing" title="Permalink to this headline">¶</a></h2>
 <p>Remotely sensed sensors are characterized by different resolutions which will impact the decision as to which data to use and for which application (this is often referred to as “Fit-for-Purpose” technologies.</p>
 <div class="section" id="spatial-resolution">
-<h3>Spatial resolution<a class="headerlink" href="#spatial-resolution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.1. </span>Spatial resolution<a class="headerlink" href="#spatial-resolution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-info">
 <b>Spatial resolution</b> signifies the size of the smallest object that can be detected as an individual entity from a given altitude and in a given point of time, i.e. the ground surface area that forms one pixel in the image. 
 </div>
 <div class="figure align-default" id="landsat-7">
 <img alt="../_images/mod1-landsat7.png" src="../_images/mod1-landsat7.png" />
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Landsat-7 (30m)</span><a class="headerlink" href="#landsat-7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Landsat-7 (30m)</span><a class="headerlink" href="#landsat-7" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="sentinel2">
 <img alt="../_images/mod1-sentinel2.png" src="../_images/mod1-sentinel2.png" />
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Sentinel-2 (30m)</span><a class="headerlink" href="#sentinel2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Sentinel-2 (30m)</span><a class="headerlink" href="#sentinel2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="worldview">
 <img alt="../_images/mod1-worldview.png" src="../_images/mod1-worldview.png" />
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Worldview (30m)</span><a class="headerlink" href="#worldview" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Worldview (30m)</span><a class="headerlink" href="#worldview" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>In this course:</strong> we will be working primarily with VIIRS-DNB and DMSP-OLS VNIR band data. Their spatial resolution is approximately 500m by 500m and 1Km by 1Km, respectively.</p>
 </div>
 <div class="section" id="spectral-resolution">
-<h3>Spectral resolution<a class="headerlink" href="#spectral-resolution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.2. </span>Spectral resolution<a class="headerlink" href="#spectral-resolution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-info">
 <b>Spectral resolution</b> signifies the sensitivity of the sensor, or the number and width of spectral bands of the sensor. The higher the spectral resolution, the narrower the wavelength range for a given channel or band. 
 </div>
 <p>Typically, multispectral imagery refers to 3 to 10 bands, while hyperspectral imagery consists of hundreds or thousands of (narrower) bands (i.e. higher spectral resolution).</p>
 <div class="figure align-default" id="multi-and-hyperspectral">
 <img alt="../_images/mod1-hyperspectral.png" src="../_images/mod1-hyperspectral.png" />
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Multispectral and hyperspectral imagery<br>
+<p class="caption"><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Multispectral and hyperspectral imagery<br>
 Source: <a class="bibtex reference internal" href="#gisgeography" id="id4">[Geo]</a></span><a class="headerlink" href="#multi-and-hyperspectral" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>In this course:</strong> we will be working with VIIRS-DNB data, which is a single panchromatic channel covering the wavelengths ranging from 500 to 900 nanometers.</p>
@@ -312,25 +317,25 @@ For detailed information on the VIIRS instrument, see the <a href="https://ncc.n
 </div>
 </div>
 <div class="section" id="temporal-resolution">
-<h3>Temporal resolution<a class="headerlink" href="#temporal-resolution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.3. </span>Temporal resolution<a class="headerlink" href="#temporal-resolution" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-info">
 <b>Temporal resolution</b> refers to the repeat cycle, or frequency, with which a sensor revisits the same part of the Earth’s surface. You might hear this referred to as a satellite’s “revisit time.” 
 </div>
 <p>Generally speaking, the larger the swath width of a satellite, which you can  think of as the width of the sensor’s field of view “cross-track” (or “left to right”) during an orbital pass , the higher the temporal resolution.</p>
 </div>
 <div class="section" id="trade-offs-in-remote-sensing-resolution">
-<h3>Trade-offs in remote sensing resolution:<a class="headerlink" href="#trade-offs-in-remote-sensing-resolution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.2.4. </span>Trade-offs in remote sensing resolution:<a class="headerlink" href="#trade-offs-in-remote-sensing-resolution" title="Permalink to this headline">¶</a></h3>
 <p>There is an inherent tradeoff between spatial, spectral and temporal resolutions. Typically, the higher the spatial resolution, the lower the spectral and the temporal resolution and the higher the temporal resolution, the lower the spatial and spectral resolutions.</p>
 <div class="figure align-default" id="res-trade-offs">
 <img alt="../_images/mod1-res_tradeoffs.png" src="../_images/mod1-res_tradeoffs.png" />
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Trade-offs with spatial, spectral, and temporal resolution<br>
+<p class="caption"><span class="caption-number">Fig. 1.8 </span><span class="caption-text">Trade-offs with spatial, spectral, and temporal resolution<br>
 Source: <a class="bibtex reference internal" href="#warner2009remote" id="id5">[WNF09]</a></span><a class="headerlink" href="#res-trade-offs" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>In this course:</strong> we will be using VIIRS-DNB data, which is collected every 12 hours, once during the day and once during the night (at approximately 1:30 am local time). We’re only interested in the nighttime pass, so our data has a daily temporal resolution.  However, as we will learn, it’s helpful to aggregate data to account for noise, such as cloud-cover, so our final analysis may end up using composite data that has time periods of up to a month or a year.</p>
 </div>
 </div>
 <div class="section" id="applications-of-remotely-sensed-derived-data-in-socio-economic-research">
-<h2>1.3 Applications of remotely-sensed derived data in socio-economic research<a class="headerlink" href="#applications-of-remotely-sensed-derived-data-in-socio-economic-research" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Applications of remotely-sensed derived data in socio-economic research<a class="headerlink" href="#applications-of-remotely-sensed-derived-data-in-socio-economic-research" title="Permalink to this headline">¶</a></h2>
 <p>The use of remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard <a class="bibtex reference internal" href="#donaldson2016view" id="id6">[DS16]</a> outline some advantages of using remotely sensed data for economic research applications:</p>
 <p><strong>1. Improved accessibility to information difficult to obtain by other means:</strong></p>
 <p>Remote sensing technologies can collect panel data at low marginal cost, repeatedly, and at large scale, providing proxies for a wide range of characteristics that are hard (or impossible) to measure by other means.</p>
@@ -341,28 +346,28 @@ Source: <a class="bibtex reference internal" href="#warner2009remote" id="id5">[
 <p><strong>As you will see, nighttime lights are especially useful for a variety of socio-economic research and applications.</strong> There
 is a strong correlation between nighttime lights and Gross State Product (GSP)
 or Gross Domestic Product (GDP) measures, at the national, state and regional levels <a class="bibtex reference internal" href="#henderson2012measuring" id="id7">[HSW12]</a><a class="bibtex reference internal" href="#ghosh2010shedding" id="id8">[GLPDE+10]</a><a class="bibtex reference internal" href="#chen2011using" id="id9">[CN11]</a>
-or even at a more granular resolution. <a class="reference internal" href="#henderson"><span class="std std-numref">Fig. 9</span></a>,<a class="reference internal" href="#gosh"><span class="std std-numref">Fig. 10</span></a> Thus, nighttime light observations can be used as a
+or even at a more granular resolution. <a class="reference internal" href="#henderson"><span class="std std-numref">Fig. 1.9</span></a>,<a class="reference internal" href="#gosh"><span class="std std-numref">Fig. 1.10</span></a> Thus, nighttime light observations can be used as a
 proxy for economic activity, especially over periods or regions where this data is not
 available or where the statistical systems are of low quality or when no recent population or
 economic censuses are available. Similarly, changes in nighttime light intensity can be used by
 economists as an additional measure of income growth when no measures of income growth are available.</p>
 <div class="figure align-default" id="henderson">
 <img alt="../_images/mod1-henderson.png" src="../_images/mod1-henderson.png" />
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Correlation between nighttime lights and GDP (from Henderson et al., 2012) <a class="bibtex reference internal" href="#henderson2012measuring" id="id10">[HSW12]</a></span><a class="headerlink" href="#henderson" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.9 </span><span class="caption-text">Correlation between nighttime lights and GDP (from Henderson et al., 2012) <a class="bibtex reference internal" href="#henderson2012measuring" id="id10">[HSW12]</a></span><a class="headerlink" href="#henderson" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="gosh">
 <img alt="../_images/mod1-gosh.png" src="../_images/mod1-gosh.png" />
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">GDP or GSP vs Sum Of Lights<a class="bibtex reference internal" href="#ghosh2010shedding" id="id11">[GLPDE+10]</a></span><a class="headerlink" href="#gosh" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.10 </span><span class="caption-text">GDP or GSP vs Sum Of Lights<a class="bibtex reference internal" href="#ghosh2010shedding" id="id11">[GLPDE+10]</a></span><a class="headerlink" href="#gosh" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Comparing nighttime lights and a series of socio-economic indicators:</strong>
 Proville et al. (2017) <a class="bibtex reference internal" href="#proville2017night" id="id12">[PZAW17]</a> examined trends observed by DMSP-OLS
-in the period 1992-2013 and their correlation with a series of socio-economic indicators. <a class="reference internal" href="#proville"><span class="std std-numref">Fig. 11</span></a>
+in the period 1992-2013 and their correlation with a series of socio-economic indicators. <a class="reference internal" href="#proville"><span class="std std-numref">Fig. 1.11</span></a>
 They found the strongest correlations between nighttime lights, electricity consumption,
 CO2 emissions, and GDP, followed by population, CH4 emissions, N2O emissions, poverty and
 F-gas emissions.</p>
 <div class="figure align-default" id="proville">
 <img alt="../_images/mod1-proville.png" src="../_images/mod1-proville.png" />
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Various socio-economic indicators vs DMSP-OLS nighttime lights measures<a class="bibtex reference internal" href="#proville2017night" id="id13">[PZAW17]</a></span><a class="headerlink" href="#proville" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Various socio-economic indicators vs DMSP-OLS nighttime lights measures<a class="bibtex reference internal" href="#proville2017night" id="id13">[PZAW17]</a></span><a class="headerlink" href="#proville" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Natural characteristics of Earth and nighttime lights:</strong>
 Henderson et al. (2018) <a class="bibtex reference internal" href="#henderson2018global" id="id14">[HSSW18]</a> explored whether - and which - of the natural
@@ -375,7 +380,7 @@ On the other hand, among late developing countries, the same ratio is only about
 despite the fact that these countries are far more dependent on agriculture.</p>
 </div>
 <div class="section" id="references">
-<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p id="bibtex-bibliography-tutorials/mod1_1_introduction_to_remote_sensing-0"><dl class="citation">
 <dt class="bibtex label" id="nasa-goddard-2017"><span class="brackets"><a class="fn-backref" href="#id1">Cen17</a></span></dt>
 <dd><p>NASA’s Goddard Space Flight Center. <em>Remotely Sensing Our Planet</em>. 2017. URL: <a class="reference external" href="https://svs.gsfc.nasa.gov/30892">https://svs.gsfc.nasa.gov/30892</a>.</p>
@@ -444,7 +449,7 @@ despite the fact that these countries are far more dependent on agriculture.</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../welcome.html" title="previous page">Welcome</a>
-    <a class='right-next' id="next-link" href="mod1_7_practical_exercise-image_visualization.html" title="next page">7. Practical exercise: image visualization (10 min)</a>
+    <a class='right-next' id="next-link" href="mod1_2_introduction_to_nighttime_light_data.html" title="next page"><span class="section-number">2. </span>Introduction to nighttime light data (10 min)</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
