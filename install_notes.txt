@@ -1,0 +1,11 @@
+////
+for building and maintaining the site:
+Jupyter books
+
+Make sure `onl/_config.yml` and `onl/_toc.yml` are updated.
+
+To build (from root directory, i.e. directory that contains this `install_notes.txt` file):
+`jupyter-book build onl`
+
+To publish book to git pages (from root directory):
+`ghp-import -n -p -f onl/_build/html`

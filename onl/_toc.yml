@@ -1,0 +1,12 @@
+- file: welcome
+  numbered: true
+
+- part: Module 1 Introduction
+  chapters:
+  - file: tutorials/mod1_1_introduction_to_remote_sensing
+  - file: tutorials/mod1_2_introduction_to_nighttime_light_data
+  - file: tutorials/mod1_3_getting_started_with_Python
+  - file: tutorials/mod1_4_introduction_to_Jupyter_notebooks
+  - file: tutorials/mod1_5_introduction_to_GEE
+  - file: tutorials/mod1_6_DMSP_VIIRS_data_access
+  - file: tutorials/mod1_7_practical_exercise-image_visualization

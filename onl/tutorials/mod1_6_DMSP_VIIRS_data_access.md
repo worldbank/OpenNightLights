@@ -8,7 +8,8 @@ the basic data formats that are used with geospatial data analysis.
 and NOAA. As soon as a full sample of the data added to S3 and in their 
 final structure, we can add information on that here.]
 
-## Raster vs. Vector data
+## Data Structure
+**Raster vs. Vector data**
 
 Geospatial data from the “real world” can be stored in different types 
 of formats or data types: In this course we will be working with two 
@@ -23,8 +24,8 @@ be used to calculate (rather than to store) the coordinates of each
 location in the grid. Any given pixel in the grid stores one or more 
 values (in one or more bands).</div> 
 
-A satellite image, an image you take with your camera or even a map 
-you are looking at are examples of geospatial data that is stored in a 
+A satellite image, an image you take with your camera or even a map layer
+you are looking at can be examples of geospatial data that are stored in a 
 raster format. These images are composed of pixels that are organized in 
 rows and columns, with values and location. The size of a given pixel 
 depends on the spatial resolution of the sensor. 
@@ -35,7 +36,7 @@ radiation reflected from the surface on Earth
 along multiple regions of the electromagnetic spectrum.
 
 Raster data is typically used to represent continuous surfaces, 
-where knowing the exact boundaries in high precision are less of importance. 
+where knowing the exact boundaries in high precision is of less importance. 
 
 ### Vector files
 <div class="alert alert-info">
@@ -60,6 +61,7 @@ name: rastervector2
 Source: {cite}`joseph2014`
 ```
 
+### GeoTIFFs
 <div class="alert alert-info">
 A <b>tagged Image File Format (TIFF or TIF)</b> is a file format for storing raster files. 
 A GeoTIFF is a TIFF file that follows a specific standard for structuring meta-data, 
@@ -67,9 +69,40 @@ such as georeference information (e.g. map coordinates) for the image. Most of t
 remote sensing data you encounter will be stored as a GeoTIFF file and we will explore to 
 read these files later in the tutorial.</div>
 
-## Cloud-optimized geotiffs and Amazon Web Services (AWS)
+The meta-data stored in a TIFF is called a `tif tag` and GeoTIFFs often contain tags including:
+1. **Spatial extent:** what is the area coverage of this file?
+2. **Coordinate reference system:** what projection / coordinate reference system is used?
+3. **Resolution:** rasters contain pixels, so what is the spatial extent of each pixel (spatial resolution)?
+4. **Number of layers:** how many layers or bands are in the file?
 
-### Amazon Web Services (AWS)
+<div class="alert alert-success">
+<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/" 
+class="alert-link">This tutorial at earthdatascience.org</a> gives a good overview of GeoTIFFs as well as the libraries,
+such as Python's rasterio that are useful for accessing and manipulating this files.
+</div>
+
+<div class="alert alert-success">
+<a href="https://rasterio.readthedocs.io/en/latest/#" 
+class="alert-link">Rasterio</a> a Python library for reading and writing GeoTIFF files.
+</div>
+
+
+### Cloud-optimized geoTIFFs (COGs)
+<div class="alert alert-info">
+<b>Cloud Optimized GeoTIFFS (COGs)</b>  are GeoTIFFs that have data structured in such a 
+way that you can query these files through a web service. The major advantage of this is 
+that you can query, analyze, visualize, or download just a part of a COG file online, 
+without downloading the entire file.
+</div>
+
+It’s often the case with remote sensing analysis that you only need to view or analyze a 
+particular area and the data that contains that area is in a very large file that contains a 
+much larger region of the world. COGs allow you to query just the area that you’re interested 
+in, saving you time and storage space.
+
+**In this course:** The data we are accessing from DMSP-OLS and VIIRS-DNB have been stored as COGs.
+
+## Amazon Web Services (AWS)
 Data we’re working with come from the DMSP-OLS archive and from the VIIRS-DNB instrument, 
 which is still collecting data. Since these data files are large and the numbers grow each 
 month as data are collected, it is useful to store and manage these files with a cloud service. 
@@ -97,23 +130,7 @@ existing tool or need to build a new one? Not a trivial amt of work either way, 
 want to update this section accordingly. For now, we’ll just describe the structure of the 
 data files but need to sort this out.]
 
-### Cloud-Optimized Geotiffs (COGs)
-
-<div class="alert alert-info">
-<b>Cloud Optimized GeoTIFFS (COGs)</b>  are GeoTIFFs that have data structured in such a 
-way that you can query these files through a web service. The major advantage of this is 
-that you can query, analyze, visualize, or download just a part of a COG file online, 
-without downloading the entire file.
-</div>
-
-It’s often the case with remote sensing analysis that you only need to view or analyze a 
-particular area and the data that contains that area is in a very large file that contains a 
-much larger region of the world. COGs allow you to query just the area that you’re interested 
-in, saving you time and storage space.
-
-**In this course:** The data we are accessing from DMSP-OLS and VIIRS-DNB have been stored as COGs.
-
-## Data structure and organization
+## Nighttime Light Data structure and organization
 
 [TO DO: When data are uploaded, insert a description of the file structure].
 
