@@ -192,8 +192,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#raster-vs-vector-data">
-   6.1. Raster vs. Vector data
+  <a class="reference internal nav-link" href="#data-structure">
+   6.1. Data Structure
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -206,28 +206,26 @@
      6.1.2. Vector files
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cloud-optimized-geotiffs-and-amazon-web-services-aws">
-   6.2. Cloud-optimized geotiffs and Amazon Web Services (AWS)
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#amazon-web-services-aws">
-     6.2.1. Amazon Web Services (AWS)
+    <a class="reference internal nav-link" href="#geotiffs">
+     6.1.3. GeoTIFFs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cloud-optimized-geotiffs-cogs">
-     6.2.2. Cloud-Optimized Geotiffs (COGs)
+     6.1.4. Cloud-optimized geoTIFFs (COGs)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-structure-and-organization">
-   6.3. Data structure and organization
+  <a class="reference internal nav-link" href="#amazon-web-services-aws">
+   6.2. Amazon Web Services (AWS)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nighttime-light-data-structure-and-organization">
+   6.3. Nighttime Light Data structure and organization
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -265,8 +263,9 @@ the basic data formats that are used with geospatial data analysis.</p>
 <p>[NOTE: this section is a WIP as the data are added to S3 by U.Mich team
 and NOAA. As soon as a full sample of the data added to S3 and in their
 final structure, we can add information on that here.]</p>
-<div class="section" id="raster-vs-vector-data">
-<h2><span class="section-number">6.1. </span>Raster vs. Vector data<a class="headerlink" href="#raster-vs-vector-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-structure">
+<h2><span class="section-number">6.1. </span>Data Structure<a class="headerlink" href="#data-structure" title="Permalink to this headline">¶</a></h2>
+<p><strong>Raster vs. Vector data</strong></p>
 <p>Geospatial data from the “real world” can be stored in different types
 of formats or data types: In this course we will be working with two
 types of geospatial data stored as either a <strong>raster</strong> or a <strong>vector</strong> format.</p>
@@ -279,8 +278,8 @@ The coordinates of the corner points and the spacing of the grid can
 be used to calculate (rather than to store) the coordinates of each 
 location in the grid. Any given pixel in the grid stores one or more 
 values (in one or more bands).</div> 
-<p>A satellite image, an image you take with your camera or even a map
-you are looking at are examples of geospatial data that is stored in a
+<p>A satellite image, an image you take with your camera or even a map layer
+you are looking at can be examples of geospatial data that are stored in a
 raster format. These images are composed of pixels that are organized in
 rows and columns, with values and location. The size of a given pixel
 depends on the spatial resolution of the sensor.</p>
@@ -289,7 +288,7 @@ Each band represents, for example, the amount of electromagnetic
 radiation reflected from the surface on Earth
 along multiple regions of the electromagnetic spectrum.</p>
 <p>Raster data is typically used to represent continuous surfaces,
-where knowing the exact boundaries in high precision are less of importance.</p>
+where knowing the exact boundaries in high precision is of less importance.</p>
 </div>
 <div class="section" id="vector-files">
 <h3><span class="section-number">6.1.2. </span>Vector files<a class="headerlink" href="#vector-files" title="Permalink to this headline">¶</a></h3>
@@ -309,18 +308,49 @@ original resolution, without aggregation.</div>
 <img alt="../_images/mod1-rastervector2.png" src="../_images/mod1-rastervector2.png" />
 <p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Source: <a class="bibtex reference internal" href="#joseph2014" id="id1">[Jos14]</a></span><a class="headerlink" href="#rastervector2" title="Permalink to this image">¶</a></p>
 </div>
+</div>
+<div class="section" id="geotiffs">
+<h3><span class="section-number">6.1.3. </span>GeoTIFFs<a class="headerlink" href="#geotiffs" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-info">
 A <b>tagged Image File Format (TIFF or TIF)</b> is a file format for storing raster files. 
 A GeoTIFF is a TIFF file that follows a specific standard for structuring meta-data, 
 such as georeference information (e.g. map coordinates) for the image. Most of the 
 remote sensing data you encounter will be stored as a GeoTIFF file and we will explore to 
 read these files later in the tutorial.</div>
+<p>The meta-data stored in a TIFF is called a <code class="docutils literal notranslate"><span class="pre">tif</span> <span class="pre">tag</span></code> and GeoTIFFs often contain tags including:</p>
+<ol class="simple">
+<li><p><strong>Spatial extent:</strong> what is the area coverage of this file?</p></li>
+<li><p><strong>Coordinate reference system:</strong> what projection / coordinate reference system is used?</p></li>
+<li><p><strong>Resolution:</strong> rasters contain pixels, so what is the spatial extent of each pixel (spatial resolution)?</p></li>
+<li><p><strong>Number of layers:</strong> how many layers or bands are in the file?</p></li>
+</ol>
+<div class="alert alert-success">
+<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/" 
+class="alert-link">This tutorial at earthdatascience.org</a> gives a good overview of GeoTIFFs as well as the libraries,
+such as Python's rasterio that are useful for accessing and manipulating this files.
+</div>
+<div class="alert alert-success">
+<a href="https://rasterio.readthedocs.io/en/latest/#" 
+class="alert-link">Rasterio</a> a Python library for reading and writing GeoTIFF files.
 </div>
 </div>
-<div class="section" id="cloud-optimized-geotiffs-and-amazon-web-services-aws">
-<h2><span class="section-number">6.2. </span>Cloud-optimized geotiffs and Amazon Web Services (AWS)<a class="headerlink" href="#cloud-optimized-geotiffs-and-amazon-web-services-aws" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cloud-optimized-geotiffs-cogs">
+<h3><span class="section-number">6.1.4. </span>Cloud-optimized geoTIFFs (COGs)<a class="headerlink" href="#cloud-optimized-geotiffs-cogs" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-info">
+<b>Cloud Optimized GeoTIFFS (COGs)</b>  are GeoTIFFs that have data structured in such a 
+way that you can query these files through a web service. The major advantage of this is 
+that you can query, analyze, visualize, or download just a part of a COG file online, 
+without downloading the entire file.
+</div>
+<p>It’s often the case with remote sensing analysis that you only need to view or analyze a
+particular area and the data that contains that area is in a very large file that contains a
+much larger region of the world. COGs allow you to query just the area that you’re interested
+in, saving you time and storage space.</p>
+<p><strong>In this course:</strong> The data we are accessing from DMSP-OLS and VIIRS-DNB have been stored as COGs.</p>
+</div>
+</div>
 <div class="section" id="amazon-web-services-aws">
-<h3><span class="section-number">6.2.1. </span>Amazon Web Services (AWS)<a class="headerlink" href="#amazon-web-services-aws" title="Permalink to this headline">¶</a></h3>
+<h2><span class="section-number">6.2. </span>Amazon Web Services (AWS)<a class="headerlink" href="#amazon-web-services-aws" title="Permalink to this headline">¶</a></h2>
 <p>Data we’re working with come from the DMSP-OLS archive and from the VIIRS-DNB instrument,
 which is still collecting data. Since these data files are large and the numbers grow each
 month as data are collected, it is useful to store and manage these files with a cloud service.
@@ -344,23 +374,8 @@ existing tool or need to build a new one? Not a trivial amt of work either way, 
 want to update this section accordingly. For now, we’ll just describe the structure of the
 data files but need to sort this out.]</p>
 </div>
-<div class="section" id="cloud-optimized-geotiffs-cogs">
-<h3><span class="section-number">6.2.2. </span>Cloud-Optimized Geotiffs (COGs)<a class="headerlink" href="#cloud-optimized-geotiffs-cogs" title="Permalink to this headline">¶</a></h3>
-<div class="alert alert-info">
-<b>Cloud Optimized GeoTIFFS (COGs)</b>  are GeoTIFFs that have data structured in such a 
-way that you can query these files through a web service. The major advantage of this is 
-that you can query, analyze, visualize, or download just a part of a COG file online, 
-without downloading the entire file.
-</div>
-<p>It’s often the case with remote sensing analysis that you only need to view or analyze a
-particular area and the data that contains that area is in a very large file that contains a
-much larger region of the world. COGs allow you to query just the area that you’re interested
-in, saving you time and storage space.</p>
-<p><strong>In this course:</strong> The data we are accessing from DMSP-OLS and VIIRS-DNB have been stored as COGs.</p>
-</div>
-</div>
-<div class="section" id="data-structure-and-organization">
-<h2><span class="section-number">6.3. </span>Data structure and organization<a class="headerlink" href="#data-structure-and-organization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nighttime-light-data-structure-and-organization">
+<h2><span class="section-number">6.3. </span>Nighttime Light Data structure and organization<a class="headerlink" href="#nighttime-light-data-structure-and-organization" title="Permalink to this headline">¶</a></h2>
 <p>[TO DO: When data are uploaded, insert a description of the file structure].</p>
 <div class="section" id="dmsp-ols">
 <h3><span class="section-number">6.3.1. </span>DMSP-OLS<a class="headerlink" href="#dmsp-ols" title="Permalink to this headline">¶</a></h3>
