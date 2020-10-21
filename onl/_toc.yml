@@ -10,3 +10,7 @@
   - file: tutorials/mod1_5_introduction_to_GEE
   - file: tutorials/mod1_6_DMSP_VIIRS_data_access
   - file: tutorials/mod1_7_practical_exercise-image_visualization
+
+- part: Module 2 Band math and mosaicing
+  chapters:
+  - file: tutorials/mod2_1_DMSP-OLS_annual_composites
