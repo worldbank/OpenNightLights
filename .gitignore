@@ -1,0 +1,8 @@
+# system
+*.idea/
+
+# data
+*data/
+
+# build files
+*build/
