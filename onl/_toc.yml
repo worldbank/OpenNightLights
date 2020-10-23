@@ -14,3 +14,4 @@
 - part: Module 2 Band math and mosaicing
   chapters:
   - file: tutorials/mod2_1_DMSP-OLS_annual_composites
+  - file: tutorials/mod2_2_DMSP-OLS_intercalibration
