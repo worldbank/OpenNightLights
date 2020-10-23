@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Introduction &#8212; Open Nighttime Lights</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/wb_logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Nighttime Lights</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Module 1 Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_1_introduction_to_remote_sensing.html">
+   1. Introduction to remote sensing (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html">
+   2. Introduction to nighttime light data (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_3_getting_started_with_Python.html">
+   3. Getting started with Python (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_4_introduction_to_Jupyter_notebooks.html">
+   4. Introduction to Jupyter notebooks (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_5_introduction_to_GEE.html">
+   5. Introduction to Google Earth Engine (GEE) (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_6_DMSP_VIIRS_data_access.html">
+   6. 25 years of DMSP-OLS and VIIRS archive: data structure, format  and access (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_7_practical_exercise-image_visualization.html">
+   7. Practical exercise: image visualization (10 min)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Module 2 Band math and mosaicing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_1_DMSP-OLS_annual_composites.html">
+   1. DMSP-OLS annual composites in Google Earth Engine (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_2_DMSP-OLS_intercalibration.html">
+   2. DMSP-OLS intercalibration (5 min)
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/1.1_introduction_to_remote_sensing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tutorials/1.1_introduction_to_remote_sensing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/tutorials/1.1_introduction_to_remote_sensing.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="module-1-introduction">
+<h1>Module 1: Introduction<a class="headerlink" href="#module-1-introduction" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="introduction-to-remote-sensing-10-min">
+<h1>1. Introduction to remote sensing (10 min)<a class="headerlink" href="#introduction-to-remote-sensing-10-min" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-remote-sensing">
+<h2>1. 1 What is remote sensing?<a class="headerlink" href="#what-is-remote-sensing" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-info">
+<b>Remote sensing</b> is the science of identifying, observing, collecting and measuring objects without coming into direct contact with them.
+</div>
+<p>This can be accomplished through many devices that carry sensors and capture the characteristics of Earth remotely.</p>
+<p><img alt="remote sensing" src="../_images/remote_sensing_of_our_planet.png" /></p>
+<p>Source: <a href="https://svs.gsfc.nasa.gov/30892" class="alert-link">NASA’s Goddard Space Flight Center</a></p>
+<p>Sensors on board satellites also record the electromagnetic energy that is reflected or emitted from objects on Earth.</p>
+<div class="section" id="passive-and-active-sensors">
+<h3>Passive and Active Sensors<a class="headerlink" href="#passive-and-active-sensors" title="Permalink to this headline">¶</a></h3>
+<p>Sensors on board satellites can be classified into two main categories: Passive and Active.</p>
+<div class="alert alert-info">
+<b>Passive sensors</b> record the natural energy that is (naturally) reflected or emitted from the Earth's surface. 
+</div>
+<div class="alert alert-info">
+<b>Active sensors</b> use internal stimuli to collect data, and provide their own energy source for illumination. 
+</div>
+<div class="section" id="passive-remote-sensing">
+<h4>Passive remote sensing<a class="headerlink" href="#passive-remote-sensing" title="Permalink to this headline">¶</a></h4>
+<p>The energy of the sun is composed of many kinds of radiation, some of it is contained in the visible part of the electromagnetic spectrum, which are commonly stored as values in the Red, Green, and Blue bands of the spectrum (R,G,B).</p>
+<p>Meaningful information is also contained in parts of the spectrum outside the range of human vision, including infrared (IR) and ulta-violet (UV).</p>
+<p><img alt="light_spectrum" src="../_images/light_spectrum.png" />
+Source: <a href="https://api.semanticscholar.org/CorpusID:59500487" class="alert-link">Hudedmani, M. G., Soppimath, V., &amp; Jambotkar, C. (2017). A Study of Materials for Solar PV Technology and Challenges. European Journal of Applied Engineering and Scientific Research, 5, 1-13.</a></p>
+<p>The energy of the sun is absorbed or scattered  through the atmosphere before it reaches earth.</p>
+<p>In Remote Sensing analysis we aim to learn about objects on Earth through studying the radiation reflected and/or emitted by them.</p>
+<p><img alt="radiation" src="../_images/radiation.png" />
+Source: <a href="https://www.researchgate.net/figure/The-effect-of-atmosphere-on-radiation-passing-through-it-wwwremote-sensingnet_fig7_283355006" class="alert-link">DANESHGAR, SABA. “Remote sensing observations for monitoring coastal zones: Volturno river mouth case study.” (2015)</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="spatial-spectral-and-temporal-resolutions-in-remote-sensing">
+<h2>1.2 Spatial, spectral and temporal resolutions in remote sensing<a class="headerlink" href="#spatial-spectral-and-temporal-resolutions-in-remote-sensing" title="Permalink to this headline">¶</a></h2>
+<p>Remotely sensed sensors are characterized by different resolutions which will impact the decision as to which data to use and for which application (this is often referred to as “Fit-for-Purpose” technologies.</p>
+<div class="section" id="spatial-resolution">
+<h3>Spatial resolution:<a class="headerlink" href="#spatial-resolution" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-info">
+<b>Spatial resolution</b> signifies the size of the smallest object that can be detected as an individual entity from a given altitude and in a given point of time, i.e. the ground surface area that forms one pixel in the image. 
+</div>
+<div class="section" id="landsat-7-30m">
+<h4>Landsat-7 (30m)<a class="headerlink" href="#landsat-7-30m" title="Permalink to this headline">¶</a></h4>
+<p><img alt="30m" src="tutorials/img/*.png" /></p>
+</div>
+<div class="section" id="sentinel-2-30m">
+<h4>Sentinel-2 (30m)<a class="headerlink" href="#sentinel-2-30m" title="Permalink to this headline">¶</a></h4>
+<p><img alt="10m" src="tutorials/img/*.png" /></p>
+</div>
+<div class="section" id="worldview-30cm">
+<h4>Worldview (30cm)<a class="headerlink" href="#worldview-30cm" title="Permalink to this headline">¶</a></h4>
+<p><img alt="30cm" src="tutorials/img/*.png" /></p>
+<p><strong>In this course:</strong> we will be working with VIIRS-DNB data, which has a spatial resolution of about 500m per pixel at the equator.</p>
+</div>
+</div>
+<div class="section" id="spectral-resolution">
+<h3>Spectral resolution:<a class="headerlink" href="#spectral-resolution" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-info">
+<b>Spectral resolution</b> signifies the sensitivity of the sensor, or the number and width of spectral bands of the sensor. The higher the spectral resolution, the narrower the wavelength range for a given channel or band. 
+</div>
+<p>Typically, multispectral imagery refers to 3 to 10 bands, while hyperspectral imagery consists of hundreds or thousands of (narrower) bands (i.e. higher spectral resolution).</p>
+<p><img alt="multispectral" src="../_images/multispectral.png" /></p>
+<div class="section" id="multispectral-imagery">
+<h4>Multispectral imagery<a class="headerlink" href="#multispectral-imagery" title="Permalink to this headline">¶</a></h4>
+<p><img alt="hyperspectral" src="../_images/hyperspectral.png" /></p>
+</div>
+<div class="section" id="hyperispectral-imagery">
+<h4>Hyperispectral imagery<a class="headerlink" href="#hyperispectral-imagery" title="Permalink to this headline">¶</a></h4>
+<p>Source: https://gisgeography.com/multispectral-vs-hyperspectral-imagery-explained</p>
+<p><strong>In this course:</strong> we will be working with VIIRS-DNB data, which is a single panchromatic channel covering the wavelengths ranging from 500 to 900 nanometers.</p>
+<div class="alert alert-success">
+For detailed information on the VIIRS instrument, see the <a href="https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf" class="alert-link">VIIRS Users Guide Technical Report</a>
+</div>
+</div>
+<div class="section" id="temporal-resolution">
+<h4>Temporal resolution:<a class="headerlink" href="#temporal-resolution" title="Permalink to this headline">¶</a></h4>
+<div class="alert alert-info">
+<b>Temporal resolution</b> refers to the repeat cycle, or frequency, with which a sensor revisits the same part of the Earth’s surface. You might hear this referred to as a satellite’s “revisit time.” 
+</div>
+<p>Generally speaking, the larger the swath width of a satellite, which you can  think of as the width of the sensor’s field of view “cross-track” (or “left to right”) during an orbital pass , the higher the temporal resolution.</p>
+</div>
+<div class="section" id="trade-offs-in-remote-sensing-resolution">
+<h4>Trade-offs in remote sensing resolution:<a class="headerlink" href="#trade-offs-in-remote-sensing-resolution" title="Permalink to this headline">¶</a></h4>
+<p>There is an inherent tradeoff between spatial, spectral and temporal resolutions. Typically, the higher the spatial resolution, the lower the spectral and the temporal resolution and the higher the temporal resolution, the lower the spatial and spectral resolutions.</p>
+<p><img alt="res_trade-offs" src="../_images/res_trade-offs.png" />
+Source: https://dx.doi.org/10.4135/9780857021052.n1</p>
+<p><strong>In this course:</strong> we will be using VIIRS-DNB data, which is collected every 12 hours, once during the day and once during the night (at approximately 1:30 am local time). We’re only interested in the nighttime pass, so our data has a daily temporal resolution.  However, as we will learn, it’s helpful to aggregate data to account for noise, such as cloud-cover, so our final analysis may end up using composite data that has time periods of up to a month or a year.</p>
+</div>
+</div>
+</div>
+<div class="section" id="raster-vs-vector-data">
+<h2>1.3 Raster vs. Vector data<a class="headerlink" href="#raster-vs-vector-data" title="Permalink to this headline">¶</a></h2>
+<p>Geospatial data from the “real world” can be stored in different types formats or data types: In this course we will work with two types of geospatial data stored as either a raster or a vector format.</p>
+<div class="alert alert-info">
+Data stored in a <b>raster format</b> is arranged in a regular grid of cells, without storing the coordinates of each point (namely, a cell, or a pixel).
+</div>
+<p>The coordinates of the corner points and the spacing of the grid can be used to calculate (rather than to store) the coordinates of each point in the grid. Any given point in the grid stores one or more values (in one or more bands). A satellite image, any image you take with a camera or even a map you are looking at are examples of data stored in a raster format. The image is composed of pixels that are organized in rows and columns, with values and location. The size of a given pixel depends on the spatial resolution of the sensor. Raster files are often composed out of multiple bands (channels). Each band represents, for example, the amount of electromagnetic radiation reflected from the surface on Earth along multiple regions of the electromagnetic spectrum.</p>
+<p>Raster data is typically used to represent continuous surfaces, where knowing the exact boundaries in high precision are less of importance.</p>
+<div class="alert alert-info">
+Data stored in a <b>vector format</b> is stored in a way -- as a formula -- that the X and Y coordinates are stored for each point. Data can be represented, for example, as points, lines and polygons.
+</div>
+<p>A point is a line with only one coordinate (X and Y) and an area is a line that closes on itself to enclose a region (a line will have two coordinates). Polygons are used to represent the area and perimeter of a geographic feature. Vector data stores features in their original resolution, without aggregation. Vector data is often used to define centers or edges of features.</p>
+<p><img alt="raster_vector" src="../_images/raster_vector.png" />
+<img alt="raster_vector2" src="../_images/raster_vector2.png" />
+Source: http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/</p>
+</div>
+<div class="section" id="applications-of-remotely-sensed-derived-data-in-socio-economic-research">
+<h2>1.4 Applications of remotely-sensed derived data in socio-economic research<a class="headerlink" href="#applications-of-remotely-sensed-derived-data-in-socio-economic-research" title="Permalink to this headline">¶</a></h2>
+<p>The use of remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard, 2016 [1] outline some advantages of using remotely sensed data for economic research applications:</p>
+<p><strong>1. Improved accessibility to information difficult to obtain by other means:</strong></p>
+<p>Remote sensing technologies can collect panel data at low marginal cost, repeatedly, and at large scale, providing proxies for a wide range of characteristics that are hard (or impossible) to measure by other means.</p>
+<p><strong>2. High(er) spatial resolution:</strong></p>
+<p>Remotely sensed data are typically available at a higher spatial resolution than other traditional data sources. A variety of publicly available satellite imagery that is used by economists provides measurements of every location on Earth and are not constrained to a specific scale in which the data was collected at or aggregated to.</p>
+<p><strong>3. Wide geographic coverage and high spatial resolution:</strong></p>
+<p>Data collected by satellites provide continuous and consistent observations  of phenomena on Earth, regardless of the conditions on the ground (e.g. political strife or natural disasters), across borders, including inaccessible locations and with a uniform spatial sampling. Satellites collect data at a substantial temporal coverage, capturing every location on Earth on a daily or weekly basis, with some of the satellites capturing every location on Earth since the 1970s.</p>
+<p><strong>4. Nighttime lights are especially useful for socio-economic research and applications:</strong></p>
+<p>There is a strong correlation between nighttime lights and GDP measures at the national or state level (e.g. Henderson et al. (2012) [2], Gosh et al. (2010) [3]). Nighttime lights can be used as a proxy for measuring Gross State Product (GSP) or Gross Domestic Product (GDP), especially over periods or regions where this data is not available. Similarly, changes in nighttime light intensity can be used as an additional measure of income growth, for example, at the national level, when  no measures of income growth are available.</p>
+<p>[TO DO: Add remaining examples]</p>
+</div>
+<div class="section" id="sub-module-references">
+<h2>Sub-module references:<a class="headerlink" href="#sub-module-references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Donaldson, Dave, and Adam Storeygard. “The view from above: Applications of satellite data in economics.” Journal of Economic Perspectives 30.4 (2016): 171-98.</p></li>
+<li><p>Henderson, J. V., A. Storeygard, and D. N.Weil. 2012. “Measuring Economic Growth from Outer Space.” American Economic Review 102 (2): 994–1028.</p></li>
+<li><p>Ghosh, T., L Powell, R., D Elvidge, C., E Baugh, K., C Sutton, P., &amp; Anderson, S. (2010). Shedding light on the global distribution of economic activity. The Open Geography Journal, 3(1).</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By World Bank, New Light Technologies, Inc.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

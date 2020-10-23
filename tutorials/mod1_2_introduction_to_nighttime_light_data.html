@@ -15,9 +15,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -25,9 +24,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
     <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -131,6 +131,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="mod2_1_DMSP-OLS_annual_composites.html">
    1. DMSP-OLS annual composites in Google Earth Engine (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_2_DMSP-OLS_intercalibration.html">
+   2. DMSP-OLS intercalibration (5 min)
   </a>
  </li>
 </ul>
@@ -511,7 +516,7 @@ In order to compare this data across time, the data collected by the sensors on 
 satellites must be inter-calibrated to account for the lack of on-board calibration, varied
 atmospheric conditions, satellite shift, and sensor degradation.</p>
 <p>One of the most used frameworks for inter-calibration of DMSP-OLS annual composites
-was proposed by Elvidge  et al. (2009) <a class="bibtex reference internal" href="#elvidge2009fifteen" id="id8">[EZB+09]</a>. This procedure relies on a manual selection of
+was proposed by Elvidge  et al. (2009) <a class="bibtex reference internal" href="mod2_2_DMSP-OLS_intercalibration.html#elvidge2009fifteen" id="id8">[EZB+09]</a>. This procedure relies on a manual selection of
 Pseudo-Invariant Features (PIF), a reference satellite and year for calibration and a
 quadratic regression model to estimate the DN value of pixels in different years
 (in comparison to a reference image). Elvidge et al. chose the annual composite of
@@ -526,7 +531,7 @@ proposed by Elvidge et al. for the intercalibration procedure <a class="referenc
 the inter-calibration procedure in the next modules).</p>
 <div class="figure align-default" id="elvidge2009">
 <img alt="../_images/mod1-elvidge2009.png" src="../_images/mod1-elvidge2009.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">DMSP-OLS intercalibration <a class="bibtex reference internal" href="#elvidge2009fifteen" id="id9">[EZB+09]</a></span><a class="headerlink" href="#elvidge2009" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">DMSP-OLS intercalibration <a class="bibtex reference internal" href="mod2_2_DMSP-OLS_intercalibration.html#elvidge2009fifteen" id="id9">[EZB+09]</a></span><a class="headerlink" href="#elvidge2009" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="the-new-and-improved-nighttime-light-sensor-viirs-dnb">
@@ -542,7 +547,7 @@ For detailed information on the VIIRS instrument, see the <a href="https://ncc.n
 <p>VIIRS, while assessed to be more efficient at measuring economic activities via
 nighttime light analysis, is not without limitations. Because of the highly sensitive nature
 of the VIIRS sensor, it also detects phenomena that are not related to surface lighting,
-for example, traces of reflected sunlight, stray light, lightning, aurora, biomass burning, etc. <a class="bibtex reference internal" href="#elvidge2009fifteen" id="id10">[EZB+09]</a>
+for example, traces of reflected sunlight, stray light, lightning, aurora, biomass burning, etc. <a class="bibtex reference internal" href="mod2_2_DMSP-OLS_intercalibration.html#elvidge2009fifteen" id="id10">[EZB+09]</a>
 This is what makes the filtering process for VIIRS data so important. The procedure for
 generating VIIRS night-time lights into a usable product (e.g. weekly, monthly or annual composites)
 involves a multi-step process to filter extraneous features (e.g. sunlight, moonlit, stray light,
