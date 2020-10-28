@@ -12,7 +12,7 @@ Tutorial organization
 ---------------------
 - **Module 1: Introduction (60 min)**
 
-- **Module 2: Band math and mosaicing (45 min)**
+- **Module 2: Band math and mosaicing (50 min)**
 
 - **Module 3: Data analysis (45 min)**
 
@@ -24,7 +24,7 @@ Tutorial organization
 
 - **Technical Resources**
 
-**Total time: 200 minutes (3 hrs 20 min)**
+**Total time: 200 minutes (3 hrs 25 min)**
 
 References
 ----------
