@@ -15,3 +15,4 @@
   chapters:
   - file: tutorials/mod2_1_DMSP-OLS_annual_composites
   - file: tutorials/mod2_2_DMSP-OLS_intercalibration
+  - file: tutorials/mod2_3_image_clipping
