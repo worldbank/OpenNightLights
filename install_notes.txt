@@ -1,4 +1,15 @@
 ////
+
+# setup
+this tutorial uses conda package manager
+1. make sure conda is installed on your machine
+2. clone this repo
+3. from root directory of this repo (i.e. where this file is located),
+create conda env using the existing `environment.yml` file,
+from CLI: `conda env create --prefix ./venv -f environment.yml`
+
+
+
 for building and maintaining the site:
 Jupyter books
 
