@@ -1,5 +1,6 @@
 # system
 *.idea/
+*venv/
 
 # data
 *data/
