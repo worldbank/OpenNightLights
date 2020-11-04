@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+#  - boto3
   - cython
   - earthengine-api
   - gdal=3.0.4
