@@ -8,23 +8,25 @@ These tutorials use Jupyter notebooks, which allow them to combine written and v
 We will provide guidance on the software tools you'll need to work with these tutorials. Only a very basic understanding of Python and a standard personal computer are required.
 
 
-Tutorial organization
+Tutorial organization (times are estimated)
 ---------------------
-- **Module 1: Introduction (60 min)**
+- **Module 1: Introduction to remote sensing (60 min)**
 
-- **Module 2: Band math and mosaicing (50 min)**
+- **Module 2: Introduction to open source tools (40 min)**
 
-- **Module 3: Data analysis (45 min)**
+- **Module 3: Band math and mosaicing (50 min)**
 
-- **Module 4: Charting (20 min)**
+- **Module 4: Data analysis (45 min)**
 
-- **Module 5: Final exercise (30 min)**
+- **Module 5: Charting (20 min)**
+
+- **Module 6: Final exercise (30 min)**
 
 - **Glossary**
 
 - **Technical Resources**
 
-**Total time: 200 minutes (3 hrs 25 min)**
+**Total time: 4 hrs 05 min**
 
 References
 ----------
