@@ -10,7 +10,7 @@ We will provide guidance on the software tools you'll need to work with these tu
 
 Tutorial organization (times are estimated)
 ---------------------
-- **Module 1: Introduction to remote sensing (60 min)**
+- **Module 1: Introduction to remote sensing (X min)**
 
 - **Module 2: Introduction to open source tools (40 min)**
 
@@ -26,7 +26,7 @@ Tutorial organization (times are estimated)
 
 - **Technical Resources**
 
-**Total time: 4 hrs 05 min**
+**Total time: X**
 
 References
 ----------
