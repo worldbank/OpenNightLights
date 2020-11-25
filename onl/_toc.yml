@@ -14,8 +14,9 @@
   - file: tutorials/mod2_3_introduction_to_GEE
   - file: tutorials/mod2_4_practical_exercise-image_visualization
 
-- part: Module 3 Band math and mosaicing
+- part: Module 3 Band math and composites
   chapters:
   - file: tutorials/mod3_1_DMSP-OLS_annual_composites
   - file: tutorials/mod3_2_DMSP-OLS_intercalibration
-  - file: tutorials/mod3_3_image_clipping
+  - file: tutorials/mod3_3_making_VIIRS_annual_composites
+  - file: tutorials/mod3_4_image_clipping_with_VIIRS
