@@ -20,3 +20,7 @@
   - file: tutorials/mod3_2_DMSP-OLS_intercalibration
   - file: tutorials/mod3_3_making_VIIRS_annual_composites
   - file: tutorials/mod3_4_image_clipping_with_VIIRS
+
+- part: Module 4 Data analysis
+  chapters:
+  - file: tutorials/mod4_1_conditional_operations
