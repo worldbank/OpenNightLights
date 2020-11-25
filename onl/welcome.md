@@ -14,7 +14,7 @@ Tutorial organization (times are estimated)
 
 - **Module 2: Introduction to open source tools (40 min)**
 
-- **Module 3: Band math and composites (50 min)**
+- **Module 3: Band math and composites (25 min)**
 
 - **Module 4: Data analysis (45 min)**
 
