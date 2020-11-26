@@ -24,3 +24,4 @@
 - part: Module 4 Data analysis
   chapters:
   - file: tutorials/mod4_1_conditional_operations
+  - file: tutorials/mod4_2_cell_statistics_band_math
