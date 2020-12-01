@@ -25,6 +25,7 @@ dependencies:
   - seaborn
   - setuptools
   - pip:
+    - geopandas
     - numpy>=1.18.5
     - GDAL==3.0.4
     - ghp-import
