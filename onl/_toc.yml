@@ -34,3 +34,4 @@
 - part: Module 5 Charting
   chapters:
   - file: tutorials/mod5_1_time_series_charts
+  - file: tutorials/mod5_2_histograms
