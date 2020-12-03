@@ -63,7 +63,7 @@ Remote sensing instruments are characterized by different resolutions which will
 <b>Spatial resolution</b> signifies the ground surface area that forms one pixel in the image. Sub-pixel objects can sometimes be resolved. 
 </div>
 
-For example, dirt roads in Figures 1.4 to 1.6 are smaller than the 30 m Landsat pixels, but are still detected.
+For example, dirt roads in Figures 1.4 are smaller than the 30 m Landsat pixels, but are still detected.
 
 ```{figure} img/mod1-landsat7.png
 ---
@@ -131,7 +131,7 @@ For detailed information on the VIIRS instrument, see the <a href="https://ncc.n
 
 ## Applications of remotely-sensed derived data in socio-economic research
 
-Remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard {cite}donaldson2016view outline some advantages of using remotely sensed data for economic studies:
+Remotely sensed observations are useful for a wide-range of economic research applications. Donaldson and Storeygard {cite}`donaldson2016view` outline some advantages of using remotely sensed data for economic studies:
 
 **1. Improved accessibility to information difficult to obtain by other means:**
 
@@ -145,7 +145,7 @@ Remotely sensed data are typically available at a higher spatial resolution than
 
 Data collected by satellites provide continuous and consistent observations of phenomena on Earth, regardless of the conditions on the ground (e.g. political strife or natural disasters), across borders, including inaccessible locations and with a uniform spatial sampling. Satellites have substantial temporal coverage, capturing every location on Earth on a daily or weekly basis. Some archives date back to  the 1970s.
 
-**Nighttime lights are especially useful for a variety of socio-economic research and applications.** There is a strong correlation between nighttime lights and Gross State Product (GSP) or Gross Domestic Product (GDP) measures, at the national, state and regional levels {cite}henderson2012measuring,ghosh2010shedding,chen2011using or even at a more granular resolution. {numref}henderson,{numref}gosh Thus, nighttime light observations can be used as a proxy for economic activity, especially over periods or regions where these data are not available or where the statistical systems are of low quality or when no recent population or economic censuses are available. Similarly, changes in nighttime light intensity can be used by economists as an additional measure of income growth when no other measures of income growth are available.
+**Nighttime lights are especially useful for a variety of socio-economic research and applications.** There is a strong correlation between nighttime lights and Gross State Product (GSP) or Gross Domestic Product (GDP) measures, at the national, state and regional levels {cite}`henderson2012measuring,ghosh2010shedding,chen2011using` or even at a more granular resolution. Thus, nighttime light observations can be used as a proxy for economic activity, especially over periods or regions where these data are not available or where the statistical systems are of low quality or when no recent population or economic censuses are available. Similarly, changes in nighttime light intensity can be used by economists as an additional measure of income growth when no other measures of income growth are available.
 
 ```{figure} img/mod1-elvidge-gdp-ntl.png
 ---
@@ -155,7 +155,7 @@ Area of lighting versus GDP for 200 countries of the world. (from Elvidge et al.
 ```
 
 **Comparing nighttime lights and a series of socio-economic indicators:** 
-Proville et al. (2017) {cite}proville2017night examined trends observed by DMSP-OLS in the period 1992-2013 and their correlation with a series of socio-economic indicators. {numref}proville They found the strongest correlations between nighttime lights, electricity consumption, CO2 emissions, and GDP, followed by population, CH4 emissions, N2O emissions, poverty and F-gas emissions.  
+Proville et al. (2017) {cite}`proville2017night` examined trends observed by DMSP-OLS in the period 1992-2013 and their correlation with a series of socio-economic indicators. {numref}proville They found the strongest correlations between nighttime lights, electricity consumption, CO2 emissions, and GDP, followed by population, CH4 emissions, N2O emissions, poverty and F-gas emissions.  
 
 ```{figure} img/mod1-proville.png
 ---
@@ -165,7 +165,7 @@ Various socio-economic indicators vs DMSP-OLS nighttime lights measures{cite}`pr
 ```
 
 **Natural characteristics of Earth and nighttime lights:**
-Henderson et al. (2018) {cite}henderson2018global explored whether - and which - of the natural characteristics of Earth can explain the spatial distribution of economic activity worldwide, at least according to nighttime lights. The authors found that 24 physical geographic attributes can explain up to 47% of worldwide variation and up to 35% of the variation of lights within countries.
+Henderson et al. (2018) {cite}`henderson2018global` explored whether - and which - of the natural characteristics of Earth can explain the spatial distribution of economic activity worldwide, at least according to nighttime lights. The authors found that 24 physical geographic attributes can explain up to 47% of worldwide variation and up to 35% of the variation of lights within countries.
 
 Among countries that developed early, agricultural variables incrementally explain over 6 times as much variation in lights as do trade variables. On the other hand, among late developing countries, the same ratio is only about 1.5, despite the fact that these countries are far more dependent on agriculture.
 
