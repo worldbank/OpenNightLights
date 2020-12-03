@@ -5,14 +5,14 @@
   chapters:
   - file: tutorials/mod1_1_introduction_to_remote_sensing
   - file: tutorials/mod1_2_introduction_to_nighttime_light_data
-  - file: tutorials/mod1_3_DMSP_VIIRS_data_access
 
-- part: Module 2 Introduction to open source tools
+- part: Module 2 Introduction to open data and tools
   chapters:
-  - file: tutorials/mod2_1_getting_started_with_Python
-  - file: tutorials/mod2_2_introduction_to_Jupyter_notebooks
-  - file: tutorials/mod2_3_introduction_to_GEE
-  - file: tutorials/mod2_4_practical_exercise-image_visualization
+  - file: tutorials/mod2_1_DMSP_VIIRS_data_access
+  - file: tutorials/mod2_2_getting_started_with_Python
+  - file: tutorials/mod2_3_introduction_to_Jupyter_notebooks
+  - file: tutorials/mod2_4_introduction_to_GEE
+  - file: tutorials/mod2_5_practical_exercise-image_visualization
 
 - part: Module 3 Band math and composites
   chapters:
