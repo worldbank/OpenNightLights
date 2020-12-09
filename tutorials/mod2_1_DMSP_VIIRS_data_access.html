@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1. Data overview (10 min) &#8212; Open Nighttime Lights</title>
+    <title>1. 25 years of DMSP-OLS and VIIRS archive: data structure, format and access (10 min) &#8212; Open Nighttime Lights</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -105,7 +105,7 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Data overview (10 min)
+   1. 25 years of DMSP-OLS and VIIRS archive: data structure, format  and access (10 min)
   </a>
  </li>
  <li class="toctree-l1">
@@ -120,17 +120,103 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="mod2_4_introduction_to_GEE.html">
-   4. Introduction to Google Earth Engine (GEE) (5 min)
+   4. Introduction to Google Earth Engine (GEE) (10 min)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="mod2_5_GEE_PythonAPI_and_geemap.html">
-   5. GEE Python API and geemap (5 min)
+  <a class="reference internal" href="mod2_5_practical_exercise-image_visualization.html">
+   5. Practical exercise: image visualization (10 min)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Module 3 Band math and composites
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod3_1_DMSP-OLS_annual_composites.html">
+   1. DMSP-OLS annual composites in Google Earth Engine (5 min)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="mod2_6_practical_exercise-image_visualization.html">
-   6. Practical exercise: image visualization (10 min)
+  <a class="reference internal" href="mod3_2_DMSP-OLS_intercalibration.html">
+   2. DMSP-OLS intercalibration (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod3_3_making_VIIRS_annual_composites.html">
+   3. Making simple VIIRS-DNB annual composites (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod3_4_image_clipping_with_VIIRS.html">
+   4. Image clipping with VIIRS-DNB (5 min)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Module 4 Data analysis
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod4_1_conditional_operations.html">
+   1. Conditional operations (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod4_2_cell_statistics_band_math.html">
+   2. Cell statistics and basic band math (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod4_3_expressions-PartA.html">
+   3. Expressions (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod4_3_expressions-PartB.html">
+   4. Expressions (continued)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod4_4_rate_of_change.html">
+   5. Calculate rate of change (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod4_5_vector_and_raster_data.html">
+   6. Working with vector and raster data (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod4_6_import_export_data.html">
+   7. Importing and exporting data (5 min)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Module 5 Charting
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod5_1_time_series_charts.html">
+   1. Time Series Charts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod5_2_histograms.html">
+   2. Histograms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod5_3_comparing_cities.html">
+   3. Comparing cities (5 min)
   </a>
  </li>
 </ul>
@@ -175,7 +261,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tutorials/mod2_1_data_overview.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod2_1_DMSP_VIIRS_data_access.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -219,47 +305,42 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#brief-comparison-of-raster-vs-vector-data-models">
-     1.1.3. Brief comparison of raster vs vector data models
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#geotiffs">
-     1.1.4. GeoTIFFs
+     1.1.3. GeoTIFFs
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cloud-optimized-geotiffs-cogs">
-     1.1.5. Cloud-optimized geoTIFFs (COGs)
+     1.1.4. Cloud-optimized geoTIFFs (COGs)
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-world-bank-s-light-every-night-dataset">
-   1.2. The World Bank’s “Light Every Night” dataset
+  <a class="reference internal nav-link" href="#amazon-web-services-aws">
+   1.2. Amazon Web Services (AWS)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nighttime-light-data-structure-and-organization">
+   1.3. Nighttime Light Data structure and organization
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#components-of-the-len-archive">
-     1.2.1. Components of the LEN archive
+    <a class="reference internal nav-link" href="#dmsp-ols">
+     1.3.1. DMSP-OLS
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-that-is-analysis-ready">
-     1.2.2. Data that is “analysis ready”
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-access-and-tutorials">
-     1.2.3. Data access and tutorials
+    <a class="reference internal nav-link" href="#viirs-dnb">
+     1.3.2. VIIRS-DNB
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   1.3. References:
+   1.4. References:
   </a>
  </li>
 </ul>
@@ -272,8 +353,8 @@
         
               <div>
                 
-  <div class="section" id="data-overview-10-min">
-<h1><span class="section-number">1. </span>Data overview (10 min)<a class="headerlink" href="#data-overview-10-min" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="years-of-dmsp-ols-and-viirs-archive-data-structure-format-and-access-10-min">
+<h1><span class="section-number">1. </span>25 years of DMSP-OLS and VIIRS archive: data structure, format  and access (10 min)<a class="headerlink" href="#years-of-dmsp-ols-and-viirs-archive-data-structure-format-and-access-10-min" title="Permalink to this headline">¶</a></h1>
 <p>In this module, we want to give you a little more specific information
 about the data we’ll be working with. First, it’s helpful to understand
 the basic data formats that are used with geospatial data analysis.</p>
@@ -315,9 +396,6 @@ and an area is essentially a line that closes on itself to enclose a region.
 Polygons are usually used to represent the area and perimeter of a 
 continuous geographic features. Vector data stores features in their 
 original resolution, without aggregation.</div>
-</div>
-<div class="section" id="brief-comparison-of-raster-vs-vector-data-models">
-<h3><span class="section-number">1.1.3. </span>Brief comparison of raster vs vector data models<a class="headerlink" href="#brief-comparison-of-raster-vs-vector-data-models" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-default" id="rastervector1">
 <img alt="../_images/mod1-rastervector1.png" src="../_images/mod1-rastervector1.png" />
 </div>
@@ -327,7 +405,7 @@ original resolution, without aggregation.</div>
 </div>
 </div>
 <div class="section" id="geotiffs">
-<h3><span class="section-number">1.1.4. </span>GeoTIFFs<a class="headerlink" href="#geotiffs" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.1.3. </span>GeoTIFFs<a class="headerlink" href="#geotiffs" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-info">
 A <b>tagged Image File Format (TIFF or TIF)</b> is a file format for storing raster files. 
 A GeoTIFF is a TIFF file that follows a specific standard for structuring meta-data, 
@@ -352,7 +430,7 @@ class="alert-link">Rasterio</a> a Python library for reading and writing GeoTIFF
 </div>
 </div>
 <div class="section" id="cloud-optimized-geotiffs-cogs">
-<h3><span class="section-number">1.1.5. </span>Cloud-optimized geoTIFFs (COGs)<a class="headerlink" href="#cloud-optimized-geotiffs-cogs" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.1.4. </span>Cloud-optimized geoTIFFs (COGs)<a class="headerlink" href="#cloud-optimized-geotiffs-cogs" title="Permalink to this headline">¶</a></h3>
 <div class="alert alert-info">
 <b>Cloud Optimized GeoTIFFS (COGs)</b>  are GeoTIFFs that have data structured in such a 
 way that you can query these files through a web service. The major advantage of this is 
@@ -363,56 +441,83 @@ without downloading the entire file.
 particular area and the data that contains that area is in a very large file that contains a
 much larger region of the world. COGs allow you to query just the area that you’re interested
 in, saving you time and storage space.</p>
+<p><strong>In this course:</strong> The data we are accessing from DMSP-OLS and VIIRS-DNB have been stored as COGs.</p>
 </div>
 </div>
-<div class="section" id="the-world-bank-s-light-every-night-dataset">
-<h2><span class="section-number">1.2. </span>The World Bank’s “Light Every Night” dataset<a class="headerlink" href="#the-world-bank-s-light-every-night-dataset" title="Permalink to this headline">¶</a></h2>
-<p>Currently, this tutorial focuses on nighttime lights datasets that are available publicly (via the Google Earth Engine data catalogue); however, the “Light Every Night” (LEN) data archive is going to be launched soon.</p>
-<p>The World Bank’s Light Every Night data set is a complete archive of all nighttime imagery captured each night over the last three decades. The underlying data is sourced from the NOAA/NCEI archive. The two sensors featured are the DMSP-OLS with data from 1992-2017, and the VIIRS-DNB with data spanning 2012-2020. The World Bank worked in collaboration with NOAA/NCEI and the University of Michigan to publish the archive as an Analysis Ready Data Set. The LEN archive, which now spans nearly 250 terabytes, will be openly available on the AWS open data program published under the World Bank’s open data license.</p>
-<div class="section" id="components-of-the-len-archive">
-<h3><span class="section-number">1.2.1. </span>Components of the LEN archive<a class="headerlink" href="#components-of-the-len-archive" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>DMSP-OLS nightly imagery (1993-2017, all nights):</p>
-<ul>
-<li><p>visible (VIS)</p></li>
-<li><p>thermal infrared (TIR)</p></li>
-<li><p>lunar illuminance (LI)</p></li>
-<li><p>cloud mask (CM)</p></li>
-<li><p>sample position (SAM)</p></li>
-<li><p>stray light mask (SLM)</p></li>
-</ul>
-</li>
-<li><p>VIIRS DNB nightly imagery (2012-2020, all nights):</p>
-<ul>
-<li><p>DNB radiance</p></li>
-<li><p>I5 (LWIR) radiance</p></li>
-<li><p>lunar illuminance</p></li>
-<li><p>sample position within DNB scan</p></li>
-<li><p>quality bitflag or “vflag” grid with on/off states for these fields:</p></li>
-<li><p>daytime/nighttime/near-terminator</p></li>
-<li><p>zero lunar illuminance</p></li>
-<li><p>viirs cloud mask</p></li>
-<li><p>nightfire detection</p></li>
-<li><p>lightning</p></li>
-<li><p>high energy particle hit</p></li>
-<li><p>stray light affected/corrected</p></li>
-</ul>
-</li>
-</ul>
+<div class="section" id="amazon-web-services-aws">
+<h2><span class="section-number">1.2. </span>Amazon Web Services (AWS)<a class="headerlink" href="#amazon-web-services-aws" title="Permalink to this headline">¶</a></h2>
+<p>Data we’re working with come from the DMSP-OLS archive and from the VIIRS-DNB instrument,
+which is still collecting data. Since these data files are large and the numbers grow each
+month as data are collected, it is useful to store and manage these files with a cloud service.
+We already introduced you to Google Earth Engine, one such cloud provider.
+We are also using Amazon Web Service (AWS) to store our own data files directly.</p>
+<div class="alert alert-info">
+<b>AWS</b>  is a subsidiary of Amazon and provides a wide range of cloud services, 
+including data storage and computing.</div>
+<p>We’ll mostly be leveraging AWS’s Simple Storage Service, S3.</p>
+<div class="alert alert-success">
+<a href="https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html" 
+class="alert-link">Here’s a guide</a> that explains AWS S3 data storage and walks through 
+how to set up an AWS account.
 </div>
-<div class="section" id="data-that-is-analysis-ready">
-<h3><span class="section-number">1.2.2. </span>Data that is “analysis ready”<a class="headerlink" href="#data-that-is-analysis-ready" title="Permalink to this headline">¶</a></h3>
-<p>The data architecture was designed from the ground up to be analysis-ready. The data is published in the Cloud Optimized GeoTIFF format (COG), and organized using the SpatialTemporal Asset Catalog (STAC) standard. These standards are part of the growing <a href="https://medium.com/planet-stories/analysis-ready-data-defined-5694f6f48815">Analysis Ready Data ecosystem</a> that is improving access to geospatial data sets, enabling broader audiences to readily discover, process and analyze geospatial data.</p>
-<p>Analysis ready data has already undergone the transformations and preprocessing necessary to make data (in this case observations of electromagnetic energy collected in space!) organized and coherent for general technical users and analysts.</p>
 </div>
-<div class="section" id="data-access-and-tutorials">
-<h3><span class="section-number">1.2.3. </span>Data access and tutorials<a class="headerlink" href="#data-access-and-tutorials" title="Permalink to this headline">¶</a></h3>
-<p>This archive will be made available very shortly and soon thereafter, we will add more content to these modules about how to access and use this data.</p>
+<div class="section" id="nighttime-light-data-structure-and-organization">
+<h2><span class="section-number">1.3. </span>Nighttime Light Data structure and organization<a class="headerlink" href="#nighttime-light-data-structure-and-organization" title="Permalink to this headline">¶</a></h2>
+<p>[TO DO: When data are uploaded, insert a description of the file structure].</p>
+<div class="section" id="dmsp-ols">
+<h3><span class="section-number">1.3.1. </span>DMSP-OLS<a class="headerlink" href="#dmsp-ols" title="Permalink to this headline">¶</a></h3>
+<p>[TO DO: We need to complete this section once we’ve added sample data].</p>
+</div>
+<div class="section" id="viirs-dnb">
+<h3><span class="section-number">1.3.2. </span>VIIRS-DNB<a class="headerlink" href="#viirs-dnb" title="Permalink to this headline">¶</a></h3>
+<p>[TO DO: We need to complete this section once we’ve added sample data. For example,
+in addition to the radiance values, there are other layers and metadata,
+such as the cloud mask. These will ideally be added to the COG structure so they can be
+queried, but we need to finalize this].</p>
+<p><strong>VIIRS-DNB data basics</strong></p>
+<div class="alert alert-success">
+The following <a href="http://rammb.cira.colostate.edu/projects/npp/Beginner_Guide_to_VIIRS_Imagery_Data.pdf" 
+class="alert-link">beginners guide</a> is helpful for those looking for more detail on the data.
+</div>
+<p>Here are just a few highlights:</p>
+<p>As the satellite orbits the Earth, VIIRS scans a swath that is ~3040 km wide
+(the “cross-track direction” which is perpendicular to the direction the satellite is moving)
+and 12 km in the “along-track” direction.</p>
+<p>A rotating mirror collects data for the various detectors, including the Day/Night Band (DNB)
+that we are using for nighttime lights. One rotation of the mirror is one scan.</p>
+<p>48 of these scans are put together into a single “granule” of data,
+so that this represents about 3040 km by 570 km (48 * 12km) or surface area data
+collected over about 85 seconds.</p>
+<p>The data that comes from the satellite is transmitted to Earth as a Raw Data Record (RDR).
+Most users will never see this data; however. These RDR files are calibrated.
+For example, georeferencing information is added and the raw “counts” of photons
+collected are converted to a measure, like radiance or reflection. These are known as
+Sensor Data Records (SDRs) and are commonly referred to as “raw”
+(even if they are not technically RDRs) or “un-adjusted” files.</p>
+<p><strong>VIIRS source data</strong></p>
+<p>The main VIIRS-DNB data files are COGs that are structured like these SDRs.
+They include the values for radiance (i.e. nighttime lights) as well as other important
+meta-data, including pixel data quality and cloud coverage.</p>
+<p>TO DO: detailed description of data and meta-data structure when data are added/completed]</p>
+<p>These  files follow the naming convention used for SDRs.
+That naming structure tells you helpful information about what the data are and when they
+were collected.</p>
+<p>For example:</p>
+<div class="figure align-default" id="viirs-datafile">
+<img alt="../_images/mod1-viirs_datafile.png" src="../_images/mod1-viirs_datafile.png" />
+</div>
+<p><strong>Accessing the data</strong>
+Later in this tutorial, we explore how to access these data files,
+but hopefully this gives you a general sense of where the data come from and
+how they’re structured. One of the exciting things about working with remote sensing
+data is that we’re investigating information that started as pure energy: a photon
+collected in space. This information makes its journey to a data file you can analyze or
+display in a map so that we can learn a little more about what’s happening on Earth!</p>
 </div>
 </div>
 <div class="section" id="references">
-<h2><span class="section-number">1.3. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-tutorials/mod2_1_data_overview-0"><dl class="citation">
+<h2><span class="section-number">1.4. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/mod2_1_DMSP_VIIRS_data_access-0"><dl class="citation">
 <dt class="bibtex label" id="joseph2014"><span class="brackets"><a class="fn-backref" href="#id1">Jos14</a></span></dt>
 <dd><p>Julianna Joseph. <em>Vector and Raster Data Model Images</em>. 2014. URL: <a class="reference external" href="http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/">http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/</a>.</p>
 </dd>
