@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Introduction to Jupyter notebooks (10 min) &#8212; Open Nighttime Lights</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Introduction to Google Earth Engine (GEE) (5 min)" href="mod2_4_introduction_to_GEE.html" />
+    <link rel="prev" title="2. Getting started with Python (10 min)" href="mod2_2_getting_started_with_Python.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/wb_logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Nighttime Lights</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 1 Introduction to remote sensing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_1_introduction_to_remote_sensing.html">
+   1. Introduction to remote sensing (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html">
+   2. Introduction to nighttime light data (10 min)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 2 Introduction to open data and tools
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_1_data_overview.html">
+   1. Data overview (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_2_getting_started_with_Python.html">
+   2. Getting started with Python (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Introduction to Jupyter notebooks (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_4_introduction_to_GEE.html">
+   4. Introduction to Google Earth Engine (GEE) (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_5_GEE_PythonAPI_and_geemap.html">
+   5. GEE Python API and geemap (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_6_practical_exercise-image_visualization.html">
+   6. Practical exercise: image visualization (10 min)
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod2_3_introduction_to_Jupyter_notebooks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tutorials/mod2_3_introduction_to_Jupyter_notebooks.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   3.1. Getting started
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notebook-limitations">
+     3.1.1. Notebook limitations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-notebooks-for-this-tutorial">
+   3.2. Using notebooks for this tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#google-colab-notebooks">
+   3.3. Google Colab notebooks
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-jupyter-notebooks-10-min">
+<h1><span class="section-number">3. </span>Introduction to Jupyter notebooks (10 min)<a class="headerlink" href="#introduction-to-jupyter-notebooks-10-min" title="Permalink to this headline">¶</a></h1>
+<div class="alert alert-info">
+A <b>Jupyter notebook</b> is a web-based interactive computational environment. A Jupyter notebook is basically a JSON document that can be displayed in a browser and contains input/ output cells that can be used to enter markdown text, contain executable code, or display plots or rich media.</div>
+<p>Jupyter notebooks have gained a lot of popularity in the scientific computing community, largely because of the ease with which users can integrate executable code with written text and plots interactively, making it a powerful tool for conducting data exploration and communicating analytical insights.</p>
+<div class="section" id="getting-started">
+<h2><span class="section-number">3.1. </span>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Per <a class="reference internal" href="mod2_2_getting_started_with_Python.html"><span class="doc">Getting started with Python (10 min)</span></a> you should already have <code class="docutils literal notranslate"><span class="pre">jupyter</span></code> installed in your environment.</p>
+<p>By default the notebook uses a Python kernel (whatever Python version is in your current environment), so we dont need to worry about changing the language since we’re working in Python.</p>
+<p>In your active environment, enter this in a terminal:
+<code class="docutils literal notranslate"><span class="pre">&lt;prompt&gt;$</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code></p>
+<p>This launches the web server and your default browser (Chrome, Safari, Firefox, etc.) will open a tab showing a file directory based on your current location <a class="reference internal" href="#jupyter-tree"><span class="std std-numref">Fig. 3.1</span></a>. You can navigate to existing notebook files (which contain the .ipynb extension) and open them in a new tab simply by clicking on them.</p>
+<div class="figure align-default" id="jupyter-tree">
+<img alt="../_images/mod1-jupyter_tree.png" src="../_images/mod1-jupyter_tree.png" />
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Jupyter tree</span><a class="headerlink" href="#jupyter-tree" title="Permalink to this image">¶</a></p>
+</div>
+<div class="alert alert-success">
+There is a lot of <a href="https://jupyter-notebook.readthedocs.io/en/stable/" class="alert-link">helpful documentation on Jupyter notebooks</a> available.
+</div>
+<div class="alert alert-success">
+And some helpful examples <a href="https://github.com/jupyter/notebook/tree/master/docs/source/examples/Notebook" class="alert-link">here</a></div>
+<p>We encourage you to explore the documentation and examples to see what is capable with Jupyter notebooks. Here, we’ll just cover some basic concepts that allow you to use this tutorial.</p>
+<p>As noted, Jupyter notebooks contain cells. You can select what sort of content the cell contains, such as markdown text or executable code.</p>
+<div class="figure align-default" id="jupyter-cells">
+<img alt="../_images/mod1-jupyter_cells.png" src="../_images/mod1-jupyter_cells.png" />
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Select the type of cell you want, e.g. markdown or code.</span><a class="headerlink" href="#jupyter-cells" title="Permalink to this image">¶</a></p>
+</div>
+<p>This very text you’re reading now is actually a markdown cell in a notebook.</p>
+<p>And here is an example of executable code which produces an output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which you could also wrap in a simple function and define that in one cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sayHello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>…And then execute in a later cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sayHello</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+</pre></div>
+</div>
+</div>
+</div>
+<p>The menu bar provides an option to run the cell (keyboard shortcut: SHIFT + ENTER). You can also run all the cells in the notebook.</p>
+<div class="figure align-default" id="jupyter-runall">
+<img alt="../_images/mod1-jupyter_runall.png" src="../_images/mod1-jupyter_runall.png" />
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Running cells independently allows for interactive code execution that can be useful for exploring and plotting data.</span><a class="headerlink" href="#jupyter-runall" title="Permalink to this image">¶</a></p>
+</div>
+<p>You can also restart your kernel:</p>
+<div class="figure align-default" id="jupyter-restart">
+<img alt="../_images/mod1-jupyter_restart.png" src="../_images/mod1-jupyter_restart.png" />
+<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Warning: restarting your kernel resets your memory, so you’ll lose all created variables and dump any data loaded in memory.</span><a class="headerlink" href="#jupyter-restart" title="Permalink to this image">¶</a></p>
+</div>
+<p>Restarting can help resolve some issues if you’ve accidentally clobbered variables….which brings us to a public service announcement:</p>
+<div class="section" id="notebook-limitations">
+<h3><span class="section-number">3.1.1. </span>Notebook limitations<a class="headerlink" href="#notebook-limitations" title="Permalink to this headline">¶</a></h3>
+<p>While their capabilities are expanding, there are a number of limitations to notebooks. It’s easy to <a href="https://datapastry.com/blog/why-i-dont-use-jupyter-notebooks-and-you-shouldnt-either" class="alert-link">get into bad habits</a>, especially if you’re a novice programmer. There can also be limits to managing large amounts of data using Jupyter notebooks – a consideration with image data, such as nighttime lights, and they don’t facilitate writing modular, reusable code.</p>
+<p>The blend of analytics, simple programming concepts, and visualization used in this tutorial makes notebooks a useful tool, so we should be O.K. But as you grow in your programming skills you may consider using a full IDE, like PyCharm.</p>
+</div>
+</div>
+<div class="section" id="using-notebooks-for-this-tutorial">
+<h2><span class="section-number">3.2. </span>Using notebooks for this tutorial<a class="headerlink" href="#using-notebooks-for-this-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>We mentioned this tutorial was written in notebooks, right? That means you can download these pages directly from your browser and save them locally.</p>
+<p>To do this, open your terminal in the directory where you want to work on this project and launch a notebook instance like shown above:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code></p>
+<p>Then, on this webpage, download this page as a notebook (.ipynb extension) and save it within the directory you launched the notebook from. You can do this from the icon at the upper right-hand side of this page:</p>
+<div class="figure align-default" id="jupyter-download">
+<img alt="../_images/mod1-jupyter_download.png" src="../_images/mod1-jupyter_download.png" />
+</div>
+<p>Now, in the Jupyter home tab, you can navigate to where you’ve stored this file, click on the link, and open this notebook in your browser, where you can edit and execute this notebook as you wish.</p>
+<div class="figure align-default" id="jupyter-getbook">
+<img alt="../_images/mod1-jupyter_getbook.png" src="../_images/mod1-jupyter_getbook.png" />
+</div>
+</div>
+<div class="section" id="google-colab-notebooks">
+<h2><span class="section-number">3.3. </span>Google Colab notebooks<a class="headerlink" href="#google-colab-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>In addition to using Jupyter notebooks on your local machine, Google Colab is a helpful platform. By hosting notebooks on Google’s cloud infrastructure, you do not need to have your local computer set up with Python or any libraries and dependencies. You just need (good!) internet access and a Google account. You can also access computer processing resources, such as Graphics Processing Units (GPUs) for machine learning or image processing work.</p>
+<div class="alert alert-success">
+<a href="https://colab.research.google.com/notebooks/intro.ipynb">Google Colab</a> has a lot of helpful overview material and documentation. <a href="https://colab.research.google.com/notebooks/basic_features_overview.ipynb">Here's</a> another notebook guide on some basic features of notebooks.
+</div>
+<p>This tutorial will provide links to Google Colab notebooks for most modules. This means that for these exercises you do not need to set up Python, environments, or dependencies (like Jupyter notebooks) yourself and can just follow the link to work with the notebook online.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="mod2_2_getting_started_with_Python.html" title="previous page"><span class="section-number">2. </span>Getting started with Python (10 min)</a>
+    <a class='right-next' id="next-link" href="mod2_4_introduction_to_GEE.html" title="next page"><span class="section-number">4. </span>Introduction to Google Earth Engine (GEE) (5 min)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By World Bank, New Light Technologies, Inc.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

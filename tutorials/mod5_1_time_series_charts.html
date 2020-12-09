@@ -1,0 +1,793 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Series Charts &#8212; Open Nighttime Lights</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/wb_logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Nighttime Lights</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 1 Introduction to remote sensing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_1_introduction_to_remote_sensing.html">
+   1. Introduction to remote sensing (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html">
+   2. Introduction to nighttime light data (10 min)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 2 Introduction to open data and tools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_1_data_overview.html">
+   1. Data overview (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_2_getting_started_with_Python.html">
+   2. Getting started with Python (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_3_introduction_to_Jupyter_notebooks.html">
+   3. Introduction to Jupyter notebooks (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_4_introduction_to_GEE.html">
+   4. Introduction to Google Earth Engine (GEE) (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_5_GEE_PythonAPI_and_geemap.html">
+   5. GEE Python API and geemap (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_6_practical_exercise-image_visualization.html">
+   6. Practical exercise: image visualization (10 min)
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod5_1_time_series_charts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tutorials/mod5_1_time_series_charts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quick-caveat-on-charts-with-the-earth-engine-python-api">
+   Quick caveat on charts with the Earth Engine Python API
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extract-time-series-data-and-convert-to-pandas-dataframe">
+   Extract time series data and convert to pandas dataframe
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-all-image-values-in-the-collection">
+     Extracting all image values in the collection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-time-series-graph-for-viirs-dnb-from-jan-2014-to-may-2020-for-seoul-olympic-stadium">
+   Create a time series graph for VIIRS-DNB from Jan 2014 to May 2020 for Seoul Olympic Stadium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-using-sum-of-lights-from-jan-2014-to-may-2020-for-south-korea">
+   Time series using Sum Of Lights from Jan 2014 to May 2020 for South Korea
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="time-series-charts">
+<h1>Time Series Charts<a class="headerlink" href="#time-series-charts" title="Permalink to this headline">¶</a></h1>
+<p>In the last module we worked through some basic operations and visualized the results as map layers. For analytical work, it is also useful to plot the data in charts. For understanding temporal dynamics, which is a common desire when working with remote sensing, you will want a line graph that shows quantities of a variable over time, commonly known as a time series graph.</p>
+<div class="section" id="quick-caveat-on-charts-with-the-earth-engine-python-api">
+<h2>Quick caveat on charts with the Earth Engine Python API<a class="headerlink" href="#quick-caveat-on-charts-with-the-earth-engine-python-api" title="Permalink to this headline">¶</a></h2>
+<p>Google Earth Engine (GEE) provides a User-Interface (UI) <a href="https://developers.google.com/earth-engine/guides/charts">module for creating charts</a> directly in the Editor. It’s built on the <a href="https://developers.google.com/chart/interactive/docs/reference">Google Visualization API</a> if you’re familiar with that in other Google products.</p>
+<p>Unfortunately, the UI module is not availabe through the Python API, including the <code class="docutils literal notranslate"><span class="pre">ee</span></code> library, but we’ll introduce some Python-centric approaches to extracting and visualizing data.</p>
+<p>As an additional constraint, plotting data in this manner requires you to actually extract data from its location on Google servers (“in the cloud”) to your local machine for visualization. Just as with any data extraction, there are constraints to how much data you can actually move, so it will be prohibitive to plot very large scenes.</p>
+<p>This is a limitation of using the Python API, but for our tutorial, we’ll make sure you’re familiar with the basic concepts you can use to advance to working with larger, more complex data. If you find you are hitting limits, you will want to look into using the native GEE Editor (i.e. conducting your entire workflow within the cloud) – as mentioned, <a href="https://developers.google.com/earth-engine/apidocs">it has comprehensive documentation</a>. Or you might consider investing in resources, time, and training to extract and process this data yourself. This is becoming easier to do and the full world of remote sensing analysis awaits you! But is out of the scope of this tutorial.</p>
+<p>In this exercise, we will create a simple time series for VIIRS-DNB values at a specific location. We’ll also build on what we’ve learned reduce data for a region, such as in <a class="reference internal" href="mod4_2_cell_statistics_band_math.html"><span class="doc">Cell statistics and basic band math (10 min)</span></a>, to create time series for an entire region.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul class="simple">
+<li><p>Make sure you have Python, Jupyter notebooks, and <code class="docutils literal notranslate"><span class="pre">ee</span></code> and <code class="docutils literal notranslate"><span class="pre">geemap</span></code> installed and are familiar with these packages</p></li>
+<li><p>If not, you’ll want to review:</p>
+<ul>
+<li><p><span class="xref std std-doc">mod2_1_getting_started_with_Python</span></p></li>
+<li><p><span class="xref std std-doc">mod2_2_introduction_to_Jupyter_notebooks</span></p></li>
+<li><p><span class="xref std std-doc">mod2_3_introduction_to_GEE</span></p></li>
+</ul>
+</li>
+<li><p>You may also want to try this exercise to get familiar with GEE and the Python <code class="docutils literal notranslate"><span class="pre">geemap</span></code> and <code class="docutils literal notranslate"><span class="pre">ee</span></code> libraries:</p>
+<ul>
+<li><p><span class="xref std std-doc">mod2_4_practical_exercise-image_visualization</span></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Our tasks in this exercise:</strong></p>
+<ol class="simple">
+<li><p>Extracting VIIRS time series data and converting to a pandas dataframe</p></li>
+<li><p>Create a 2014-2020 time series graph from VIIRS-DNB data for a point in Seoul, South Korea</p></li>
+<li><p>Create a 2014-2020 time series graph for Sum Of Lights (SOL) for South Korea</p></li>
+</ol>
+</div>
+<div class="section" id="extract-time-series-data-and-convert-to-pandas-dataframe">
+<h2>Extract time series data and convert to pandas dataframe<a class="headerlink" href="#extract-time-series-data-and-convert-to-pandas-dataframe" title="Permalink to this headline">¶</a></h2>
+<p>Those familiar with Python know that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is an indespensible library, a package data analysis built on another indispensible package, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. We will extract the data from our raster file of VIIRS-DNB radiance and convert it into a pandas dataframe in our local computing space so that we can use a plot libraries, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to make our line graph.</p>
+<p>First we define our point of interest: the location of Seoul Olympic Stadium (a.k.a. Jamsil Olympic Stadium). Technically we’ll pick a lat/lon coordinate in the stadium and create a 500m buffer around it.</p>
+<p>Then we’ll grab a collection of VIIRS-DNB monthly composites from January 2014 to May 2020.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geemap</span><span class="o">,</span> <span class="nn">ee</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="k">try</span><span class="p">:</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+
+<span class="c1"># identify a 500 meter buffer around our Point Of Interest (POI)</span>
+<span class="n">poi</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mf">127.072483</span><span class="p">,</span> <span class="mf">37.515817</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">viirs</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s2">&quot;NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2014-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;2020-5-31&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">a1411b0c8d14</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">try</span><span class="p">:</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="extracting-all-image-values-in-the-collection">
+<h3>Extracting all image values in the collection<a class="headerlink" href="#extracting-all-image-values-in-the-collection" title="Permalink to this headline">¶</a></h3>
+<p>To make a time series, we need to get all the values in our collection using the <code class="docutils literal notranslate"><span class="pre">map</span></code> function. We’ll create a custom function in Python that takes a single image as an input and reduces the data in a given region (our point of interest in this case).</p>
+<p>We’ll get the mean of the pixels in our region and set the scale to 30. We’ll use the <code class="docutils literal notranslate"><span class="pre">avg_rad</span></code> band.</p>
+<p>We’ll then need to set this reduced info as a property (we’ll call it “mean”) in our image so that the output of our function is to get the mean radiance of a particular region, and add this as a property on our image along with the date.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">poi_mean</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="n">reducer</span><span class="o">=</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">geometry</span><span class="o">=</span><span class="n">poi</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;avg_rad&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">format</span><span class="p">())</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We map this function to every image in our collection to get a new ImageCollection, but now each image has the mean value for the region of interest and the date. These are the data we’ll make our time series out of.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poi_reduced_imgs</span> <span class="o">=</span> <span class="n">viirs</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">poi_mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To convert to a pandas dataframe, we dont want an ImageCollection; however, so we will reduce our images to a list of lists:</p>
+<ul class="simple">
+<li><p>for each image, we have a 2-element list that contains that images date and mean value (for our point of interest)</p></li>
+<li><p>each of these lists are themselves elements in our outer list, which is what we’ll convert to a dataframe</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nested_list</span> <span class="o">=</span> <span class="n">poi_reduced_imgs</span><span class="o">.</span><span class="n">reduceColumns</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">toList</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This nested list can be turned into a dataframe using the <code class="docutils literal notranslate"><span class="pre">.DataFrame</span></code> constructor. We’ll name the columns, “date” and “mean”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dont forget we need to call the callback method &quot;getInfo&quot; to retrieve the data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nested_list</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2014-01-01T00:00:00</td>
+      <td>61.927905</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2014-02-01T00:00:00</td>
+      <td>51.591837</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2014-03-01T00:00:00</td>
+      <td>51.378309</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2014-04-01T00:00:00</td>
+      <td>59.228776</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2014-05-01T00:00:00</td>
+      <td>63.510432</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>2020-01-01T00:00:00</td>
+      <td>44.474762</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>2020-02-01T00:00:00</td>
+      <td>38.256775</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>2020-03-01T00:00:00</td>
+      <td>46.065028</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>2020-04-01T00:00:00</td>
+      <td>45.411734</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>2020-05-01T00:00:00</td>
+      <td>35.520984</td>
+    </tr>
+  </tbody>
+</table>
+<p>77 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>Great! Now we have a dataframe with each observation (month) as a row and it has the timestamp and mean values.</p>
+<p>A reason pandas is so powerful is that it has built-ins, like a method to convert our string timestamp into a native timestamp data type.</p>
+<p>We will also set our date column to be our index. Doing these things allows our <code class="docutils literal notranslate"><span class="pre">.plot</span></code> library to automatically convert the dates into nice readable dates on our axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-01-01</th>
+      <td>61.927905</td>
+    </tr>
+    <tr>
+      <th>2014-02-01</th>
+      <td>51.591837</td>
+    </tr>
+    <tr>
+      <th>2014-03-01</th>
+      <td>51.378309</td>
+    </tr>
+    <tr>
+      <th>2014-04-01</th>
+      <td>59.228776</td>
+    </tr>
+    <tr>
+      <th>2014-05-01</th>
+      <td>63.510432</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-01-01</th>
+      <td>44.474762</td>
+    </tr>
+    <tr>
+      <th>2020-02-01</th>
+      <td>38.256775</td>
+    </tr>
+    <tr>
+      <th>2020-03-01</th>
+      <td>46.065028</td>
+    </tr>
+    <tr>
+      <th>2020-04-01</th>
+      <td>45.411734</td>
+    </tr>
+    <tr>
+      <th>2020-05-01</th>
+      <td>35.520984</td>
+    </tr>
+  </tbody>
+</table>
+<p>77 rows × 1 columns</p>
+</div></div></div>
+</div>
+<p>OK! Now we’re ready to make a plot.</p>
+</div>
+</div>
+<div class="section" id="create-a-time-series-graph-for-viirs-dnb-from-jan-2014-to-may-2020-for-seoul-olympic-stadium">
+<h2>Create a time series graph for VIIRS-DNB from Jan 2014 to May 2020 for Seoul Olympic Stadium<a class="headerlink" href="#create-a-time-series-graph-for-viirs-dnb-from-jan-2014-to-may-2020-for-seoul-olympic-stadium" title="Permalink to this headline">¶</a></h2>
+<p>We’ll create a time series, but first let’s get a look at where we’re analyzing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koreaMap</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">koreaMap</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">poi</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">koreaMap</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;SATELLITE&quot;</span><span class="p">)</span>
+<span class="n">koreaMap</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">poi</span><span class="p">,</span> <span class="p">{},</span> <span class="s2">&quot;Seoul Olympic Stadium&quot;</span><span class="p">)</span>
+<span class="n">koreaMap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "b8041cfe6eef42ff82a89e78b3ab3640", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p>Our buffer encompasses almost the entire complex. Ok, let’s look at times series graphs…</p>
+<p>Pandas dataframes integrates nicely with our plotting libraries. We’ll use <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> to make a simple time series line plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we create a figure with pyplot and set the dimensions to 15 x 7</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="c1"># we&#39;ll create the plot by setting our dataframe to the data argument</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># we&#39;ll set the labels and title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;mean radiance&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Monthly mean radiance for Seoul Olympic Stadium (Jan 2014 to May 2020)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mod5_1_time_series_charts_15_0.png" src="../_images/mod5_1_time_series_charts_15_0.png" />
+</div>
+</div>
+<p><strong>Brief observations:</strong> we see some strong seasonal patterns here (peaks and values), which is perhaps not too surprising for a sports stadium. We also see a spike in late 2018 as well as the drop-off in early 2020 that is very likely an indication of COVID-19 impacts.</p>
+<p>Just out of curiousity…what is that spike? With dataframes we can easily find the date of that peak using the <code class="docutils literal notranslate"><span class="pre">.idxmax()</span></code> method to get the index (which is the month) of our maximum value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean   2018-09-01
+dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hm, what was happening in September 2018? As it happens, 2018 is the 30th anniversary of the Seoul Olympics…perhaps there were a lot of events and concerts?</p>
+<p>With our time series data, we can also smooth our time series (this is again, easy with Pandas. We’ll get a moving avg of 12 months to smooth our data out and see overall trends):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="c1"># we&#39;ll plot the moving averate using &quot;.rolling&quot; and set a window of 12 months</span>
+<span class="n">window</span><span class="o">=</span><span class="mi">12</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="c1"># we&#39;ll set the labels and title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;mean radiance&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Monthly mean radiance (</span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s1"> moving avg.) for Seoul Olympic Stadium (Jan 2014 to May 2020)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mod5_1_time_series_charts_19_0.png" src="../_images/mod5_1_time_series_charts_19_0.png" />
+</div>
+</div>
+<p>We can see an overall trend that does seem to be decreasing, aside from our 2018 spike.</p>
+<p>These’s a lot you can do for time series analysis, including a Fourier Transform to identify strong cycles or even ARIMA models or more complex models to forecast trends. We wont get into that here, but hopefully you can see the power of remote sensing to support time series analysis.</p>
+</div>
+<div class="section" id="time-series-using-sum-of-lights-from-jan-2014-to-may-2020-for-south-korea">
+<h2>Time series using Sum Of Lights from Jan 2014 to May 2020 for South Korea<a class="headerlink" href="#time-series-using-sum-of-lights-from-jan-2014-to-may-2020-for-south-korea" title="Permalink to this headline">¶</a></h2>
+<p>Recall in <a class="reference internal" href="mod4_5_vector_and_raster_data.html"><span class="doc">Working with vector and raster data (10 min)</span></a> that we are cautious about calculating SOL for comparing regions since the scale of the reducer function can profoundly affect the aggregation; however, here we’re comparing the same region over time, so we’re comfortable using SOL.</p>
+<p>We will use the shapefile for South Korea in GEE and instead of using our mean reducer on a point of interest, we’ll apply a sum reducer on all of South Korea. We’ll adjust the scale to 500 meters and we’ll have to set the <code class="docutils literal notranslate"><span class="pre">maxPixels</span></code> threshold to 1 billion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get South Korea national boundary geometry</span>
+<span class="n">sokorea</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s2">&quot;FAO/GAUL/2015/level0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;ADM0_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;Republic of Korea&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">first</span><span class="p">())</span>
+
+<span class="c1"># revise our reducer function to be to get SOL for South Korea</span>
+<span class="k">def</span> <span class="nf">get_sokorea_sol</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="n">reducer</span><span class="o">=</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">geometry</span><span class="o">=</span><span class="n">sokorea</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span> <span class="n">scale</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">maxPixels</span><span class="o">=</span><span class="mf">1e9</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;avg_rad&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">format</span><span class="p">())</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;SOL&#39;</span><span class="p">,</span><span class="n">sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At this point, the steps to map our reducer to our collection, reduce this further to nested lists, convert to a dataframe, and plot are the same, however!</p>
+<p>Getting the sum (even at 500m scale) will probably take a few moments…even with the infrastructure of Google at work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reduce collection</span>
+<span class="n">sokorea_sol</span> <span class="o">=</span> <span class="n">viirs</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">get_sokorea_sol</span><span class="p">)</span>
+
+<span class="c1"># get lists</span>
+<span class="n">nested_list</span> <span class="o">=</span> <span class="n">sokorea_sol</span><span class="o">.</span><span class="n">reduceColumns</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">toList</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;SOL&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># convert to dataframe</span>
+<span class="n">soldf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nested_list</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;SOL&#39;</span><span class="p">])</span>
+<span class="n">soldf</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">soldf</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+<span class="n">soldf</span> <span class="o">=</span> <span class="n">soldf</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s get a look at nighttime lights for South Korea (we’ll look at the median for our entire time period for visualization purposes…)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koreaMap2</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">koreaMap2</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">sokorea</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">koreaMap2</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;SATELLITE&quot;</span><span class="p">)</span>
+<span class="n">koreaMap2</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">sokorea</span><span class="p">,</span> <span class="p">{},</span> <span class="s2">&quot;South Korea&quot;</span><span class="p">)</span>
+<span class="n">koreaMap2</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">viirs</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;avg_rad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span> <span class="s2">&quot;VIIRS 2014-2020 mean&quot;</span><span class="p">)</span>
+<span class="n">koreaMap2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "85d1ed200b794c54855e5aae3b421bf4", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">soldf</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;SOL&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Monthly Sum Of Lights (SOL) for South Korea (Jan 2014 to May 2020)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mod5_1_time_series_charts_26_0.png" src="../_images/mod5_1_time_series_charts_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">window</span><span class="o">=</span><span class="mi">12</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">soldf</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;SOL&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Monthly SOL (</span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s1"> moving avg.) for South Korea (Jan 2014 to May 2020)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mod5_1_time_series_charts_27_0.png" src="../_images/mod5_1_time_series_charts_27_0.png" />
+</div>
+</div>
+<p>Smoothing out our time series, we see quite an upward trend. What is interesting is we do not see a dramatic drop in 2020 in our aggregated metric. We’ve talked about cleaning and scaling data – and that’s something we’d probably want to do here before drawing strong inferences, but again getting data from a series of raster files to a dataframe you can plot and analze is just the start!</p>
+</div>
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/mod5_1_time_series_charts-0"></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By World Bank, New Light Technologies, Inc.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

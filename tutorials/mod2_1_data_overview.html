@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Data overview (10 min) &#8212; Open Nighttime Lights</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Getting started with Python (10 min)" href="mod2_2_getting_started_with_Python.html" />
+    <link rel="prev" title="2. Introduction to nighttime light data (10 min)" href="mod1_2_introduction_to_nighttime_light_data.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/wb_logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Nighttime Lights</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 1 Introduction to remote sensing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_1_introduction_to_remote_sensing.html">
+   1. Introduction to remote sensing (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html">
+   2. Introduction to nighttime light data (10 min)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 2 Introduction to open data and tools
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Data overview (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_2_getting_started_with_Python.html">
+   2. Getting started with Python (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_3_introduction_to_Jupyter_notebooks.html">
+   3. Introduction to Jupyter notebooks (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_4_introduction_to_GEE.html">
+   4. Introduction to Google Earth Engine (GEE) (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_5_GEE_PythonAPI_and_geemap.html">
+   5. GEE Python API and geemap (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_6_practical_exercise-image_visualization.html">
+   6. Practical exercise: image visualization (10 min)
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod2_1_data_overview.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-structure">
+   1.1. Data Structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raster-files">
+     1.1.1. Raster files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vector-files">
+     1.1.2. Vector files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#brief-comparison-of-raster-vs-vector-data-models">
+     1.1.3. Brief comparison of raster vs vector data models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geotiffs">
+     1.1.4. GeoTIFFs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cloud-optimized-geotiffs-cogs">
+     1.1.5. Cloud-optimized geoTIFFs (COGs)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-world-bank-s-light-every-night-dataset">
+   1.2. The World Bank’s “Light Every Night” dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#components-of-the-len-archive">
+     1.2.1. Components of the LEN archive
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-that-is-analysis-ready">
+     1.2.2. Data that is “analysis ready”
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-access-and-tutorials">
+     1.2.3. Data access and tutorials
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   1.3. References:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-overview-10-min">
+<h1><span class="section-number">1. </span>Data overview (10 min)<a class="headerlink" href="#data-overview-10-min" title="Permalink to this headline">¶</a></h1>
+<p>In this module, we want to give you a little more specific information
+about the data we’ll be working with. First, it’s helpful to understand
+the basic data formats that are used with geospatial data analysis.</p>
+<div class="section" id="data-structure">
+<h2><span class="section-number">1.1. </span>Data Structure<a class="headerlink" href="#data-structure" title="Permalink to this headline">¶</a></h2>
+<p><strong>Raster vs. Vector data</strong></p>
+<p>Geospatial data from the “real world” can be stored in different types
+of formats or data types: In this course we will be working with two
+types of geospatial data stored as either a <strong>raster</strong> or a <strong>vector</strong> format.</p>
+<div class="section" id="raster-files">
+<h3><span class="section-number">1.1.1. </span>Raster files<a class="headerlink" href="#raster-files" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-info">
+Data stored in a <b>raster format</b> is arranged in a regular grid of cells, 
+without storing the coordinates of each point (namely, a cell, or a pixel). 
+The coordinates of the corner points and the spacing of the grid can 
+be used to calculate (rather than to store) the coordinates of each 
+location in the grid. Any given pixel in the grid stores one or more 
+values (in one or more bands).</div> 
+<p>A satellite image, an image you take with your camera or even a map layer
+you are looking at can be examples of geospatial data that are stored in a
+raster format. These images are composed of pixels that are organized in
+rows and columns, with values and location. The size of a given pixel
+depends on the spatial resolution of the sensor.</p>
+<p>Raster files are often composed out of multiple bands (channels).
+Each band represents, for example, the amount of electromagnetic
+radiation reflected from the surface on Earth
+along multiple regions of the electromagnetic spectrum.</p>
+<p>Raster data is typically used to represent continuous surfaces,
+where knowing the exact boundaries in high precision is of less importance.</p>
+</div>
+<div class="section" id="vector-files">
+<h3><span class="section-number">1.1.2. </span>Vector files<a class="headerlink" href="#vector-files" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-info">
+Data in a <b>vector format</b> is stored in a way that the X and Y 
+coordinates are stored for each point. Data can be represented, 
+for example, as points, lines and polygons. A point has only one coordinate 
+(X and Y), a line has two coordinates (at the start and end of the line) 
+and an area is essentially a line that closes on itself to enclose a region. 
+Polygons are usually used to represent the area and perimeter of a 
+continuous geographic features. Vector data stores features in their 
+original resolution, without aggregation.</div>
+</div>
+<div class="section" id="brief-comparison-of-raster-vs-vector-data-models">
+<h3><span class="section-number">1.1.3. </span>Brief comparison of raster vs vector data models<a class="headerlink" href="#brief-comparison-of-raster-vs-vector-data-models" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="rastervector1">
+<img alt="../_images/mod1-rastervector1.png" src="../_images/mod1-rastervector1.png" />
+</div>
+<div class="figure align-default" id="rastervector2">
+<img alt="../_images/mod1-rastervector2.png" src="../_images/mod1-rastervector2.png" />
+<p class="caption"><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Source: <a class="bibtex reference internal" href="mod4_5_vector_and_raster_data.html#joseph2014" id="id1">[Jos14]</a></span><a class="headerlink" href="#rastervector2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="geotiffs">
+<h3><span class="section-number">1.1.4. </span>GeoTIFFs<a class="headerlink" href="#geotiffs" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-info">
+A <b>tagged Image File Format (TIFF or TIF)</b> is a file format for storing raster files. 
+A GeoTIFF is a TIFF file that follows a specific standard for structuring meta-data, 
+such as georeference information (e.g. map coordinates) for the image. Most of the 
+remote sensing data you encounter will be stored as a GeoTIFF file and we will explore to 
+read these files later in the tutorial.</div>
+<p>The meta-data stored in a TIFF is called a <code class="docutils literal notranslate"><span class="pre">tif</span> <span class="pre">tag</span></code> and GeoTIFFs often contain tags including:</p>
+<ol class="simple">
+<li><p><strong>Spatial extent:</strong> what is the area coverage of this file?</p></li>
+<li><p><strong>Coordinate reference system:</strong> what projection / coordinate reference system is used?</p></li>
+<li><p><strong>Resolution:</strong> rasters contain pixels, so what is the spatial extent of each pixel (spatial resolution)?</p></li>
+<li><p><strong>Number of layers:</strong> how many layers or bands are in the file?</p></li>
+</ol>
+<div class="alert alert-success">
+<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/" 
+class="alert-link">This tutorial at earthdatascience.org</a> gives a good overview of GeoTIFFs as well as the libraries,
+such as Python's rasterio that are useful for accessing and manipulating this files.
+</div>
+<div class="alert alert-success">
+<a href="https://rasterio.readthedocs.io/en/latest/#" 
+class="alert-link">Rasterio</a> a Python library for reading and writing GeoTIFF files.
+</div>
+</div>
+<div class="section" id="cloud-optimized-geotiffs-cogs">
+<h3><span class="section-number">1.1.5. </span>Cloud-optimized geoTIFFs (COGs)<a class="headerlink" href="#cloud-optimized-geotiffs-cogs" title="Permalink to this headline">¶</a></h3>
+<div class="alert alert-info">
+<b>Cloud Optimized GeoTIFFS (COGs)</b>  are GeoTIFFs that have data structured in such a 
+way that you can query these files through a web service. The major advantage of this is 
+that you can query, analyze, visualize, or download just a part of a COG file online, 
+without downloading the entire file.
+</div>
+<p>It’s often the case with remote sensing analysis that you only need to view or analyze a
+particular area and the data that contains that area is in a very large file that contains a
+much larger region of the world. COGs allow you to query just the area that you’re interested
+in, saving you time and storage space.</p>
+</div>
+</div>
+<div class="section" id="the-world-bank-s-light-every-night-dataset">
+<h2><span class="section-number">1.2. </span>The World Bank’s “Light Every Night” dataset<a class="headerlink" href="#the-world-bank-s-light-every-night-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Currently, this tutorial focuses on nighttime lights datasets that are available publicly (via the Google Earth Engine data catalogue); however, the “Light Every Night” (LEN) data archive is going to be launched soon.</p>
+<p>The World Bank’s Light Every Night data set is a complete archive of all nighttime imagery captured each night over the last three decades. The underlying data is sourced from the NOAA/NCEI archive. The two sensors featured are the DMSP-OLS with data from 1992-2017, and the VIIRS-DNB with data spanning 2012-2020. The World Bank worked in collaboration with NOAA/NCEI and the University of Michigan to publish the archive as an Analysis Ready Data Set. The LEN archive, which now spans nearly 250 terabytes, will be openly available on the AWS open data program published under the World Bank’s open data license.</p>
+<div class="section" id="components-of-the-len-archive">
+<h3><span class="section-number">1.2.1. </span>Components of the LEN archive<a class="headerlink" href="#components-of-the-len-archive" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>DMSP-OLS nightly imagery (1993-2017, all nights):</p>
+<ul>
+<li><p>visible (VIS)</p></li>
+<li><p>thermal infrared (TIR)</p></li>
+<li><p>lunar illuminance (LI)</p></li>
+<li><p>cloud mask (CM)</p></li>
+<li><p>sample position (SAM)</p></li>
+<li><p>stray light mask (SLM)</p></li>
+</ul>
+</li>
+<li><p>VIIRS DNB nightly imagery (2012-2020, all nights):</p>
+<ul>
+<li><p>DNB radiance</p></li>
+<li><p>I5 (LWIR) radiance</p></li>
+<li><p>lunar illuminance</p></li>
+<li><p>sample position within DNB scan</p></li>
+<li><p>quality bitflag or “vflag” grid with on/off states for these fields:</p></li>
+<li><p>daytime/nighttime/near-terminator</p></li>
+<li><p>zero lunar illuminance</p></li>
+<li><p>viirs cloud mask</p></li>
+<li><p>nightfire detection</p></li>
+<li><p>lightning</p></li>
+<li><p>high energy particle hit</p></li>
+<li><p>stray light affected/corrected</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="data-that-is-analysis-ready">
+<h3><span class="section-number">1.2.2. </span>Data that is “analysis ready”<a class="headerlink" href="#data-that-is-analysis-ready" title="Permalink to this headline">¶</a></h3>
+<p>The data architecture was designed from the ground up to be analysis-ready. The data is published in the Cloud Optimized GeoTIFF format (COG), and organized using the SpatialTemporal Asset Catalog (STAC) standard. These standards are part of the growing <a href="https://medium.com/planet-stories/analysis-ready-data-defined-5694f6f48815">Analysis Ready Data ecosystem</a> that is improving access to geospatial data sets, enabling broader audiences to readily discover, process and analyze geospatial data.</p>
+<p>Analysis ready data has already undergone the transformations and preprocessing necessary to make data (in this case observations of electromagnetic energy collected in space!) organized and coherent for general technical users and analysts.</p>
+</div>
+<div class="section" id="data-access-and-tutorials">
+<h3><span class="section-number">1.2.3. </span>Data access and tutorials<a class="headerlink" href="#data-access-and-tutorials" title="Permalink to this headline">¶</a></h3>
+<p>This archive will be made available very shortly and soon thereafter, we will add more content to these modules about how to access and use this data.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2><span class="section-number">1.3. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/mod2_1_data_overview-0"><dl class="citation">
+<dt class="bibtex label" id="joseph2014"><span class="brackets"><a class="fn-backref" href="#id1">Jos14</a></span></dt>
+<dd><p>Julianna Joseph. <em>Vector and Raster Data Model Images</em>. 2014. URL: <a class="reference external" href="http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/">http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="mod1_2_introduction_to_nighttime_light_data.html" title="previous page"><span class="section-number">2. </span>Introduction to nighttime light data (10 min)</a>
+    <a class='right-next' id="next-link" href="mod2_2_getting_started_with_Python.html" title="next page"><span class="section-number">2. </span>Getting started with Python (10 min)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By World Bank, New Light Technologies, Inc.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

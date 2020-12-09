@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DMSP-OLS intercalibration (10 min) &#8212; Open Nighttime Lights</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/wb_logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Nighttime Lights</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 1 Introduction to remote sensing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_1_introduction_to_remote_sensing.html">
+   1. Introduction to remote sensing (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html">
+   2. Introduction to nighttime light data (10 min)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 2 Introduction to open data and tools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_1_data_overview.html">
+   1. Data overview (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_2_getting_started_with_Python.html">
+   2. Getting started with Python (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_3_introduction_to_Jupyter_notebooks.html">
+   3. Introduction to Jupyter notebooks (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_4_introduction_to_GEE.html">
+   4. Introduction to Google Earth Engine (GEE) (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_5_GEE_PythonAPI_and_geemap.html">
+   5. GEE Python API and geemap (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_6_practical_exercise-image_visualization.html">
+   6. Practical exercise: image visualization (10 min)
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod3_2_DMSP-OLS_intercalibration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tutorials/mod3_2_DMSP-OLS_intercalibration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review-the-calibration-coefficients-and-formula">
+   Review the calibration coefficients and formula
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apply-calibration-to-a-single-annual-composite-1996">
+   Apply calibration to a single annual composite: 1996
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#initialize-object-and-visualization">
+     Initialize object and visualization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-the-calibrated-images-with-a-plot">
+   Compare the calibrated images with a plot
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-an-image-to-a-numpy-array">
+     Converting an image to a numpy array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-python-s-seaborn-package-to-plot-the-distribution">
+     Use Python’s
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       seaborn
+      </span>
+     </code>
+     package to plot the distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thinking-programmically-creating-a-function-to-conduct-calibration">
+   Thinking programmically: creating a function to conduct calibration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-our-functions">
+     Define our functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-to-an-image">
+     Apply to an Image
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sanity-check-compare-plots">
+     Sanity check: compare plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-compare-another-year-2007">
+     Let’s compare another year: 2007
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="dmsp-ols-intercalibration-10-min">
+<h1>DMSP-OLS intercalibration (10 min)<a class="headerlink" href="#dmsp-ols-intercalibration-10-min" title="Permalink to this headline">¶</a></h1>
+<p>As described in <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html"><span class="doc">Introduction to nighttime light data (10 min)</span></a>, the DMSP-OLS sensors lacked on-board calibration, so there are noticeable variations from satellite to satellite. In order to adequately compare nighttime lights data across satellites, they must be calibrated.</p>
+<p>In this exercise, we’re going to calibrate DMSP-OLS data based on a method established by Elvidge et al. (2009) <a class="bibtex reference internal" href="mod4_3_expressions-PartB.html#elvidge2009fifteen" id="id1">[EZB+09]</a>.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul class="simple">
+<li><p>Make sure you have Python, Jupyter notebooks, and <code class="docutils literal notranslate"><span class="pre">ee</span></code> and <code class="docutils literal notranslate"><span class="pre">geemap</span></code> installed and are familiar with these packages</p></li>
+<li><p>If not, you’ll want to review:</p>
+<ul>
+<li><p><span class="xref std std-doc">mod2_1_getting_started_with_Python</span></p></li>
+<li><p><span class="xref std std-doc">mod2_2_introduction_to_Jupyter_notebooks</span></p></li>
+<li><p><span class="xref std std-doc">mod2_3_introduction_to_GEE</span></p></li>
+</ul>
+</li>
+<li><p>You may also want to try this exercise to get familiar with GEE and the Python <code class="docutils literal notranslate"><span class="pre">geemap</span></code> and <code class="docutils literal notranslate"><span class="pre">ee</span></code> libraries:</p>
+<ul>
+<li><p><span class="xref std std-doc">mod2_4_practical_exercise-image_visualization</span></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Our tasks in this exercise:</strong></p>
+<ol class="simple">
+<li><p>Review the calibration coefficients and formula used by Elvidge</p></li>
+<li><p>Apply calibration steps to a single annual composite: 1996</p></li>
+<li><p>Compare the differences between calibrated and non-calibrated images with a plot.</p></li>
+<li><p>Create a function that dynamically applies the calibration to a given DMSP-OLS image.</p></li>
+</ol>
+<div class="section" id="review-the-calibration-coefficients-and-formula">
+<h2>Review the calibration coefficients and formula<a class="headerlink" href="#review-the-calibration-coefficients-and-formula" title="Permalink to this headline">¶</a></h2>
+<p>The initial paper cited outlines the steps the authors took, if you’re interested in the details <a class="bibtex reference internal" href="mod4_3_expressions-PartB.html#elvidge2009fifteen" id="id2">[EZB+09]</a>. What’s important for our purposes here, is that they derived a set of coefficients that, when applied to each satellite in the DMSP series, corrects for the sensor variation and allows us to more accurately compare data.</p>
+<p>These coefficients map to the formula:
+<span class="math notranslate nohighlight">\(X' = C_{0} + C_{1}*X + C_{2}*X^{2}\)</span></p>
+<p>Where:</p>
+<ul class="simple">
+<li><p>X: the input image, represented as a 2-dimensional matrix (recall these images are panchromatic so there is only one channel of light)</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_{0}, C_{1}, C_{2}\)</span>: the calibration coefficients that are assigned to each satellite</p></li>
+<li><p>X’: the calibrated image</p></li>
+</ul>
+<p>The initial paper was written in 2009, even though DMSP-OLS data for several years after that are available publicly. We can get a more recent series of coefficients, through 2012, here (using the same method as the original 2009 paper):</p>
+<div class="figure align-default" id="intercalib-coefficients">
+<img alt="../_images/mod2-2-intercalib_coef.png" src="../_images/mod2-2-intercalib_coef.png" />
+<p class="caption"><span class="caption-text">DMSP-OLS intercalibration <a class="bibtex reference internal" href="mod4_3_expressions-PartB.html#jiang2017assessing" id="id3">[JHL+17]</a></span><a class="headerlink" href="#intercalib-coefficients" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Note:</strong> this method is fine for purposes of this tutorial, but it’s worth mentioning that there are several other methods to conduct this calibration as well. As you will see, no calibration is 100% perfect.</p>
+</div>
+<div class="section" id="apply-calibration-to-a-single-annual-composite-1996">
+<h2>Apply calibration to a single annual composite: 1996<a class="headerlink" href="#apply-calibration-to-a-single-annual-composite-1996" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initialize-object-and-visualization">
+<h3>Initialize object and visualization<a class="headerlink" href="#initialize-object-and-visualization" title="Permalink to this headline">¶</a></h3>
+<p>As previous tutorials, we’ll initialize a <code class="docutils literal notranslate"><span class="pre">geemap</span></code> object, get the DMSP-OLS 1996 composite and visualize it.</p>
+<p>For this exercise, we’ll use the “stable_lights” band.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import geemap and ee for our Python session</span>
+<span class="kn">import</span> <span class="nn">geemap</span><span class="o">,</span> <span class="nn">ee</span>
+
+<span class="k">try</span><span class="p">:</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+
+<span class="c1"># set our initial map parameters for Washington, DC</span>
+<span class="n">center_lat</span> <span class="o">=</span> <span class="mf">38.9072</span>
+<span class="n">center_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">77.0369</span>
+<span class="n">zoomlevel</span><span class="o">=</span><span class="mi">10</span>
+
+<span class="c1"># initialize our map</span>
+<span class="n">dmspMap</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="n">center_lat</span><span class="p">,</span><span class="n">center_lon</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="n">zoomlevel</span><span class="p">)</span>
+<span class="n">dmspMap</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s1">&#39;SATELLITE&#39;</span><span class="p">)</span>
+
+<span class="c1"># get 1996 composite, apply mask, and add as layer</span>
+<span class="n">dmsp1996</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;NOAA/DMSP-OLS/NIGHTTIME_LIGHTS/F121996&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;stable_lights&#39;</span><span class="p">)</span>
+<span class="n">dmspMap</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">dmsp1996</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">dmsp1996</span><span class="p">),</span> <span class="p">{},</span> <span class="s2">&quot;DMSP-OLS 1996&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display our map</span>
+<span class="n">dmspMap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "82680a8206bb4e4a87df4ced36227ea3"}
+</script></div>
+</div>
+<p>For 1996, there is only one satellite, F12, so we can reference the appropriate coefficients for F121996 from our table above:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C_{0}\)</span> = -0.0959</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_{1}\)</span> = 1.2727</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_{2}\)</span> = -0.0040</p></li>
+</ul>
+<p>GEE has an <code class="docutils literal notranslate"><span class="pre">.expression()</span></code> method which allows us to plug our formula in with these coefficients and get an adjusted image.</p>
+<p>We add our coefficients to the appropriate terms of the polynomial and set our input image as the X variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dmsp1996_clbr</span> <span class="o">=</span> <span class="n">dmsp1996</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s1">&#39;-0.0959 + (1.2727 * X) + (-0.0040 * X * X)&#39;</span><span class="p">,{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span><span class="n">dmsp1996</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;stable_lights&#39;</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This calibration adjusts the value of the Digital Number (DN)and in some cases, it will cause a pixel’s value to go above 63. We also have pixels with DN’s of less than 6. We’ll cap the DNs at 63 and replace any values below 6 with 0s.</p>
+<p>Let’s clip our calibrated image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dmsp1996_clbr</span> <span class="o">=</span> <span class="n">dmsp1996_clbr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dmsp1996_clbr</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">63</span><span class="p">),</span><span class="mi">63</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dmsp1996_clbr</span><span class="o">.</span><span class="n">lte</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s also create a clipped version of the original image so we can compare distributions (but we are not calibrating it).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dmsp1996_clip</span> <span class="o">=</span> <span class="n">dmsp1996</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dmsp1996</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">63</span><span class="p">),</span><span class="mi">63</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dmsp1996</span><span class="o">.</span><span class="n">lte</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compare-the-calibrated-images-with-a-plot">
+<h2>Compare the calibrated images with a plot<a class="headerlink" href="#compare-the-calibrated-images-with-a-plot" title="Permalink to this headline">¶</a></h2>
+<p>A good way to compare a two images is with the distribution of the DN values, such as a basic histogram or probability density plot. Google Earth Engine has options for plotting images in the JavaScript editor, but they’re not available for the Python API. So we’ll have to do a couple steps to make a plot.</p>
+<div class="section" id="converting-an-image-to-a-numpy-array">
+<h3>Converting an image to a numpy array<a class="headerlink" href="#converting-an-image-to-a-numpy-array" title="Permalink to this headline">¶</a></h3>
+<p>You can use the Google Earth Engine’s Python API <code class="docutils literal notranslate"><span class="pre">ee.Image.sampleRectangle()</span></code> method to convert a specific map object, such as a map layer, to a numerical array that we can plot. Conveniently, <code class="docutils literal notranslate"><span class="pre">geemap</span></code> has a method <code class="docutils literal notranslate"><span class="pre">ee_to_numpy</span></code> that also converts the array to a numpy array.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">geemap.ee_to_numpy</span></code> method takes as its first argument the specific <code class="docutils literal notranslate"><span class="pre">ee</span></code> object you want to convert to an array: in this case we’ll extract both our <code class="docutils literal notranslate"><span class="pre">dmsp1996_clip</span></code> (non-calibrated and clipped) and our <code class="docutils literal notranslate"><span class="pre">dmsp1996_clbr</span></code> (calibrated and clipped) layers.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">geemap.ee_to_numpy</span></code> method also takes a <code class="docutils literal notranslate"><span class="pre">region</span></code> argument that defines the region you are creating your array from. For good reason, the API restricts the size of data you can download so you can’t convert the entire raster file to an array directly into your notebook – that’s why we’re selecting a rectangle region.</p>
+<p>We’ll use a bounding box that covers Washington DC and Baltimore to define our region.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define our rectangle that covers DC/Baltimore area</span>
+<span class="n">myPolyGeom</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Geometry</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">([</span><span class="o">-</span><span class="mf">78.243025</span><span class="p">,</span> <span class="mf">38.317633</span><span class="p">,</span><span class="o">-</span><span class="mf">75.724436</span><span class="p">,</span> <span class="mf">39.521098</span><span class="p">])</span><span class="o">.</span><span class="n">toGeoJSON</span><span class="p">()</span>
+    
+
+<span class="c1"># convert both the clipped DMSP-OLS 1996 layer and the calibrated layer to numpy arrays</span>
+<span class="n">dmsp1996_arr</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_to_numpy</span><span class="p">(</span><span class="n">dmsp1996_clip</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">myPolyGeom</span><span class="p">)</span>
+<span class="n">dmsp1996_clbr_arr</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_to_numpy</span><span class="p">(</span><span class="n">dmsp1996_clbr</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">myPolyGeom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dmsp1996_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(44238,)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="use-python-s-seaborn-package-to-plot-the-distribution">
+<h3>Use Python’s <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> package to plot the distribution<a class="headerlink" href="#use-python-s-seaborn-package-to-plot-the-distribution" title="Permalink to this headline">¶</a></h3>
+<p>We’ll get into the plotting packages available in a later tutorial when we focus on creating plots. For now, we’ll just use the <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> package and the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> packages to create a simple probability density plot that compares the distribution of our two layers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmsp1996_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;non-calibrated&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmsp1996_clbr_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;calibrated&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of DMSP-OLS 1996 composite calibrated vs non (smoothed w/ Gaussian kernel)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">0</span><span class="n">a245eefe305</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmsp1996_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;non-calibrated&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Brief observations:</strong> You can see that while both layers show a similar distribution, the calibration impacts the distribution (it seems to shift the distribution rightward, i.e. increases the values somewhat).</p>
+<p>Note that this distribution was smoothed for better visualization, which is why you have values less than 0 and higher than 63 for DN (x axis).</p>
+</div>
+</div>
+<div class="section" id="thinking-programmically-creating-a-function-to-conduct-calibration">
+<h2>Thinking programmically: creating a function to conduct calibration<a class="headerlink" href="#thinking-programmically-creating-a-function-to-conduct-calibration" title="Permalink to this headline">¶</a></h2>
+<p>We just calibrated a single annual composite by hard-coding the expression to show what’s happening, but in general this is a <strong>bad idea.</strong> Rather, we should create a function, which is better for two very important reasons:</p>
+<ul class="simple">
+<li><p>functions are more efficient and reduce repetition when coding (especially if you want to a calibrate many images)</p></li>
+<li><p>they reduce the chance of human error when hand-writing or cutting-and-pasting data, such as our calibration coefficients or satellite names. Imagine the potential for error if you had to hand-copy each calibration coefficient every time you wrote the expression.</p></li>
+</ul>
+<p>We’ve created a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file of our calibration coeffients, saved in this GitHub repo at <code class="docutils literal notranslate"><span class="pre">files/Elvidge_DMSP_intercalib.csv</span></code>. We’re going to create a series of functions that get the satellite name and year from the Image itself, look up that particular satellite-year’s calibration coefficients from our table, apply them to the image, and finally, clip the low and high DN values as we did before.</p>
+<p>We can then use this function on any Image in our ImageCollection to return a calibrated and clipped version.</p>
+<div class="section" id="define-our-functions">
+<h3>Define our functions<a class="headerlink" href="#define-our-functions" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the calibration coefficients reference file</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">coef</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;files/Elvidge_DMSP_intercalib_coef.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># define a function that takes an image, gets its name, and returns its coefficients</span>
+<span class="k">def</span> <span class="nf">get_coefs</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">coefdata</span><span class="o">=</span><span class="n">coef</span><span class="p">):</span>
+    <span class="n">imgID</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">id</span><span class="p">()</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">coefdata</span><span class="p">[</span><span class="s1">&#39;satellite&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">coefdata</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">==</span><span class="n">imgID</span>
+    <span class="k">return</span> <span class="n">coefdata</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c0&#39;</span><span class="p">,</span><span class="s1">&#39;c1&#39;</span><span class="p">,</span><span class="s1">&#39;c2&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># define a function that wraps the ee.Image native &quot;expression&quot; function </span>
+<span class="c1"># and passess the image coefficients as arguments to return the calibrated image</span>
+<span class="k">def</span> <span class="nf">calibrate_img</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="n">get_coefs</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">expression</span><span class="p">(</span><span class="s2">&quot;c0 + (c1 * X) + (c2 * X**2)&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span><span class="n">img</span><span class="p">,</span> <span class="s1">&#39;c0&#39;</span><span class="p">:</span><span class="n">c0</span><span class="p">,</span> <span class="s1">&#39;c1&#39;</span><span class="p">:</span><span class="n">c1</span><span class="p">,</span> <span class="s1">&#39;c2&#39;</span><span class="p">:</span><span class="n">c2</span><span class="p">})</span>
+
+<span class="c1"># define a function that clips images</span>
+<span class="k">def</span> <span class="nf">clip_img</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">upper_thresh</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span> <span class="n">upper_set</span><span class="o">=</span><span class="mi">63</span><span class="p">,</span> <span class="n">lower_thresh</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">lower_set</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">upper_thresh</span><span class="p">),</span><span class="n">upper_set</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">lte</span><span class="p">(</span><span class="n">lower_thresh</span><span class="p">),</span><span class="n">lower_set</span><span class="p">)</span>
+
+<span class="c1"># wrap these in a single function using defaults</span>
+<span class="k">def</span> <span class="nf">calibrate_and_clip</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">clip_img</span><span class="p">(</span><span class="n">calibrate_img</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="apply-to-an-image">
+<h3>Apply to an Image<a class="headerlink" href="#apply-to-an-image" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have created our single function, <code class="docutils literal notranslate"><span class="pre">calibrate_and_clip()</span></code> that takes a single input, an ee.Image object, we can apply it to any Image we’ve created, without having to manually look up the calibration coefficients or even the satellite name. We can get that directly from the image object itself!</p>
+<p>For example, let’s take our 1996 composite (which we created above), and return a calibrated image, just as before, but this time using our new function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a calibrated and clipped version from our 1996 composite but with our new function</span>
+<span class="n">dmsp1996_clbr2</span> <span class="o">=</span> <span class="n">calibrate_and_clip</span><span class="p">(</span><span class="n">dmsp1996</span><span class="p">)</span>
+
+<span class="c1"># let&#39;s create an array from this new image, just as before, so we can plot the distribution</span>
+<span class="n">dmsp1996_clbr2_arr</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_to_numpy</span><span class="p">(</span><span class="n">dmsp1996_clbr2</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">myPolyGeom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sanity-check-compare-plots">
+<h3>Sanity check: compare plots<a class="headerlink" href="#sanity-check-compare-plots" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s compare the density plots of our new calibrated image <code class="docutils literal notranslate"><span class="pre">dmsp1996_clbr2</span></code> with the calibration we did manually before, <code class="docutils literal notranslate"><span class="pre">dmsp1996_clbr</span></code> – they should be exactly the same!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmsp1996_clbr_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;first calibration (manual)&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmsp1996_clbr2_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;second calibration (function)&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of two calibrated 1996 composites (smoothed)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mod3_2_DMSP-OLS_intercalibration_19_0.png" src="../_images/mod3_2_DMSP-OLS_intercalibration_19_0.png" />
+</div>
+</div>
+<p>Indeed, they are exactly the same!</p>
+<p>In fact, the difference when subracting one array from the other is exactly zero for element in the array (i.e. pixel in the image):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dmsp1996_clbr_arr</span> <span class="o">-</span> <span class="n">dmsp1996_clbr2_arr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[0.],
+        [0.],
+        [0.],
+        ...,
+        [0.],
+        [0.],
+        [0.]],
+
+       [[0.],
+        [0.],
+        [0.],
+        ...,
+        [0.],
+        [0.],
+        [0.]],
+
+       [[0.],
+        [0.],
+        [0.],
+        ...,
+        [0.],
+        [0.],
+        [0.]],
+
+       ...,
+
+       [[0.],
+        [0.],
+        [0.],
+        ...,
+        [0.],
+        [0.],
+        [0.]],
+
+       [[0.],
+        [0.],
+        [0.],
+        ...,
+        [0.],
+        [0.],
+        [0.]],
+
+       [[0.],
+        [0.],
+        [0.],
+        ...,
+        [0.],
+        [0.],
+        [0.]]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="let-s-compare-another-year-2007">
+<h3>Let’s compare another year: 2007<a class="headerlink" href="#let-s-compare-another-year-2007" title="Permalink to this headline">¶</a></h3>
+<p>This year has data from two overlapping satellites: F15 and F16, so can actually compare how calibration impacts them both.</p>
+<p>First we’ll retrieve and plot the intial composites:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initial images</span>
+<span class="n">dmspF152007</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;NOAA/DMSP-OLS/NIGHTTIME_LIGHTS/F152007&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;stable_lights&#39;</span><span class="p">)</span>
+<span class="n">dmspF162007</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;NOAA/DMSP-OLS/NIGHTTIME_LIGHTS/F162007&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;stable_lights&#39;</span><span class="p">)</span>
+
+<span class="c1"># convert to arrays and plot</span>
+<span class="n">dmspF152007_arr</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_to_numpy</span><span class="p">(</span><span class="n">dmspF152007</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">myPolyGeom</span><span class="p">)</span>
+<span class="n">dmspF162007_arr</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_to_numpy</span><span class="p">(</span><span class="n">dmspF162007</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">myPolyGeom</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmspF152007_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;F15 2007&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmspF162007_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;F16 2007&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability density of 2007 annual composite for F15 and F16 satellites&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mod3_2_DMSP-OLS_intercalibration_23_0.png" src="../_images/mod3_2_DMSP-OLS_intercalibration_23_0.png" />
+</div>
+</div>
+<p>While they are similar, you can see there is indeed a noticeable difference, particularly in lower and upper ranges, for example they diverge above about 50 DN.</p>
+<p>If you were comparing city lights, which would be in that upper range range, above 50 DN, you might see a difference that is attributed not to actual observed light, but to the difference in sensors.</p>
+<p>Now let’s calibrate them both.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calibrate both images</span>
+<span class="n">dmspF152007_clbr</span> <span class="o">=</span> <span class="n">calibrate_and_clip</span><span class="p">(</span><span class="n">dmspF152007</span><span class="p">)</span>
+<span class="n">dmspF162007_clbr</span> <span class="o">=</span> <span class="n">calibrate_and_clip</span><span class="p">(</span><span class="n">dmspF162007</span><span class="p">)</span>
+
+<span class="c1"># convert to arrays and plot histograms</span>
+<span class="n">dmspF152007_clbr_arr</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_to_numpy</span><span class="p">(</span><span class="n">dmspF152007_clbr</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">myPolyGeom</span><span class="p">)</span>
+<span class="n">dmspF162007_clbr_arr</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_to_numpy</span><span class="p">(</span><span class="n">dmspF162007_clbr</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">myPolyGeom</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmspF152007_clbr_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;F15 2007 (calibrated)&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">dmspF162007_clbr_arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;F16 2007 (calibrated)&#39;</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability density of 2007 annual composite for F15 and F16 satellites after calibration&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mod3_2_DMSP-OLS_intercalibration_25_0.png" src="../_images/mod3_2_DMSP-OLS_intercalibration_25_0.png" />
+</div>
+</div>
+<p>They are not a perfect match (keep in mind, the calibration is still just an approximation!) but you can see that noticeable dviergence is now gone and the two images are very nearly aligned in the top part of the range and closer at the very low end of the range.</p>
+<p>Calibration has made our composites across satellites more comparable!</p>
+<p>This just scratched the surface in terms of intercalibration, which can be complicated as the methods and models get more complex. But hopefully this simple calibration allows you to get a more comparable time series with the DMSP-OLS data.</p>
+<p>Also, you may have thought it would be nice to see an actual plot of time series data, since that’s what we’re talking about. Well no fear, we will cover that in another tutorial…stay tuned!</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/mod3_2_DMSP-OLS_intercalibration-0"><dl class="citation">
+<dt class="bibtex label" id="elvidge2009fifteen"><span class="brackets">EZB+09</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>Christopher D Elvidge, Daniel Ziskin, Kimberly E Baugh, Benjamin T Tuttle, Tilottama Ghosh, Dee W Pack, Edward H Erwin, and Mikhail Zhizhin. A fifteen year record of global natural gas flaring derived from satellite data. <em>Energies</em>, 2(3):595–622, 2009.</p>
+</dd>
+<dt class="bibtex label" id="jiang2017assessing"><span class="brackets"><a class="fn-backref" href="#id3">JHL+17</a></span></dt>
+<dd><p>Wei Jiang, Guojin He, Tengfei Long, Chen Wang, Yuan Ni, and Ruiqi Ma. Assessing light pollution in china based on nighttime light imagery. <em>Remote Sensing</em>, 9(2):135, 2017.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By World Bank, New Light Technologies, Inc.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

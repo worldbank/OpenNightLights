@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Introduction to Google Earth Engine (GEE) (5 min) &#8212; Open Nighttime Lights</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. GEE Python API and geemap (5 min)" href="mod2_5_GEE_PythonAPI_and_geemap.html" />
+    <link rel="prev" title="3. Introduction to Jupyter notebooks (10 min)" href="mod2_3_introduction_to_Jupyter_notebooks.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/wb_logo.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Open Nighttime Lights</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../welcome.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 1 Introduction to remote sensing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_1_introduction_to_remote_sensing.html">
+   1. Introduction to remote sensing (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html">
+   2. Introduction to nighttime light data (10 min)
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Module 2 Introduction to open data and tools
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_1_data_overview.html">
+   1. Data overview (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_2_getting_started_with_Python.html">
+   2. Getting started with Python (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_3_introduction_to_Jupyter_notebooks.html">
+   3. Introduction to Jupyter notebooks (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Introduction to Google Earth Engine (GEE) (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_5_GEE_PythonAPI_and_geemap.html">
+   5. GEE Python API and geemap (5 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_6_practical_exercise-image_visualization.html">
+   6. Practical exercise: image visualization (10 min)
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod2_4_introduction_to_GEE.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tutorials/mod2_4_introduction_to_GEE.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#google-earth-engine-gee-overview">
+   4.1. Google Earth Engine (GEE) Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gee-access">
+   4.2. GEE Access
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gee-code-editor">
+     4.2.1. GEE Code editor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-to-know-the-data">
+     4.2.2. Get to know the data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   4.3. References:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-google-earth-engine-gee-5-min">
+<h1><span class="section-number">4. </span>Introduction to Google Earth Engine (GEE) (5 min)<a class="headerlink" href="#introduction-to-google-earth-engine-gee-5-min" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="google-earth-engine-gee-overview">
+<h2><span class="section-number">4.1. </span>Google Earth Engine (GEE) Overview<a class="headerlink" href="#google-earth-engine-gee-overview" title="Permalink to this headline">¶</a></h2>
+<div class="alert alert-success">
+<a href="https://earthengine.google.com/" class="alert-link">Google Earth Engine (GEE)</a> is a cloud-based platform for planetary-scale geospatial analysis which allows to process a variety of geographical data at scale and handle large geographical datasets. 
+</div>
+<p>Since geographical data are often large and complicated to store, GEE provides a quickly accessible collection of ready-to-use data products. In addition, it is open and free to the public (for non-commercial use).</p>
+<p>GEE consists of a multi-petabyte “ready-to-use” data catalog alongside a high-performance, intrinsically parallel computation service. It can be accessed and controlled through an Internet-accessible application programming interface (API) and an associated web-based interactive development environment (IDE) that enables rapid prototyping and visualization of results <a class="bibtex reference internal" href="#gorelick2017google" id="id1">[GHD+17]</a>.</p>
+<p>Because all the datasets are available on the GEE platform, there is no need to manage the data, download them, change the file format, or update the geographic projection. It uses the power of thousands of computers located in Google data centers to carry out its heavy processing. This distributed network allows the user to finish a task in a few minutes for small areas and few days for a world-scale study.</p>
+<p>GEE provides access to numerous remotely sensed datasets and derived products, including DMSP-OLS and VIIRS DNB. Some of the data is already provided  in the platform processed and “ready-to-use”.</p>
+<div class="alert alert-success">
+<a href="https://groups.google.com/u/1/g/google-earth-engine-developers?pli=1" class="alert-link">The GEE developer forum</a> is a very helpful resource for beginners. On this forum it is possible to directly ask a question to the GEE community including GEE programmers and founders. 
+</div>
+</div>
+<div class="section" id="gee-access">
+<h2><span class="section-number">4.2. </span>GEE Access<a class="headerlink" href="#gee-access" title="Permalink to this headline">¶</a></h2>
+<p>Accessing GEE is easy. Aspiring users will first need to <a href="https://signup.earthengine.google.com/" class="alert-link">sign up to the platform</a> with their Google account. It is the same account, people use to access Youtube, Google drive, Gmail and any Google service. Google usually gives access to new users within 24 hours. Then, all a user needs to access GEE from anywhere in the world is an internet connection.</p>
+<p>Data in GEE can be analyzed in two ways:</p>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>through the Javascript API via the GEE code editor, or</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>a Python API, geemap, that can be accessed through any Python environment, such as Jupyter notebooks. More on that in <a class="reference internal" href="mod2_5_GEE_PythonAPI_and_geemap.html"><span class="doc">GEE Python API and geemap (5 min)</span></a></p></li>
+</ol>
+</li>
+</ul>
+<div class="section" id="gee-code-editor">
+<h3><span class="section-number">4.2.1. </span>GEE Code editor<a class="headerlink" href="#gee-code-editor" title="Permalink to this headline">¶</a></h3>
+<p><a href="https://code.earthengine.google.com/">code.earthengine.google.com</a> is the code editor that uses JavaScript to access, transform, analyze, visualize and manage satellite data in GEE.</p>
+<div class="alert alert-success">
+The GEE platform provides <a href="https://developers.google.com/earth-engine/" class="alert-link">comprehensive documentation</a> and tutorials with videos as well as an  Application Programming Interface (API) dictionary to help users to learn how to write and use every JavaScript function in GEE.
+</div>
+</div>
+<div class="section" id="get-to-know-the-data">
+<h3><span class="section-number">4.2.2. </span>Get to know the data<a class="headerlink" href="#get-to-know-the-data" title="Permalink to this headline">¶</a></h3>
+<p>It will really help you to understand some of the exercises in this tutorial if you spend a little time getting familiar with the data in GEE.</p>
+<p>For example, take a look at the <a href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_DMSP-OLS_NIGHTTIME_LIGHTS">DMSP-OLS dataset description</a> in GEE. It provides summary information on how the data are collected and organized and what they represent as well as links to more detailed technical information on the source. You’ll also notice an “Earth Engine Snippet” (such as: <code class="docutils literal notranslate"><span class="pre">ee.ImageCollection(&quot;NOAA/DMSP-OLS/NIGHTTIME_LIGHTS&quot;)</span></code> – we will re-visit this as it is the key for pulling particular datasets in GEE.</p>
+<p>You can also review the page on <a href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_MONTHLY_V1_VCMSLCFG">VIIRS-DNB stray-light corrected monthly composites</a> in GEE.</p>
+<p>You may notice that many datasets have multiple vintages and versions. The description usually give insight into what this means (otherwise you may have to go to the source information), but it is important to understand that there can be differences in the data from particular satellite systems.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2><span class="section-number">4.3. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/mod2_4_introduction_to_GEE-0"><dl class="citation">
+<dt class="bibtex label" id="gorelick2017google"><span class="brackets"><a class="fn-backref" href="#id1">GHD+17</a></span></dt>
+<dd><p>Noel Gorelick, Matt Hancher, Mike Dixon, Simon Ilyushchenko, David Thau, and Rebecca Moore. Google earth engine: planetary-scale geospatial analysis for everyone. <em>Remote sensing of Environment</em>, 202:18–27, 2017.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tutorials"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="mod2_3_introduction_to_Jupyter_notebooks.html" title="previous page"><span class="section-number">3. </span>Introduction to Jupyter notebooks (10 min)</a>
+    <a class='right-next' id="next-link" href="mod2_5_GEE_PythonAPI_and_geemap.html" title="next page"><span class="section-number">5. </span>GEE Python API and geemap (5 min)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By World Bank, New Light Technologies, Inc.<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
