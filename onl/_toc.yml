@@ -12,7 +12,8 @@
   - file: tutorials/mod2_2_getting_started_with_Python
   - file: tutorials/mod2_3_introduction_to_Jupyter_notebooks
   - file: tutorials/mod2_4_introduction_to_GEE
-  - file: tutorials/mod2_5_practical_exercise-image_visualization
+  - file: tutorials/mod2_5_GEE_PythonAPI_and_geemap
+  - file: tutorials/mod2_6_practical_exercise-image_visualization
 
 #- part: Module 3 Band math and composites
 #  chapters:
