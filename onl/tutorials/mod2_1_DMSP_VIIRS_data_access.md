@@ -4,10 +4,6 @@ In this module, we want to give you a little more specific information
 about the data we’ll be working with. First, it’s helpful to understand 
 the basic data formats that are used with geospatial data analysis.
 
-[NOTE: this section is a WIP as the data are added to S3 by U.Mich team 
-and NOAA. As soon as a full sample of the data added to S3 and in their 
-final structure, we can add information on that here.]
-
 ## Data Structure
 **Raster vs. Vector data**
 
@@ -120,15 +116,6 @@ We’ll mostly be leveraging AWS’s Simple Storage Service, S3.
 class="alert-link">Here’s a guide</a> that explains AWS S3 data storage and walks through 
 how to set up an AWS account.
 </div>
-
-[NOTE: how we serve these COGs is still an open question. We could just give access to the 
-S3 bucket, but that would require users to set up AWS accounts and learn S3...might be too much. 
-I’m also not sure we’d be leveraging the advantage of COGs by doing that 
-(users would have to download the entire files anyway). Better to use a tool to query 
-these COGs and then here we can just instruct users how to do so. But can we leverage an 
-existing tool or need to build a new one? Not a trivial amt of work either way, so we’ll 
-want to update this section accordingly. For now, we’ll just describe the structure of the 
-data files but need to sort this out.]
 
 ## Nighttime Light Data structure and organization
 
