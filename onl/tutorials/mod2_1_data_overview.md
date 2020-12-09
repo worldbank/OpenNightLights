@@ -1,4 +1,4 @@
-#  25 years of DMSP-OLS and VIIRS archive: data structure, format  and access (10 min)
+#  Data overview (10 min)
 
 In this module, we want to give you a little more specific information 
 about the data we’ll be working with. First, it’s helpful to understand 
@@ -44,6 +44,8 @@ and an area is essentially a line that closes on itself to enclose a region.
 Polygons are usually used to represent the area and perimeter of a 
 continuous geographic features. Vector data stores features in their 
 original resolution, without aggregation.</div>
+
+### Brief comparison of raster vs vector data models
 
 ```{figure} img/mod1-rastervector1.png
 ---
@@ -96,94 +98,46 @@ particular area and the data that contains that area is in a very large file tha
 much larger region of the world. COGs allow you to query just the area that you’re interested 
 in, saving you time and storage space.
 
-**In this course:** The data we are accessing from DMSP-OLS and VIIRS-DNB have been stored as COGs.
+## The World Bank's "Light Every Night" dataset
 
-## Amazon Web Services (AWS)
-Data we’re working with come from the DMSP-OLS archive and from the VIIRS-DNB instrument, 
-which is still collecting data. Since these data files are large and the numbers grow each 
-month as data are collected, it is useful to store and manage these files with a cloud service. 
-We already introduced you to Google Earth Engine, one such cloud provider. 
-We are also using Amazon Web Service (AWS) to store our own data files directly.
+Currently, this tutorial focuses on nighttime lights datasets that are available publicly (via the Google Earth Engine data catalogue); however, the "Light Every Night" (LEN) data archive is going to be launched soon. 
 
-<div class="alert alert-info">
-<b>AWS</b>  is a subsidiary of Amazon and provides a wide range of cloud services, 
-including data storage and computing.</div>
+The World Bank’s Light Every Night data set is a complete archive of all nighttime imagery captured each night over the last three decades. The underlying data is sourced from the NOAA/NCEI archive. The two sensors featured are the DMSP-OLS with data from 1992-2017, and the VIIRS-DNB with data spanning 2012-2020. The World Bank worked in collaboration with NOAA/NCEI and the University of Michigan to publish the archive as an Analysis Ready Data Set. The LEN archive, which now spans nearly 250 terabytes, will be openly available on the AWS open data program published under the World Bank’s open data license.
 
-We’ll mostly be leveraging AWS’s Simple Storage Service, S3.
+### Components of the LEN archive
 
-<div class="alert alert-success">
-<a href="https://docs.aws.amazon.com/AmazonS3/latest/gsg/GetStartedWithS3.html" 
-class="alert-link">Here’s a guide</a> that explains AWS S3 data storage and walks through 
-how to set up an AWS account.
-</div>
+- DMSP-OLS nightly imagery (1993-2017, all nights):
+    - visible (VIS)
+    - thermal infrared (TIR)
+    - lunar illuminance (LI)
+    - cloud mask (CM)
+    - sample position (SAM)
+    - stray light mask (SLM)
 
-## Nighttime Light Data structure and organization
+- VIIRS DNB nightly imagery (2012-2020, all nights):
+    - DNB radiance
+    - I5 (LWIR) radiance
+    - lunar illuminance
+    - sample position within DNB scan
+    - quality bitflag or "vflag" grid with on/off states for these fields:
+    - daytime/nighttime/near-terminator
+    - zero lunar illuminance
+    - viirs cloud mask
+    - nightfire detection
+    - lightning
+    - high energy particle hit
+    - stray light affected/corrected
 
-[TO DO: When data are uploaded, insert a description of the file structure].
+### Data that is "analysis ready"
 
-### DMSP-OLS
+The data architecture was designed from the ground up to be analysis-ready. The data is published in the Cloud Optimized GeoTIFF format (COG), and organized using the SpatialTemporal Asset Catalog (STAC) standard. These standards are part of the growing <a href="https://medium.com/planet-stories/analysis-ready-data-defined-5694f6f48815">Analysis Ready Data ecosystem</a> that is improving access to geospatial data sets, enabling broader audiences to readily discover, process and analyze geospatial data. 
 
-[TO DO: We need to complete this section once we’ve added sample data].
+Analysis ready data has already undergone the transformations and preprocessing necessary to make data (in this case observations of electromagnetic energy collected in space!) organized and coherent for general technical users and analysts.
 
-### VIIRS-DNB
+### Data access and tutorials
 
-[TO DO: We need to complete this section once we’ve added sample data. For example, 
-in addition to the radiance values, there are other layers and metadata, 
-such as the cloud mask. These will ideally be added to the COG structure so they can be 
-queried, but we need to finalize this].
+This archive will be made available very shortly and soon thereafter, we will add more content to these modules about how to access and use this data.
 
-**VIIRS-DNB data basics**
-
-<div class="alert alert-success">
-The following <a href="http://rammb.cira.colostate.edu/projects/npp/Beginner_Guide_to_VIIRS_Imagery_Data.pdf" 
-class="alert-link">beginners guide</a> is helpful for those looking for more detail on the data.
-</div>
-
-Here are just a few highlights:
-
-As the satellite orbits the Earth, VIIRS scans a swath that is ~3040 km wide 
-(the “cross-track direction” which is perpendicular to the direction the satellite is moving) 
-and 12 km in the “along-track” direction. 
-
-A rotating mirror collects data for the various detectors, including the Day/Night Band (DNB) 
-that we are using for nighttime lights. One rotation of the mirror is one scan.
-
-48 of these scans are put together into a single “granule” of data, 
-so that this represents about 3040 km by 570 km (48 * 12km) or surface area data 
-collected over about 85 seconds.
-
-The data that comes from the satellite is transmitted to Earth as a Raw Data Record (RDR). 
-Most users will never see this data; however. These RDR files are calibrated. 
-For example, georeferencing information is added and the raw “counts” of photons 
-collected are converted to a measure, like radiance or reflection. These are known as 
-Sensor Data Records (SDRs) and are commonly referred to as “raw” 
-(even if they are not technically RDRs) or “un-adjusted” files.
-
-**VIIRS source data**
-
-The main VIIRS-DNB data files are COGs that are structured like these SDRs. 
-They include the values for radiance (i.e. nighttime lights) as well as other important 
-meta-data, including pixel data quality and cloud coverage.
-
-TO DO: detailed description of data and meta-data structure when data are added/completed]
-
-These  files follow the naming convention used for SDRs. 
-That naming structure tells you helpful information about what the data are and when they 
-were collected.
-
-For example:
-```{figure} img/mod1-viirs_datafile.png
----
-name: viirs-datafile
----
-```
-**Accessing the data**
-Later in this tutorial, we explore how to access these data files, 
-but hopefully this gives you a general sense of where the data come from and 
-how they’re structured. One of the exciting things about working with remote sensing 
-data is that we’re investigating information that started as pure energy: a photon 
-collected in space. This information makes its journey to a data file you can analyze or 
-display in a map so that we can learn a little more about what’s happening on Earth!
 
 ## References:
 ```{bibliography} ../references.bib

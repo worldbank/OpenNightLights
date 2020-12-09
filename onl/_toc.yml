@@ -8,7 +8,7 @@
 
 - part: Module 2 Introduction to open data and tools
   chapters:
-  - file: tutorials/mod2_1_DMSP_VIIRS_data_access
+  - file: tutorials/mod2_1_data_overview
   - file: tutorials/mod2_2_getting_started_with_Python
   - file: tutorials/mod2_3_introduction_to_Jupyter_notebooks
   - file: tutorials/mod2_4_introduction_to_GEE
