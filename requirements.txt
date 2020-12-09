@@ -1,0 +1,27 @@
+# boto3
+# cython
+# earthengine-api
+# gdal=3.0.4
+geemap
+ipython
+jupyter
+# libgdal=3.0.4
+# libspatialindex
+# matplotlib
+# numpy
+# openssl
+# pandas
+# pillow
+# pip
+# pyqt
+# python=3.7.*
+# scikit-learn
+# scipy
+# seaborn
+# geopandas
+# numpy>=1.18.5
+# GDAL==3.0.4
+ghp-import
+jupyter-book
+# pyproj>=2.6.1.post1
+# rasterio>=1.1.5
