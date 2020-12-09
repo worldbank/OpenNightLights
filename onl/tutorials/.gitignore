@@ -1,0 +1,9 @@
+ # Ignore ipynb checkpoint files
+*ipynb_checkpoints/*
+
+# Ignore system files
+*DS_Store*
+*__pycache__/
+
+# data
+*.tif
