@@ -1,4 +1,4 @@
-# Introduction to remote sensing (10 min)
+# Introduction to remote sensing (20 min)
 
 ## What is remote sensing?
 
