@@ -19,8 +19,7 @@
   chapters:
   - file: tutorials/mod3_1_DMSP-OLS_annual_composites
   - file: tutorials/mod3_2_image_clipping_with_VIIRS
-
-#  - file: tutorials/mod4_1_conditional_operations
+  - file: tutorials/mod3_3_conditional_operations
 #  - file: tutorials/mod4_2_cell_statistics_band_math
 #  - file: tutorials/mod4_3_expressions-PartA
 #  - file: tutorials/mod4_3_expressions-PartB
