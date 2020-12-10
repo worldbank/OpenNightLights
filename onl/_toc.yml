@@ -15,7 +15,7 @@
   - file: tutorials/mod2_5_GEE_PythonAPI_and_geemap
   - file: tutorials/mod2_6_practical_exercise-image_visualization
 
-- part: Module 3 Data operations and band math
+- part: Module 3 Basic operations on raster files
   chapters:
   - file: tutorials/mod3_1_DMSP-OLS_annual_composites
   - file: tutorials/mod3_2_image_clipping_with_VIIRS
@@ -23,6 +23,8 @@
   - file: tutorials/mod3_4_cell_statistics_band_math
   - file: tutorials/mod3_5_expressions-PartA
   - file: tutorials/mod3_5_expressions-PartB
+  - file: tutorials/mod3_6_making_VIIRS_annual_composites
+  - file: tutorials/mod3_7_import_export_data
 #  - file: tutorials/mod4_4_rate_of_change
 #  - file: tutorials/mod4_5_vector_and_raster_data
 #  - file: tutorials/mod4_6_import_export_data
@@ -32,7 +34,6 @@
 #  chapters:
 
 #  - file: tutorials/mod3_2_DMSP-OLS_intercalibration
-#  - file: tutorials/mod3_3_making_VIIRS_annual_composites
 
 #- part: Module 5 Charting
 #  chapters:

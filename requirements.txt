@@ -18,7 +18,7 @@ jupyter
 # scikit-learn
 # scipy
 # seaborn
-# geopandas
+geopandas
 # numpy>=1.18.5
 # GDAL==3.0.4
 ghp-import
