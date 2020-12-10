@@ -8,19 +8,19 @@ These tutorials use Jupyter notebooks, which allow them to combine written and v
 We will provide guidance on the software tools you'll need to work with these tutorials. Only a very basic understanding of Python and a standard personal computer are required.
 
 
-Tutorial organization (times are estimated)
+Tutorial organization
 ---------------------
-- **Module 1: Introduction to remote sensing (X min)**
+- **Module 1: Introduction to remote sensing**
 
-- **Module 2: Introduction to open source tools (40 min)**
+- **Module 2: Introduction to open source tools**
 
-- **Module 3: Basic operations on raster files (25 min)**
+- **Module 3: Basic operations on raster files**
 
-- **Module 4: Data analysis and charting (45 min)**
+- **Module 4: Charting**
 
-- **Module 5: Charting (20 min)**
+- **Module 5: Data analysis and intercalibration**
 
-- **Module 6: Final exercise (30 min)**
+- **Module 6: Final exercise**
 
 - **Glossary**
 

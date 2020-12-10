@@ -17,7 +17,7 @@ jupyter
 # python=3.7.*
 # scikit-learn
 # scipy
-# seaborn
+seaborn
 geopandas
 # numpy>=1.18.5
 # GDAL==3.0.4
