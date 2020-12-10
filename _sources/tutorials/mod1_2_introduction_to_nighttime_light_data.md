@@ -1,4 +1,4 @@
-# Introduction to nighttime light data (10 min)
+# Introduction to nighttime light data (20 min)
 
 ## Remotely sensed data of nighttime lights
 
