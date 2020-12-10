@@ -25,18 +25,15 @@
   - file: tutorials/mod3_5_expressions-PartB
   - file: tutorials/mod3_6_making_VIIRS_annual_composites
   - file: tutorials/mod3_7_import_export_data
-#  - file: tutorials/mod4_4_rate_of_change
-#  - file: tutorials/mod4_5_vector_and_raster_data
-#  - file: tutorials/mod4_6_import_export_data
 
-
-#- part: Module 3 Band math and composites
-#  chapters:
-
-#  - file: tutorials/mod3_2_DMSP-OLS_intercalibration
-
-#- part: Module 5 Charting
+#- part: Module 4 Charting
 #  chapters:
 #  - file: tutorials/mod5_1_time_series_charts
 #  - file: tutorials/mod5_2_histograms
 #  - file: tutorials/mod5_3_comparing_cities
+
+#- part: Module 5 Data analysis and intercalibration
+#  chapters:
+#  - file: tutorials/mod4_4_rate_of_change
+#  - file: tutorials/mod4_5_vector_and_raster_data
+#  - file: tutorials/mod3_2_DMSP-OLS_intercalibration
