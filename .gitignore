@@ -1,6 +1,7 @@
 # system
 *.idea/
 *venv/
+*.DS_Store
 
 # data
 *data/
