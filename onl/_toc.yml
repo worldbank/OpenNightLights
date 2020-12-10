@@ -20,9 +20,9 @@
   - file: tutorials/mod3_1_DMSP-OLS_annual_composites
   - file: tutorials/mod3_2_image_clipping_with_VIIRS
   - file: tutorials/mod3_3_conditional_operations
-#  - file: tutorials/mod4_2_cell_statistics_band_math
-#  - file: tutorials/mod4_3_expressions-PartA
-#  - file: tutorials/mod4_3_expressions-PartB
+  - file: tutorials/mod3_4_cell_statistics_band_math
+  - file: tutorials/mod3_5_expressions-PartA
+  - file: tutorials/mod3_5_expressions-PartB
 #  - file: tutorials/mod4_4_rate_of_change
 #  - file: tutorials/mod4_5_vector_and_raster_data
 #  - file: tutorials/mod4_6_import_export_data
