@@ -150,6 +150,26 @@
    2. Image clipping with VIIRS-DNB (5 min)
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod3_3_conditional_operations.html">
+   3. Conditional operations (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod3_4_cell_statistics_band_math.html">
+   4. Cell statistics and basic band math (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod3_5_expressions-PartA.html">
+   5. Expressions (10 min)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod3_5_expressions-PartB.html">
+   6. Expressions (continued)
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -528,7 +548,7 @@ In order to compare this data across time, the data collected by the sensors on 
 satellites must be inter-calibrated to account for the lack of on-board calibration, varied
 atmospheric conditions, satellite shift, and sensor degradation.</p>
 <p>One of the most used frameworks for inter-calibration of DMSP-OLS annual composites
-was proposed by Elvidge  et al. (2009) <a class="bibtex reference internal" href="mod4_3_expressions-PartB.html#elvidge2009fifteen" id="id8">[EZB+09]</a>. This procedure relies on a manual selection of
+was proposed by Elvidge  et al. (2009) <a class="bibtex reference internal" href="mod3_5_expressions-PartB.html#elvidge2009fifteen" id="id8">[EZB+09]</a>. This procedure relies on a manual selection of
 Pseudo-Invariant Features (PIF), a reference satellite and year for calibration and a
 quadratic regression model to estimate the DN value of pixels in different years
 (in comparison to a reference image). Elvidge et al. chose the annual composite of
@@ -543,7 +563,7 @@ proposed by Elvidge et al. for the intercalibration procedure <a class="referenc
 the inter-calibration procedure in the next modules).</p>
 <div class="figure align-default" id="elvidge2009">
 <img alt="../_images/mod1-elvidge2009.png" src="../_images/mod1-elvidge2009.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">DMSP-OLS intercalibration <a class="bibtex reference internal" href="mod4_3_expressions-PartB.html#elvidge2009fifteen" id="id9">[EZB+09]</a></span><a class="headerlink" href="#elvidge2009" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">DMSP-OLS intercalibration <a class="bibtex reference internal" href="mod3_5_expressions-PartB.html#elvidge2009fifteen" id="id9">[EZB+09]</a></span><a class="headerlink" href="#elvidge2009" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="the-new-and-improved-nighttime-light-sensor-viirs-dnb">
@@ -559,7 +579,7 @@ For detailed information on the VIIRS instrument, see the <a href="https://ncc.n
 <p>VIIRS, while assessed to be more efficient at measuring economic activities via
 nighttime light analysis, is not without limitations. Because of the highly sensitive nature
 of the VIIRS sensor, it also detects phenomena that are not related to surface lighting,
-for example, traces of reflected sunlight, stray light, lightning, aurora, biomass burning, etc. <a class="bibtex reference internal" href="mod4_3_expressions-PartB.html#elvidge2009fifteen" id="id10">[EZB+09]</a>
+for example, traces of reflected sunlight, stray light, lightning, aurora, biomass burning, etc. <a class="bibtex reference internal" href="mod3_5_expressions-PartB.html#elvidge2009fifteen" id="id10">[EZB+09]</a>
 This is what makes the filtering process for VIIRS data so important. The procedure for
 generating VIIRS night-time lights into a usable product (e.g. weekly, monthly or annual composites)
 involves a multi-step process to filter extraneous features (e.g. sunlight, moonlit, stray light,
