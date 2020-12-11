@@ -20,14 +20,6 @@ Tutorial organization
 
 - **Module 5: Data analysis and intercalibration**
 
-- **Module 6: Final exercise**
-
-- **Glossary**
-
-- **Technical Resources**
-
-**Total time: X**
-
 References
 ----------
 <div class="alert alert-info">
