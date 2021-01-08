@@ -38,3 +38,5 @@
   - file: tutorials/mod5_3_vector_and_raster_data
   - file: tutorials/mod5_4_comparing_cities
 
+- part: World Bank - Light Every Night AWS data archive
+  - file: wb-light-every-night-readme
