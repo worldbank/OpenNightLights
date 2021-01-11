@@ -1,0 +1,34 @@
+Name: World Bank - Light Every Night
+Description: Light Every Night - World Bank Nightime Light Data – the underlying data is sourced from the NOAA/NCEI archive. The two sensors featured are the DMSP-OLS with data from 1992-2017, and the VIIRS-DNB with data spanning 2012-2020. The World Bank worked in collaboration with NOAA/NCEI and the University of Michigan to publish the archive as an Analysis Ready Dataset in Cloud Optimized Geotiff (COG) format. The complete archive is about a petabyte of data, which is published and openly available under the terms of the World Bank’s open data license.
+Documentation: https://github.com/worldbank/OpenNightLights/tree/master/docs/wb-light-every-night-readme.html
+Contact: Trevor Monroe tmonroe@worldbank.org; Benjamin P. Stewart <bstewart@worldbankgroup.org>
+ManagedBy: World Bank Group
+UpdateFrequency: Quarterly
+Tags:
+  - earth observation
+  - nighttime lights
+  - dmsp
+  - viirs
+  - remote sensing
+License: World Bank Open Database License (ODbL)
+Resources:
+  - Description:
+    ARN:
+    Region:
+    Type:
+DataAtWork:
+  Tutorials:
+    - Title:
+      URL:
+      Services:
+      AuthorName:
+      AuthorURL:
+  Tools & Applications:
+    - Title:
+      URL:
+      AuthorName:
+      AuthorURL:
+  Publications:
+    - Title:
+      URL:
+      AuthorName:
