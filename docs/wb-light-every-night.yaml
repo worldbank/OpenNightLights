@@ -10,7 +10,8 @@ Tags:
   - dmsp
   - viirs
   - remote sensing
-License: World Bank Open Database License (ODbL)
+  - aws-pds
+License: World Bank Open Database License (ODbL) https://creativecommons.org/licenses/by/4.0/
 Resources:
   - Description: Light Every Night dataset of all VIIRS DNB and DMSP-OLS nighttime satellite data
     ARN: arn:aws:s3:::globalnightlight
@@ -44,7 +45,7 @@ DataAtWork:
     - Title: Power and the Vote - Elections and Electricity in the Developing World. Cambridge. 2015.
       URL: https://www.cambridge.org/core/books/power-and-the-vote/8091820171410B4FA557B6EBC3A5DD06
       AuthorName: Brian Min
-    - Title: Detection of Rural Electrification in Africa using DMSP-OLS Night Lights Imagery. International Journal of Remote Sensing 34(22):8118–8141. 2013. 
+    - Title: "Detection of Rural Electrification in Africa using DMSP-OLS Night Lights Imagery. International Journal of Remote Sensing"
       URL: https://openknowledge.worldbank.org/handle/10986/16192
       AuthorName: Brian Min, Kwawu Mensan Gaba, Ousmane Fall Sarr, Alassane Agalassou.
 
