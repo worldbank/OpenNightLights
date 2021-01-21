@@ -1,12 +1,13 @@
 - file: welcome
-  numbered: true
 
 - part: Module 1 Introduction to remote sensing
+  numbered: true
   chapters:
   - file: tutorials/mod1_1_introduction_to_remote_sensing
   - file: tutorials/mod1_2_introduction_to_nighttime_light_data
 
 - part: Module 2 Introduction to open data and tools
+  numbered: true
   chapters:
   - file: tutorials/mod2_1_data_overview
   - file: tutorials/mod2_2_getting_started_with_Python
@@ -16,6 +17,7 @@
   - file: tutorials/mod2_6_practical_exercise-image_visualization
 
 - part: Module 3 Basic operations on raster files
+  numbered: true
   chapters:
   - file: tutorials/mod3_1_DMSP-OLS_annual_composites
   - file: tutorials/mod3_2_image_clipping_with_VIIRS
@@ -27,11 +29,13 @@
   - file: tutorials/mod3_7_import_export_data
 
 - part: Module 4 Charting
+  numbered: true
   chapters:
   - file: tutorials/mod4_1_time_series_charts
   - file: tutorials/mod4_2_histograms
 
 - part: Module 5 Data analysis and intercalibration
+  numbered: true
   chapters:
   - file: tutorials/mod5_1_DMSP-OLS_intercalibration
   - file: tutorials/mod5_2_rate_of_change
@@ -39,4 +43,5 @@
   - file: tutorials/mod5_4_comparing_cities
 
 - part: World Bank - Light Every Night AWS data archive
+  chapters:
   - file: wb-light-every-night-readme
