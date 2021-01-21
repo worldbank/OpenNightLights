@@ -16,7 +16,7 @@
 
 <h3 id="accessing-dmsp">DMSP-OLS</h3>
 
-<p>DMSP-OLS data are organized by satellite name and year data were captured. The <a href="https://www.ngdc.noaa.gov/eog/dmsp/downloadV4composites.html">NOAA/NCEI website</a> provides a table of DMSP satellite name and year pairs through 2013. For example, <code>s3://globalnightlight/F121995/</code>, contains all data collected by satellite F12 in the year 1995.</p>
+<p>DMSP-OLS data are organized by satellite name and year data were captured. <a href="https://eogdata.mines.edu/dmsp/downloadV4composites.html">This website</a> provides a table of DMSP satellite name and year pairs through 2013. For example, <code>s3://globalnightlight/F121995/</code>, contains all data collected by satellite F12 in the year 1995.</p>
 
 <p>Within a given sub-directory, data are provided by satellite orbit for every day (night) of the given year. The key files are those with the .vis.co.tif extension, which contain the nighttime visible band data (and a supplemental JSON file with metadata on this .vis.co.tif file), and those with the .flag.co.tif extension, which contain data quality masks for several fields:</p>
 <ul>
@@ -42,26 +42,34 @@
 
 <p>For example, the naming convention for the file: <code>SVDNB_npp_d20150504_t1335358_e1341162_b18219_c20150504194116381040_noaa_ops.rade9.co.tif</code> is:</p>
 <ul>
-<li><code>SVDNB</code>Prefix/product id (e.g. `SVDNB` for nighttime radiance)</li>
-<li><code>npp</code>satellite (e.g. npp for Suomi National Polar-orbiting Partnership)</li>
-<li><code>d20150504</code>date of data capture (e.g. d20150504 for May the 4th 2015)</li>
-<li><code>t1335358</code>date of data capture (e.g. d20150504 for May the 4th 2015)</li>
-    <li>, , time of the scan start in hours, minutes and miliseconds (e.g. t1335358) and the end of the scan (e.g. e1341162), the orbit number (e.g. b18219), the file creation date/time (e.g. c20150504194116381040), the origin (e.g. noaa_ops), and an extension indicating data type (e.g. rade9.co.tif).</li>
+<li><code>SVDNB</code>: prefix/product id (e.g. "SVDNB" for Sensor Data Record of Day-Night Band data)</li>
+<li><code>npp</code>: satellite (e.g. npp for Suomi National Polar-orbiting Partnership)</li>
+<li><code>d20150504</code>: date of data capture (e.g. d20150504 for May the 4th 2015)</li>
+<li><code>t1335358</code>: time of the scan start (e.g. t1335358 for hour:13, minute:35, millisecond:358)</li>
+<li><code>e1341162</code>: time of the scan end (e.g. e1341162 for hour:13, minute:41, millisecond:162)</li>
+<li><code>b18219</code>: the orbit number (e.g. b18219 orbit # 18219)</li>
+<li><code>c20150504194116381040</code>: the file creation date/time (e.g. c20150504194116381040 for May the 4th 2015, hour:19 minute:41 and 16381040 x 10<sup>-8</sup> seconds)</li>
+<li><code>noaa_ops</code>: the origin (e.g. noaa_ops for NOAA)</li>
+<li><code>rade9.co.tif</code>: an extension indicating data type (e.g. rade9.co.tif for Cloud-Optimized GeoTiff of nighttime radiance)</li>
 </ul>
-<p>As with the DMSP data, there are several files containing different data:</p>
+<p>As with the DMSP data, there are several files containing different data. The key files are those with the <code>.rade9.co.tif</code> extension, which contain the nighttime radiance data (and a supplemental JSON file with metadata on this file), and those with the <code>.vflag.co.tif</code> extension, which contain data quality masks for several fields. These files are as follows:</p>
 
+<ul>
+<li><code>.rade9.co.tif</code>: a COG with a single band containing a visible nighttime radiance (this is the key data file)</li>
+<li><code>.rade9.co.json</code>: a JSON file with metadata for the nighttime radiance data, including a timestamp and a geospatial bounding box</li>
+<li><code>.vflag.co.tif</code>: a COG with a single band containing a bitflag for data quality</li>
+<li>Prefix <code>SVM16</code> and extension <code>.rad.co.tif</code>: a COG with a single band containing a visible image data from the VIIRS M16 band</li>
+</ul>
+
+<p>There are additional files that contain reference data:</p>
 <ul>
 <li><code>.li.co.tif</code>: a COG with a single band containing Lunar Illuminance (LI) </li>
 <li><code>.samples.co.tif</code>: a COG with a single band containing samples</li>
-<li><code>.vflag.co.tif</code>: a COG with a single band containing a bitflag for data quality</li>
-<li>Prefix <code>SVM16</code> and extension <code>.rad.co.tif</code>: a COG with a single band containing a visible image data from the VIIRS M16 band</li>
-<li><code>.rade9.co.tif</code>: a COG with a single band containing a visible nighttime radiance (this is the key data file)</li>
-<li><code>.rade9.co.json</code>: a JSON file with metadata for the nighttime radiance data, including a timestamp and a geospatial bounding box</li>
 </ul>
 
 <h2 id="accessing-data-aws">Accessing Light Every Night data on AWS</h2>
 
-<p>You can access these data via the link, <code>s3://globalnightligh</code> and using the web interface via the AWS console. Or via the AWS Command Line Interface, for example to list all files in the VIIRS 201505 sub-directory (using the <code>--no-sign-request</code> flag since this bucket is public:</p>
+<p>You can access these data via the link, <code>s3://globalnightligh</code> and using the web interface via the AWS console. Or via the AWS Command Line Interface, for example to list all files in the VIIRS 201505 sub-directory, using the <code>--no-sign-request</code> flag since this bucket is public:</p>
 
 <p><code>aws s3 ls s3://globalnightlight/201505 --no-sign-request</code></p>
 
