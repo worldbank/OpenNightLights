@@ -315,6 +315,42 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-light-every-night-data-on-aws">
+   Accessing Light Every Night data on AWS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#light-every-night-file-structure">
+   Light Every Night file structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dmsp-ols">
+     DMSP-OLS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#viirs-dnb">
+     VIIRS-DNB
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -324,60 +360,478 @@
                 
   <div class="section" id="world-bank-light-every-night">
 <h1>World Bank - Light Every Night<a class="headerlink" href="#world-bank-light-every-night" title="Permalink to this headline">¶</a></h1>
-<p></p>
-<p>World Bank Light Every Night is a comprehensive data archive of nighttime light collected from two sensors over the last three decades: the Defense Meteorological Satellite Program (DMSP) Operational Line-Scan System (OLS) with data from 1992-2017, and the Visible Infrared Imaging Radiometer Suite (VIIRS) Day-Night Band (DNB) with data spanning 2012-2020.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>World Bank Light Every Night is a comprehensive data repository of nighttime light satellite imagery collected from two sensors over the last three decades: the Defense Meteorological Satellite Program (DMSP) Operational Linescan System (OLS) with data from 1992-2017, and the Visible Infrared Imaging Radiometer Suite (VIIRS) Day-Night Band (DNB) with data spanning 2012-2020.</p>
 <p>The DMSP-OLS and VIIRS-DNB sensors capture various sources of low-light emissions from Earth. These include sources that indicate aspects of human activity, like city lights, gas flares, fishing boats, and agricultural fires, while also capturing other nighttime lights phenomena such as auroras.</p>
-<p>The World Bank worked in collaboration with the National Oceanic and Atmospheric Administration (NOAA) and the University of Michigan to publish this archive, designed from the ground up to be analysis-ready. The underlying data are sourced from the NOAA National Centers for Environmental Information (NCEI) archive. Additional processing by the University of Michigan enables access in Cloud Optimized GeoTIFF format (COG) and search using the Spatial Temporal Asset Catalog (STAC) standard. These standards are part of the growing Analysis Ready Data ecosystem that is improving access to geospatial data sets, enabling broader audiences to readily discover, process and analyze geospatial data.</p>
-<p>Learn more about remote sensing, nighttime light images and using these data for analysis at <a href="https://worldbank.github.io/OpenNightLights/welcome.html">World Bank's Open Nighttime Lights tutorial</a>.</p>
-<h2 id="wb-len-data-structure">Light Every Night file structure</h2>
-<p>The data for both DMSP-OLS and VIIRS-DNB are in the root AWS S3 bucket,  <code>s3://globalnightlight/</code>. DMSP-OLS data are organized by satellite name and year and VIIRS-DNB are organized by month.</p>
-<h3 id="accessing-dmsp">DMSP-OLS</h3>
-<p>DMSP-OLS data are organized by satellite name and year data were captured. <a href="https://eogdata.mines.edu/dmsp/downloadV4composites.html">This website</a> provides a table of DMSP satellite name and year pairs through 2013. For example, <code>s3://globalnightlight/F121995/</code>, contains all data collected by satellite F12 in the year 1995.</p>
-<p>Within a given sub-directory, data are provided by satellite orbit for every day (night) of the given year. The key files are those with the .vis.co.tif extension, which contain the nighttime visible band data (and a supplemental JSON file with metadata on this .vis.co.tif file), and those with the .flag.co.tif extension, which contain data quality masks for several fields:</p>
+<p>The World Bank worked in collaboration with the National Oceanic and Atmospheric Administration (NOAA) and the University of Michigan to publish this repository, designed from the ground up to be analysis-ready. The underlying data are sourced from the NOAA National Centers for Environmental Information (NCEI) archive. Additional processing by the University of Michigan enables access in Cloud Optimized GeoTIFF format (COG) and search using the Spatial Temporal Asset Catalog (STAC) standard. These standards are part of the growing Analysis Ready Data ecosystem that is improving access to geospatial data sets, enabling broader audiences to readily discover, process and analyze geospatial data.</p>
+<p>Learn more about remote sensing, nighttime light images and using these data for analysis at <a href="https://worldbank.github.io/OpenNightLights/welcome.html">World Bank’s Open Nighttime Lights tutorial.</a></p>
+</div>
+<div class="section" id="accessing-light-every-night-data-on-aws">
+<h2>Accessing Light Every Night data on AWS<a class="headerlink" href="#accessing-light-every-night-data-on-aws" title="Permalink to this headline">¶</a></h2>
+<p>You can access these data via the link, <code class="docutils literal notranslate"><span class="pre">s3://globalnightlight</span></code> and using the web interface via the AWS console. Or via the AWS Command Line Interface, for example to list all files in the VIIRS 201505 sub-directory (using the <code class="docutils literal notranslate"><span class="pre">--no-sign-request</span></code> flag since this bucket is public:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ aws s3 ls s3://globalnightlight/201505 --no-sign-request
+</pre></div>
+</div>
+</div>
+<div class="section" id="light-every-night-file-structure">
+<h2>Light Every Night file structure<a class="headerlink" href="#light-every-night-file-structure" title="Permalink to this headline">¶</a></h2>
+<p>The data for both DMSP-OLS and VIIRS-DNB are in the root AWS S3 bucket, <code class="docutils literal notranslate"><span class="pre">s3://globalnightlight/</span></code>. DMSP-OLS data are organized into directories by satellite name and year. VIIRS-DNB data are organized by month until 2017 and by satellite name and month starting in 2018 when data from two satellites (NPP and NOAA-20/J01)  became available.</p>
+<div class="section" id="dmsp-ols">
+<h3>DMSP-OLS<a class="headerlink" href="#dmsp-ols" title="Permalink to this headline">¶</a></h3>
+<p>DMSP-OLS data are organized by satellite name and the year in which the data were captured. The DMSP satellites have the naming convention F[nn], where nn ranges from 10-18 for this collection. A table is provided below of DMSP satellites and the corresponding years for which nighttime OLS data are available in the Light Every Night AWS repository. While this is the bulk of the nighttime OLS data, other satellite-years and data from 2018-present are available and can be accessed by contacting the <a href="https://www.ngdc.noaa.gov/eog/dmsp.html">DMSP archive at NOAA/NCEI</a>. Matching the satellite name with a year available in the table gives the subdirectory in the AWS bucket, for example <code class="docutils literal notranslate"><span class="pre">s3://globalnightlight/F121995/</span></code> contains all data collected by DMSP satellite F12 in the year 1995.</p>
+<p><strong>Table 1. DMSP satellites and their corresponding years of OLS data that are available in the World Bank Light Every Night repository.</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>F10</p></th>
+<th class="head"><p>F12</p></th>
+<th class="head"><p>F14</p></th>
+<th class="head"><p>F15</p></th>
+<th class="head"><p>F16</p></th>
+<th class="head"><p>F18</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1992</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>1993</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>1994</p></td>
+<td><p>1994</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>1995</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>1996</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>1997</p></td>
+<td><p>1997</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>1998</p></td>
+<td><p>1998</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>1999</p></td>
+<td><p>1999</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>2000</p></td>
+<td><p>2000</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>2001</p></td>
+<td><p>2001</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>2002</p></td>
+<td><p>2002</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>2003</p></td>
+<td><p>2003</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2004</p></td>
+<td><p>2004</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2005</p></td>
+<td><p>2005</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2006</p></td>
+<td><p>2006</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2007</p></td>
+<td><p>2007</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2008</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2009</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2010</p></td>
+<td><p>2010</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2011</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2012</p></td>
+<td><p></p></td>
+<td><p>2012</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2013</p></td>
+<td><p></p></td>
+<td><p>2013</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2014</p></td>
+<td><p></p></td>
+<td><p>2014</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2015</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2016</p></td>
+<td><p>2016</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>2017</p></td>
+<td><p>2017</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Within a given sub-directory, data are provided by satellite orbit for every day (night) of the given year. For each OLS orbital segment, there are 5 image layers and a JSON metadata file. For a given orbital segment, these 6 files all have the same file prefix, which contains some metadata about the satellite and start time of the data in UTC. These are described below using an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F12199501010014</span><span class="o">.</span><span class="n">night</span><span class="o">.</span><span class="n">OIS</span>
+<span class="n">F12</span> <span class="o">-&gt;</span> <span class="n">satellite</span> <span class="n">name</span>
+   <span class="mi">1995</span> <span class="o">-&gt;</span> <span class="n">year</span> <span class="n">at</span> <span class="n">start</span> <span class="n">of</span> <span class="n">orbital</span> <span class="n">segment</span>
+       <span class="mi">01</span> <span class="o">-&gt;</span> <span class="n">month</span> <span class="n">at</span> <span class="n">start</span> <span class="n">of</span> <span class="n">orbital</span> <span class="n">segment</span>
+         <span class="mi">01</span> <span class="o">-&gt;</span> <span class="n">day</span> <span class="n">of</span> <span class="n">month</span> <span class="n">at</span> <span class="n">start</span> <span class="n">of</span> <span class="n">orbital</span> <span class="n">segment</span>
+           <span class="mi">00</span> <span class="o">-&gt;</span> <span class="n">hour</span> <span class="n">of</span> <span class="n">day</span> <span class="n">at</span> <span class="n">start</span> <span class="n">of</span> <span class="n">orbital</span> <span class="n">segment</span>
+             <span class="mi">14</span> <span class="o">-&gt;</span> <span class="n">minute</span> <span class="n">of</span> <span class="n">hour</span> <span class="n">at</span> <span class="n">start</span> <span class="n">of</span> <span class="n">orbital</span> <span class="n">segment</span>
+               <span class="o">.</span><span class="n">night</span> <span class="o">-&gt;</span> <span class="n">orbit</span> <span class="ow">is</span> <span class="n">cropped</span> <span class="n">to</span> <span class="n">only</span> <span class="n">nighttime</span> <span class="n">data</span>
+                     <span class="o">.</span><span class="n">OIS</span> <span class="o">-&gt;</span> <span class="n">acronym</span> <span class="k">for</span> <span class="n">OLS</span> <span class="n">Interleaved</span> <span class="n">Smooth</span>
+</pre></div>
+</div>
+<p>For each orbital segment, there are 5 image layers and the JSON metadata file. They have the same file prefix as described above, and are distinguished by their file extensions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.vis.co.tif</span></code>: a COG with a single band containing the visible nighttime imagery (this is the key data file)</p>
 <ul>
-<li><code>.vis.co.tif</code>: a COG with a single band containing the visible nighttime imagery (this is the key data file)</li>
-<li><code>.vis.co.json</code>: a JSON file following the STAC schema with metadata for the VIS file, including a timestamp and a geospatial bounding box</li>
-<li><code>.flag.co.tif</code>: a COG with a single band containing a bitflag for data quality</li>
+<li><p>Data range: [0, 63]</p></li>
+<li><p>“No-data” value: 255</p></li>
+<li><p>Data type: byte</p></li>
+<li><p>Units: Digital Number (DN) or unitless</p></li>
 </ul>
-<p>There are additional files that contain the co data:</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.vis.co.json</span></code>: a JSON file following the STAC schema with metadata for orbital segment, including a timestamp and a geospatial bounding box</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.flag.co.tif</span></code>: a COG with a single band containing bitflags that can be queried for data quality</p>
 <ul>
-<li><code>.tir.co.tif</code>: a COG with a single band containing Thermal Infrared (TIR) data</li>
-<li><code>.li.co.tif</code>: a COG with a single band containing Lunar Illuminance (LI) </li>
-<li><code>.samples.co.tif</code>: a COG with a single band containing samples</li>
+<li><p>Data range: [0,2<sup>15</sup>-1]</p></li>
+<li><p>“No-data” value: 2<sup>15</sup></p></li>
+<li><p>Bit-fields: see Table 2</p></li>
+<li><p>Data type: 16-bit integer</p></li>
+<li><p>Units: Unitless</p></li>
 </ul>
-<p>In every case, the stem of the filename corresponds with the satellite name, year, date and time (in UTC) of data collection. For example <code>F12199501010014.night.OIS.vis.co.tif</code> contains the visible nighttime imagery collected from the satellite F12 in 1995, on January 1, at 00 hours and 14 minutes. The bounding box geometry of the area covered in the file is available in the metadata within the corresponding JSON file and in the COG itself.</p>
-<h3 id="accessing-viirs">VIIRS-DNB</h3>
-<p>VIIRS-DNB data are organized by the year-month the data were captured. For example <code>s3://globalnightlight/201505/</code> contains all data collected in May of 2015.</p>
-<p>As with DMSP-OLS, within a given sub-directory, data are provided for every day (night) of the given year. These files follow the naming convention and structure of Sensor Data Records as described in the <a href="https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf">VIIRS SDR User's Guide</a>.</p>
-<p>For example, the naming convention for the file: <code>SVDNB_npp_d20150504_t1335358_e1341162_b18219_c20150504194116381040_noaa_ops.rade9.co.tif</code> is:</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.tir.co.tif</span></code>: a COG with a single band containing the OLS Thermal Infrared (TIR) data</p>
 <ul>
-<li><code>SVDNB</code>: prefix/product id (e.g. "SVDNB" for Sensor Data Record of Day-Night Band data)</li>
-<li><code>npp</code>: satellite (e.g. npp for Suomi National Polar-orbiting Partnership)</li>
-<li><code>d20150504</code>: date of data capture (e.g. d20150504 for May the 4th 2015)</li>
-<li><code>t1335358</code>: time of the scan start (e.g. t1335358 for hour:13, minute:35, millisecond:358)</li>
-<li><code>e1341162</code>: time of the scan end (e.g. e1341162 for hour:13, minute:41, millisecond:162)</li>
-<li><code>b18219</code>: the orbit number (e.g. b18219 orbit # 18219)</li>
-<li><code>c20150504194116381040</code>: the file creation date/time (e.g. c20150504194116381040 for May the 4th 2015, hour:19 minute:41 and 16381040 x 10<sup>-8</sup> seconds)</li>
-<li><code>noaa_ops</code>: the origin (e.g. noaa_ops for NOAA)</li>
-<li><code>rade9.co.tif</code>: an extension indicating data type (e.g. rade9.co.tif for Cloud-Optimized GeoTiff of nighttime radiance)</li>
+<li><p>Data range: [0, 255]</p></li>
+<li><p>“No-data” value: 255 (note this is not unique, use <code class="docutils literal notranslate"><span class="pre">vis.co.tif</span></code> or another companion file to confirm areas of no data)</p></li>
+<li><p>Data type: byte</p></li>
+<li><p>Units: Scaled byte data. These values can be converted to temperature in Kelvin using [slope, offset] of [0.4706,190.0]</p></li>
 </ul>
-<p>As with the DMSP data, there are several files containing different data. The key files are those with the <code>.rade9.co.tif</code> extension, which contain the nighttime radiance data (and a supplemental JSON file with metadata on this file), and those with the <code>.vflag.co.tif</code> extension, which contain data quality masks for several fields. These files are as follows:</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.samples.co.tif</span></code>: a COG with a single band containing sample position for the OLS pixel along the swath.</p>
 <ul>
-<li><code>.rade9.co.tif</code>: a COG with a single band containing a visible nighttime radiance (this is the key data file)</li>
-<li><code>.rade9.co.json</code>: a JSON file with metadata for the nighttime radiance data, including a timestamp and a geospatial bounding box</li>
-<li><code>.vflag.co.tif</code>: a COG with a single band containing a bitflag for data quality</li>
-<li>Prefix <code>SVM16</code> and extension <code>.rad.co.tif</code>: a COG with a single band containing a visible image data from the VIIRS M16 band</li>
+<li><p>Data range: [1,1465]</p></li>
+<li><p>No-data value: 0</p></li>
+<li><p>Data type: 16-bit integer</p></li>
+<li><p>Units: unitless</p></li>
 </ul>
-<p>There are additional files that contain reference data:</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.li.co.tif</span></code>: a COG with a single band containing Lunar Illuminance (LI) values</p>
 <ul>
-<li><code>.li.co.tif</code>: a COG with a single band containing Lunar Illuminance (LI) </li>
-<li><code>.samples.co.tif</code>: a COG with a single band containing samples</li>
+<li><p>Data range: [0, inf)</p></li>
+<li><p>No-data value: -1.0</p></li>
+<li><p>Data type: floating point</p></li>
+<li><p>Units: lux</p></li>
 </ul>
-<h2 id="accessing-data-aws">Accessing Light Every Night data on AWS</h2>
-<p>You can access these data via the link, <code>s3://globalnightligh</code> and using the web interface via the AWS console. Or via the AWS Command Line Interface, for example to list all files in the VIIRS 201505 sub-directory, using the <code>--no-sign-request</code> flag since this bucket is public:</p>
-<p><code>aws s3 ls s3://globalnightlight/201505 --no-sign-request</code></p>
+</li>
+</ul>
+<p>The bounding box geometry of the area covered in each file is available in the metadata within the corresponding JSON file and in the COG itself.</p>
+<p><strong>Table 2: Bit-flag field descriptions for OLS “flag” file</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag Name</p></th>
+<th class="head"><p>Flag Bit Position</p></th>
+<th class="head"><p>Flag State Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OLS_CLOUD1</p></td>
+<td><p>0</p></td>
+<td><p>This bit is set to 1 if the OLS pixel is determined to be a cloud given the primary (more restrictive) set of parameters on the OLS cloud algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OLS_LIGHT1</p></td>
+<td><p>1</p></td>
+<td><p>This bit is set to 1 if the OLS pixel is determined to be a light given the primary (less restrictive) set of parameters on the OLS light filtering algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p>OLS_GLARE</p></td>
+<td><p>2</p></td>
+<td><p>This bit is set to 1 if the OLS pixel is determined to be in an area of the swath impacted by solar glare (stray light) as determined by the OLS glare algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OLS_BSL_AND_LIGHTNING</p></td>
+<td><p>3</p></td>
+<td><p>This bit is set to 1 if the OLS scanline is determined to contain lightning and/or is a bad scanline as determined by the OLS lightning algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p>OLS_PIXEL_CENTER</p></td>
+<td><p>4</p></td>
+<td><p>This bit is set to 1 if the grid cell is an exact match to the location of an OLS pixel center.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OLS_DAYTIME</p></td>
+<td><p>5</p></td>
+<td><p>This bit is set to 1 if the OLS pixel is collected in daytime conditions. This region is determined using solar elevation angles and defines an area where no nighttime lights can be seen.</p></td>
+</tr>
+<tr class="row-even"><td><p>OLS_NIGHTTIME_MARGINAL</p></td>
+<td><p>6</p></td>
+<td><p>This bit is set to 1 if the OLS pixel is determined to be in the transition zone between day and night, aka the “terminator”. This region is determined using solar elevation angles and defines an area where nighttime lights can be seen, but the background is starting to be impacted by the sun.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OLS_LIGHT2</p></td>
+<td><p>7</p></td>
+<td><p>This bit is set to 1 if the OLS pixel is determined to be a light given the secondary (more restrictive) set of parameters on the OLS light filtering algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p>OLS_CLOUD2</p></td>
+<td><p>10</p></td>
+<td><p>This bit is set to 1 if the OLS pixel is determined to be a cloud given the secondary (less restrictive) set of parameters on the OLS cloud algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OLS_ZERO_LUNAR_ILLUM</p></td>
+<td><p>11</p></td>
+<td><p>This bit is set to 1 if the OLS pixel is collected when no moonlight is present (lunar illuminance value &lt; threshold).</p></td>
+</tr>
+<tr class="row-even"><td><p>OLS_FIXED_GAIN</p></td>
+<td><p>12</p></td>
+<td><p>This bit is set to 1 if the scanline was part of a special collection where the OLS gain setting was fixed. Normally the OLS gain is allowed to fluctuate given the collection’s environmental parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OLS_CLOUDS_UNKNOWN</p></td>
+<td><p>13</p></td>
+<td><p>This bit is set to 1 if ancillary data needed to determine cloud state was not available.</p></td>
+</tr>
+<tr class="row-even"><td><p>OLS_NO_DATA</p></td>
+<td><p>15</p></td>
+<td><p>This bit is set to 1 if no data is available for that scanline/section of orbit, or the grid cell is outside the bounds of the swath.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="viirs-dnb">
+<h3>VIIRS-DNB<a class="headerlink" href="#viirs-dnb" title="Permalink to this headline">¶</a></h3>
+<p>VIIRS-DNB data are available starting in April of 2012. The data are organized by either the year-month in which the data were captured, or by satellite year-month starting in 2018. If there is no satellite name, the satellite is assumed to be NPP. For example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">s3://globalnightlight/201505/</span></code> contains all data for May 2015 with satellite NPP</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s3://globalnightlight/npp_202012/</span></code> contains all data for December 2020 with satellite NPP</p></li>
+</ul>
+<p>Within a given sub-directory, data are provided in ~6 minute orbital segments, or aggregates, for every day (night) of the given month. For each aggregate, there are 5 image layers and a JSON metadata file. For a given aggregate, these 6 files all have the similar file prefixes, which contain some metadata about the data layer, the time of data collect (UTC), orbit number, and creation time of the VIIRS sensor data record (SDR) when placed in the <a href="https://www.avl.class.noaa.gov/saa/products/welcome;jsessionid=D085DD932AA68DCA4BCB17F63559AE1A">NOAA CLASS archive</a>. These file prefixes follow the naming convention and structure of Sensor Data Records as described in the <a href="https://ncc.nesdis.noaa.gov/documents/documentation/viirs-users-guide-tech-report-142a-v1.3.pdf">VIIRS SDR User’s Guide</a>, and are also described below.</p>
+<p>The 6 filenames for the layers/metadata associated with a given aggregate time are shown by example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SVDNB_npp_d20150504_t1335358_e1341162_b18219_c20150504194116381040_noaa_ops.rade9.co.tif</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SVDNB_npp_d20150504_t1335358_e1341162_b18219_c20150504194116381040_noaa_ops.rade9.co.json</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">npp_d20150504_t1335358_e1341162_b18219.vflag.co.tif</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GDNBO_npp_d20150504_t1335358_e1341162_b18219_c20150504194116380812_noaa_ops.li.co.tif</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GDTCN_npp_d20150504_t1335358_e1341162_b18219_c20150504194116380812_noaa_ops.samples.co.tif</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SVM15_npp_d20150504_t1335358_e1341162_b18219_c20150504194116358997_noaa_ops.rad.co.tif</span></code></p></li>
+</ul>
+<p>For this aggregate time, each file contains common aggregate identification fields. In this example, the aggregate identifier common to each filename is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">npp_d20150504_t1335358_e1341162_b18219</span>
+<span class="n">npp</span> <span class="o">-&gt;</span> <span class="n">satellite</span> <span class="n">ID</span>
+    <span class="n">d20150504</span> <span class="o">-&gt;</span> <span class="n">start</span> <span class="n">date</span> <span class="n">of</span> <span class="n">first</span> <span class="n">scan</span> <span class="ow">in</span> <span class="n">aggregate</span> <span class="p">(</span><span class="mi">2015</span><span class="o">/</span><span class="mi">05</span><span class="o">/</span><span class="mi">04</span><span class="p">)</span>
+              <span class="n">t1335358</span> <span class="o">-&gt;</span> <span class="n">time</span> <span class="n">of</span> <span class="n">first</span> <span class="n">scan</span> <span class="p">(</span><span class="mi">13</span><span class="p">:</span><span class="mi">35</span><span class="p">:</span><span class="mf">35.8</span><span class="p">)</span>
+                       <span class="n">e1341162</span> <span class="o">-&gt;</span> <span class="n">time</span> <span class="n">of</span> <span class="n">last</span> <span class="n">scan</span> <span class="p">(</span><span class="mi">13</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mf">16.2</span><span class="p">)</span>
+                                <span class="n">b18219</span> <span class="o">-&gt;</span> <span class="n">orbit</span> <span class="n">number</span> <span class="n">of</span> <span class="n">first</span> <span class="n">scan</span>
+</pre></div>
+</div>
+<p>All but one of the filenames are prepended with a product ID and have an additional timestamp or “creation time”. These will be described below, again using a filename prefix from our example aggregate:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SVDNB_npp_d20150504_t1335358_e1341162_b18219_c20150504194116381040_noaa_ops</span>
+<span class="n">SVDNB</span> <span class="o">-&gt;</span> <span class="n">Day</span><span class="o">/</span><span class="n">Night</span> <span class="n">Band</span> <span class="n">SDR</span> <span class="p">(</span><span class="nb">all</span> <span class="n">possible</span> <span class="n">product</span> <span class="n">IDs</span> <span class="n">are</span> <span class="n">listed</span> <span class="n">below</span><span class="p">)</span>
+      <span class="n">npp_d20150504_t1335358_e1341162_b18219</span> <span class="o">-&gt;</span> <span class="n">aggregate</span> <span class="n">identifier</span>
+                                             <span class="n">C20150504194116381040</span> <span class="o">-&gt;</span> <span class="n">creation</span> <span class="n">date</span><span class="o">/</span><span class="n">time</span> <span class="n">of</span> <span class="n">SDR</span>
+                                                                   <span class="n">noaa</span> <span class="o">-&gt;</span> <span class="n">data</span> <span class="n">origin</span>
+                                                                        <span class="n">ops</span> <span class="o">-&gt;</span> <span class="n">data</span> <span class="n">domain</span>
+</pre></div>
+</div>
+<p>ALL possible product IDs in this repository:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SVDNB</span></code> -&gt; Day/Night Band SDR</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GDNBO</span></code> -&gt; Day/Night Band Geolocation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GDTCN</span></code> -&gt; Day/Night Band Geolocation. This is NCEI’s internal terrain corrected version before it was available in the standard VIIRS DNB geolocation product.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SVM15</span></code> -&gt; Moderate Resolution band 15 SDR (longwave thermal)</p></li>
+</ul>
+<p>The VIIRS layers can be further distinguished by their file extensions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.rade9.co.tif</span></code>: a COG with a single band containing the DNB nighttime radiance (this is the key data file)</p>
+<ul>
+<li><p>Data range: (-1.5, inf)</p></li>
+<li><p>“No-data” values: -999.3 and -1.5</p></li>
+<li><p>Data type: floating point</p></li>
+<li><p>Units: nanowatts/cm<sup>2</sup>/sr</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.rade9.co.json</span></code>: a JSON file following the STAC schema with metadata for the nighttime radiance data, including a timestamp and a geospatial bounding box</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.vflag.co.tif</span></code>: a COG with a single band containing bitflags that can be queried for data quality</p>
+<ul>
+<li><p>Data range: [0, 2<sup>31</sup>-1]</p></li>
+<li><p>“No-data” value: 2<sup>31</sup></p></li>
+<li><p>Bit-fields: see Table 3</p></li>
+<li><p>Data type: 32-bit integer</p></li>
+<li><p>Units: Unitless</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.rad.co.tif</span></code>: a COG with a single band containing the TIR radiance</p>
+<ul>
+<li><p>Data range:</p></li>
+<li><p>“No-data” value: -999.3</p></li>
+<li><p>Data type: floating point</p></li>
+<li><p>Units: W m<sup>-2</sup> sr<sup>-1</sup> μm<sup>-1</sup></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.samples.co.tif</span></code>: a COG with a single band containing sample position for the DNB pixels along the swath.</p>
+<ul>
+<li><p>Data range: [1, 4064]</p></li>
+<li><p>No-data value: 0</p></li>
+<li><p>Data type: 16-bit integer</p></li>
+<li><p>Units: unitless</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.li.co.tif</span></code>: a COG with a single band containing Lunar Illuminance (LI) values</p>
+<ul>
+<li><p>Data range: [0, inf)</p></li>
+<li><p>No-data value: -999.3</p></li>
+<li><p>Data type: floating point</p></li>
+<li><p>Units: lux</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Table 3: Bit-flag field descriptions for DNB “vflag” file</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Flag Name</p></th>
+<th class="head"><p>Flag Bit Position</p></th>
+<th class="head"><p>Flag State Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VIIRS_CLOUD_QC</p></td>
+<td><p>2</p></td>
+<td><p>This bit is set to 1 if the VIIRS cloud algorithm results should be considered of poor quality (e.g. not enough ancillary data for the algorithm to give confident results.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>VIIRS_CLOUD</p></td>
+<td><p>3-4</p></td>
+<td><p>This 2-bit field has the following values: (0) Clear sky; (1) Probably cloudy; (2) Confidently cloudy; (3) Clouds unknown. These values are taken from the VIIRS Cloud Mask (VCM) Environmental Data Record (EDR)  through 2017 and then the <a href="https://www.star.nesdis.noaa.gov/jpss/clouds.php">VIIRS Enterprise Cloud Mask (ECM)</a> product from 2018 forward.</p></td>
+</tr>
+<tr class="row-even"><td><p>VIIRS_ZERO_LUNAR_ILLUM</p></td>
+<td><p>5</p></td>
+<td><p>This bit is set to 1 if the VIIRS-DNB pixel is collected when no moonlight is present (lunar illuminance value &lt; threshold).</p></td>
+</tr>
+<tr class="row-odd"><td><p>VIIRS_DAY_NIGHT_TERM</p></td>
+<td><p>6-7</p></td>
+<td><p>This 2-bit field has the following values: (0) Day - grid cell is in daytime conditions; (1) Terminator - grid cell is in terminator zone (transition region between day and night); (2) Night - grid cell is in nighttime conditions; (3) Unknown. These regions are determined using solar elevation angles.</p></td>
+</tr>
+<tr class="row-even"><td><p>VIIRS_STRAY_LIGHT</p></td>
+<td><p>14-15</p></td>
+<td><p>This 2-bit field has the following values: (0) NO stray light impact; (1) Stray light impact region (per solar elevation model); (2) Stray light correction algorithm run on DNB; (3) Stray light impact region AND stray light correction run on DNB. Note: stray light correction began on the VIIRS DNB SDR imagery in 2014.</p></td>
+</tr>
+<tr class="row-odd"><td><p>VIIRS_DNB_LIGHTNING</p></td>
+<td><p>22-23</p></td>
+<td><p>This 2-bit field has the following values: (0) No lightning detected; (1) Lightning signature detected; (2) Spare value; (3) No data OR lightning algorithm did not execute.</p></td>
+</tr>
+<tr class="row-even"><td><p>VIIRS_DNB_HEP</p></td>
+<td><p>24</p></td>
+<td><p>This bit is set to 1 if the DNB pixel is determined to contain a High-Energy particle hit per internal algorithm (common in the South Atlantic Anomaly zone over South America).</p></td>
+</tr>
+<tr class="row-odd"><td><p>VIIRS_NO_DATA</p></td>
+<td><p>31</p></td>
+<td><p>This bit is set to 1 if no data is available for that scanline/section of orbit, or the grid cell is outside the bounds of the swath.</p></td>
+</tr>
+</tbody>
+</table>
 <hr class="docutils" />
 <p><a href="http://aws.amazon.com/opendata/public-datasets">AWS Public Datasets</a></p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
