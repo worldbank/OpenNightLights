@@ -45,3 +45,7 @@
 - part: World Bank - Light Every Night AWS data archive
   chapters:
   - file: wb-light-every-night-readme
+
+- part: Applications of nighttime lights
+  chapters:
+  - file: estimating-electricity-with-viirs
