@@ -34,11 +34,11 @@ Here is a preview of the cell contents:
 -------------------
 scaleFactor=100
 
-japanSOL = viirsJan2015.reduceRegion(reducer=ee.Reducer.mean(),
+japanSOL100 = viirsJan2015.reduceRegion(reducer=ee.Reducer.sum(),
                                      geometry=japan0.geometry(),
                                      scale=scaleFactor,
                                      maxPixels=1e9)
 
-print(f"The avg radiance for Japan in Jan 2015 (per {scaleFactor}m grid) is: {japanSOL.get('avg_rad').getInfo():.4f}")
+print(f"The SOL for Japan at {scaleFactor}m scale is: {japanSOL100.get('avg_rad').getInfo():.2f}")
 -------------------
 

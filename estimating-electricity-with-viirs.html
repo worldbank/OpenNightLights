@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Open Nighttime Lights</title>
+    <title>High Resolution Electricity Access (HREA) Indicators &#8212; Open Nighttime Lights</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,8 +55,9 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="World Bank - Light Every Night" href="wb-light-every-night-readme.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -255,9 +256,9 @@
   Applications of nighttime lights
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="estimating-electricity-with-viirs.html">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    High Resolution Electricity Access (HREA) Indicators
   </a>
  </li>
@@ -293,6 +294,23 @@
         </button>
         
         
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/estimating-electricity-with-viirs.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
         <!-- Source interaction buttons -->
 
 
@@ -309,6 +327,27 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#new-methods-to-estimate-electricity-access-using-nightly-viirs-satellite-imagery">
+   New methods to estimate electricity access using nightly VIIRS satellite imagery
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction">
+     Introduction
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -316,13 +355,44 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="high-resolution-electricity-access-hrea-indicators">
+<h1>High Resolution Electricity Access (HREA) Indicators<a class="headerlink" href="#high-resolution-electricity-access-hrea-indicators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-methods-to-estimate-electricity-access-using-nightly-viirs-satellite-imagery">
+<h2>New methods to estimate electricity access using nightly VIIRS satellite imagery<a class="headerlink" href="#new-methods-to-estimate-electricity-access-using-nightly-viirs-satellite-imagery" title="Permalink to this headline">¶</a></h2>
+<p>Brian Min and Zachary O’Keeffe at the University of Michigan have created
+a statistical model that generates likelihood estimates of
+electricity access for all areas with human settlements for a given country.</p>
+<p><a href="https://github.com/zachokeeffe/nightlight_electrification">The source repository is available here.</a></p>
+<p>This repo contains scripts (scripts are in R) and more details about the data and methods used.</p>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>We introduce a new method to generate likelihood estimates of electricity access for all areas with human settlements within a country by identifying statistical anomalies in brightness values that are plausibly associated with electricity use, and unlikely to be due to exogenous factors.</p>
+<p>On every night, the VIIRS DNB sensor collects data on the observed brightness over all locations within a country, including over electrified and unelectrified areas, and populated and unpopulated areas. Our objective is to classify populated areas as electrified or not using all the brightness data over a country. But the challenge is that light output can be due to multiple sources unrelated to electricity use. Notably, the VIIRS sensor is so sensitive that it picks up light from overglow, atmospheric interactions, moonlight, and variations in surface reflectivity across types of land cover. We refer collectively to these exogenous sources as background noise, which must be accounted for to classify whether an area is brighter than expected.</p>
+<p>We use data on light output detected over areas with no settlements or buildings to train a statistical model of background noise. The model can be used to generate an expected brightness value on every given night for every given location. We then compare the observed brightness on each night against the expected baseline brightness value. Areas with human settlements with brighter light output than expected are assumed to have access to electricity on that night. We classify all settlements on all nights and then average the estimates and generate an “Artificial Light Score” for each calendar year for all settlement areas. Areas that are much brighter than would be expected on most nights have the highest probability of being electrified. Areas that are as dim as areas with no settlements have the lowest probability of being electrified. And areas that are a little brighter on some nights have middling scores.</p>
+<p>The advantage of this process is that it uses all available nightly data from the VIIRS data stream while taking into account sources of known noise and variability. The process also allows for the identification of areas where the likelihood of electricity access and use is uncertain (the areas with middling scores). This is significant given that traditional binary measures of access do not account for variations in levels of use or reliability of power supply, even across areas that are all nominally electrified. These data may therefore be helpful in identifying baseline variations in access and reliability within countries, consistent with the objectives of the Multi-tier Framework for measuring energy access (ESMAP 2015).</p>
+</div>
+</div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -332,6 +402,7 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="wb-light-every-night-readme.html" title="previous page">World Bank - Light Every Night</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
