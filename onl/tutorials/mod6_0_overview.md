@@ -7,29 +7,27 @@ This module presents an approach for assessing changes in built-up land cover in
 
 **Topics and activities include:**
 
-## Framing the analysis
-Designing analysis to provide meaningful insight into economic activity.
+{doc}`mod6_1_framing_the_analysis`: Designing analysis to provide meaningful insight into economic activity.
 
-## Supervised learning and image classification
-Intro to basic concepts of a powerful machine learning approach.
+{doc}`mod6_2_supervised_learning_img_classification`: Intro to basic concepts of a powerful machine learning approach.
 
-## Sentinel-2 (SE2) imagery
+-Sentinel-2 (SE2) imagery
 Intro to high-resolution daytime imagery for land monitoring.
 
-## Merging SE2 bands with DMPS-OLS and VIIRS-DNB
+-Merging SE2 bands with DMPS-OLS and VIIRS-DNB
 Data fusion: integrating remote sensing data
 
-## World Settlement Footpint (WSF)
+-Global Human Settlement Layer (GHSL)
 Using additional geospatial data as a label for training a classifier.
 
-## Creating a training dataset with SE2, nighttime lights, and WSF
+-Creating a training dataset with SE2, nighttime lights, and GHSL
 Data fusion: integrating remote sensing data with other geospatial data.
 
-## Training a Random Forest classifier
+-Training a Random Forest classifier
 Application of supervised learning to classify built-up land cover.
 
-## Model evaluation
+-Model evaluation
 Validating the model.
 
-## Mapping annual changes in built-up land cover
+-Mapping annual changes in built-up land cover
 Assessing and plotting change detection.

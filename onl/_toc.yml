@@ -46,6 +46,8 @@
   numbered: true
   chapters:
   - file: tutorials/mod6_0_overview
+  - file: tutorials/mod6_1_framing_the_analysis
+  - file: tutorials/mod6_2_supervised_learning_img_classification
 
 - part: World Bank - Light Every Night AWS data archive
   chapters:
