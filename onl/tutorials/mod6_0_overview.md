@@ -13,11 +13,9 @@ This module presents an approach for assessing changes in built-up land cover in
 
 {doc}`mod6_3_intro_to_sentinel2`: Intro to high-resolution daytime imagery for land monitoring.
 
--Merging SE2 bands with DMPS-OLS and VIIRS-DNB
-Data fusion: integrating remote sensing data
+{doc}`mod6_4_intro_to_WSF`: Intro to a settlement dataset to use as training labels.
 
--Global Human Settlement Layer (GHSL)
-Using additional geospatial data as a label for training a classifier.
+
 
 -Creating a training dataset with SE2, nighttime lights, and GHSL
 Data fusion: integrating remote sensing data with other geospatial data.

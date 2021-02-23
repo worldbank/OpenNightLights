@@ -39,7 +39,7 @@ This is a very brief summary of some fairly deep topics but many resources are a
 Python itself provides a useful entry point for these methods via the <a href="https://scikit-learn.org/stable/user_guide.html">documention in the scikit-learn package</a>. And the added benefit is that the packages described contain the very code needed to implement these methods and many examples.
 </div>
 
-The good news is that as long as you understand what you are doing and why, the tools for doing this classification are easy to use and require minimal programming experience, as with the previous tutorial exercises. 
+The good news is that as long as you stay curious about what you are doing and why, the tools for doing this classification are easy to use and require minimal programming experience, as with the previous tutorial exercises.
 
 Do not let a lack of knowledge prevent you from digging into the data and learning by doing, but rather consider the resources available for understanding applicable theory when something interesting happens with your data and you want to know why. Once you do, you will see what is possible and hopefully be motivated to learn more.
 
