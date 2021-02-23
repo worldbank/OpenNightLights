@@ -11,8 +11,7 @@ This module presents an approach for assessing changes in built-up land cover in
 
 {doc}`mod6_2_supervised_learning_img_classification`: Intro to basic concepts of a powerful machine learning approach.
 
--Sentinel-2 (SE2) imagery
-Intro to high-resolution daytime imagery for land monitoring.
+{doc}`mod6_3_intro_to_sentinel2`: Intro to high-resolution daytime imagery for land monitoring.
 
 -Merging SE2 bands with DMPS-OLS and VIIRS-DNB
 Data fusion: integrating remote sensing data
@@ -25,6 +24,7 @@ Data fusion: integrating remote sensing data with other geospatial data.
 
 -Training a Random Forest classifier
 Application of supervised learning to classify built-up land cover.
+- https://developers.google.com/earth-engine/guides/classification
 
 -Model evaluation
 Validating the model.
