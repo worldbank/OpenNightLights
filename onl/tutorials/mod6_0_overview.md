@@ -1,9 +1,9 @@
 # Overview
 
-After working through the previous modules of this tutorial, you should have a basic understanding of how to access, analyze and visualize satellite data. One of the best ways to improve your skills with data science and remote sensing (as with many things!) is to try hands-on examples.
+After working through the previous modules of this tutorial, you should have a basic understanding of how to access, analyze and visualize satellite data. One of the best ways to improve your skills with data science and remote sensing, as with many things, is through hands-on examples.
 
 ## Economic activity in Nepal
-This module presents an approach for assessing changes in built-up land cover in Nepal. In addition to using fundamental techniques introduced in the previous tutorial modules, participants will be exposed to two new concepts in the remote sensing domain: data fusion and image classification.
+This module presents an approach for assessing change in built-up land cover in Nepal. In addition to using fundamental techniques introduced in the previous tutorial modules, participants will be exposed to two new concepts in the remote sensing domain: data integration (sometimes called data fusion) and image classification.
 
 **Topics and activities include:**
 
@@ -19,4 +19,4 @@ This module presents an approach for assessing changes in built-up land cover in
 
 {doc}`mod6_6_RF_classifier`: Application of supervised learning to classify built-up land cover.
 
-{doc}`mod6_7_final_analysis`: Run inference and analyze change in land cover.
+{doc}`mod6_7_final_analysis`: Inference and analysis on change detection.

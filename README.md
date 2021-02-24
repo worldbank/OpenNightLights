@@ -27,6 +27,12 @@ To publish book to Github pages or to update the published content, (from root d
 
 This will push content to the live link at: https://worldbank.github.io/OpenNightLights/welcome.html
 
+# Private repo status and Google Colab
+Note: as long as this repo is not publicly accessible, users will not be able to access the notebooks in Colab, a popular
+platform (a temporary solution was developed for the Geo4Dev conference, but it is not viable long-term). 
+The published content will be viewable by anyone and the notebooks can be downloaded and executed locally however.
+
+
 Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
 
 This work is licensed under a
