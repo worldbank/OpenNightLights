@@ -48,6 +48,8 @@
     <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -241,6 +243,53 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Module 6 Exercise in data fusion for image classification
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials/mod6_0_overview.html">
+   1. Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials/mod6_1_framing_the_analysis.html">
+   2. Framing the analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials/mod6_2_supervised_learning_img_classification.html">
+   3. Supervised learning and image classification
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials/mod6_3_intro_to_sentinel2.html">
+   4. Intro to Sentinel-2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials/mod6_4_intro_to_GHSL.html">
+   5. Intro to Global Human Settlement Layer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials/mod6_5_data_fusion.html">
+   6. Data fusion: Sentinel-2, VIIRS-DNB, GHSL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials/mod6_6_RF_classifier.html">
+   7. Random Forest Classifier
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tutorials/mod6_7_final_analysis.html">
+   8. Statistical inference
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   World Bank - Light Every Night AWS data archive
  </span>
 </p>
@@ -338,8 +387,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#introduction">
-     Introduction
+    <a class="reference internal nav-link" href="#introduction-more-details-available-at-the-source-linked-above">
+     Introduction (more details available at the source linked above)
     </a>
    </li>
   </ul>
@@ -362,14 +411,14 @@
 <p>Brian Min and Zachary O’Keeffe at the University of Michigan have created
 a statistical model that generates likelihood estimates of
 electricity access for all areas with human settlements for a given country.</p>
-<p><a href="https://github.com/zachokeeffe/nightlight_electrification">The source repository is available here.</a></p>
-<p>This repo contains scripts (scripts are in R) and more details about the data and methods used.</p>
-<div class="section" id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p><a href="https://github.com/zachokeeffe/nightlight_electrification">The source repository is available here.</a> This repo contains scripts (scripts are in R) and more details about the data and methods used.</p>
+<div class="section" id="introduction-more-details-available-at-the-source-linked-above">
+<h3>Introduction (more details available at the source linked above)<a class="headerlink" href="#introduction-more-details-available-at-the-source-linked-above" title="Permalink to this headline">¶</a></h3>
 <p>We introduce a new method to generate likelihood estimates of electricity access for all areas with human settlements within a country by identifying statistical anomalies in brightness values that are plausibly associated with electricity use, and unlikely to be due to exogenous factors.</p>
 <p>On every night, the VIIRS DNB sensor collects data on the observed brightness over all locations within a country, including over electrified and unelectrified areas, and populated and unpopulated areas. Our objective is to classify populated areas as electrified or not using all the brightness data over a country. But the challenge is that light output can be due to multiple sources unrelated to electricity use. Notably, the VIIRS sensor is so sensitive that it picks up light from overglow, atmospheric interactions, moonlight, and variations in surface reflectivity across types of land cover. We refer collectively to these exogenous sources as background noise, which must be accounted for to classify whether an area is brighter than expected.</p>
 <p>We use data on light output detected over areas with no settlements or buildings to train a statistical model of background noise. The model can be used to generate an expected brightness value on every given night for every given location. We then compare the observed brightness on each night against the expected baseline brightness value. Areas with human settlements with brighter light output than expected are assumed to have access to electricity on that night. We classify all settlements on all nights and then average the estimates and generate an “Artificial Light Score” for each calendar year for all settlement areas. Areas that are much brighter than would be expected on most nights have the highest probability of being electrified. Areas that are as dim as areas with no settlements have the lowest probability of being electrified. And areas that are a little brighter on some nights have middling scores.</p>
 <p>The advantage of this process is that it uses all available nightly data from the VIIRS data stream while taking into account sources of known noise and variability. The process also allows for the identification of areas where the likelihood of electricity access and use is uncertain (the areas with middling scores). This is significant given that traditional binary measures of access do not account for variations in levels of use or reliability of power supply, even across areas that are all nominally electrified. These data may therefore be helpful in identifying baseline variations in access and reliability within countries, consistent with the objectives of the Multi-tier Framework for measuring energy access (ESMAP 2015).</p>
+<p><a href="https://github.com/zachokeeffe/nightlight_electrification">Nightlight Electrification</a></p>
 </div>
 </div>
 </div>

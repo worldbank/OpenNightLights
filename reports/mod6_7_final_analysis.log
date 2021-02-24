@@ -32,15 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-# reduce collection
-sokorea_sol = viirs.map(get_sokorea_sol)
-
-# get lists
-nested_list = sokorea_sol.reduceColumns(ee.Reducer.toList(2), ['date','SOL']).values().get(0)
-
-# convert to dataframe
-soldf = pd.DataFrame(nested_list.getInfo(), columns=['date','SOL'])
-soldf['date'] = pd.to_datetime(soldf['date'])
-soldf = soldf.set_index('date')
+allyears_arrs = [img.sample(region=roi, scale=scaleFactor, numPixels=1000) for img in allyears]
+allyears_arrs = [np.asarray(arr.reduceColumns(ee.Reducer.toList(1), 
+                                              ['classification']).values().get(0).getInfo()) for arr in allyears_arrs]
 -------------------
 

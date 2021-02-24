@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Introduction to Google Earth Engine (GEE) (5 min) &#8212; Open Nighttime Lights</title>
+    <title>4. Intro to Sentinel-2 &#8212; Open Nighttime Lights</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,8 +59,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. GEE Python API and geemap (5 min)" href="mod2_5_GEE_PythonAPI_and_geemap.html" />
-    <link rel="prev" title="3. Introduction to Jupyter notebooks (10 min)" href="mod2_3_introduction_to_Jupyter_notebooks.html" />
+    <link rel="next" title="5. Intro to Global Human Settlement Layer" href="mod6_4_intro_to_GHSL.html" />
+    <link rel="prev" title="3. Supervised learning and image classification" href="mod6_2_supervised_learning_img_classification.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -119,7 +119,7 @@
   Module 2 Introduction to open data and tools
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="mod2_1_data_overview.html">
    1. Data overview (10 min)
@@ -135,8 +135,8 @@
    3. Introduction to Jupyter notebooks (10 min)
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_4_introduction_to_GEE.html">
    4. Introduction to Google Earth Engine (GEE) (5 min)
   </a>
  </li>
@@ -247,7 +247,7 @@
   Module 6 Exercise in data fusion for image classification
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="mod6_0_overview.html">
    1. Overview
@@ -263,8 +263,8 @@
    3. Supervised learning and image classification
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mod6_3_intro_to_sentinel2.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    4. Intro to Sentinel-2
   </a>
  </li>
@@ -352,7 +352,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tutorials/mod2_4_introduction_to_GEE.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod6_3_intro_to_sentinel2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -377,7 +377,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tutorials/mod2_4_introduction_to_GEE.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/tutorials/mod6_3_intro_to_sentinel2.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -394,42 +394,6 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#google-earth-engine-gee-overview">
-   4.1. Google Earth Engine (GEE) Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gee-access">
-   4.2. GEE Access
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gee-code-editor">
-     4.2.1. GEE Code editor
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#get-to-know-the-data">
-     4.2.2. Get to know the data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   4.3. References:
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -437,59 +401,87 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-google-earth-engine-gee-5-min">
-<h1><span class="section-number">4. </span>Introduction to Google Earth Engine (GEE) (5 min)<a class="headerlink" href="#introduction-to-google-earth-engine-gee-5-min" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="google-earth-engine-gee-overview">
-<h2><span class="section-number">4.1. </span>Google Earth Engine (GEE) Overview<a class="headerlink" href="#google-earth-engine-gee-overview" title="Permalink to this headline">¶</a></h2>
-<div class="alert alert-success">
-<a href="https://earthengine.google.com/" class="alert-link">Google Earth Engine (GEE)</a> is a cloud-based platform for planetary-scale geospatial analysis which allows to process a variety of geographical data at scale and handle large geographical datasets. 
-</div>
-<p>Since geographical data are often large and complicated to store, GEE provides a quickly accessible collection of ready-to-use data products. In addition, it is open and free to the public (for non-commercial use).</p>
-<p>GEE consists of a multi-petabyte “ready-to-use” data catalog alongside a high-performance, intrinsically parallel computation service. It can be accessed and controlled through an Internet-accessible application programming interface (API) and an associated web-based interactive development environment (IDE) that enables rapid prototyping and visualization of results <a class="bibtex reference internal" href="#gorelick2017google" id="id1">[GHD+17]</a>.</p>
-<p>Because all the datasets are available on the GEE platform, there is no need to manage the data, download them, change the file format, or update the geographic projection. It uses the power of thousands of computers located in Google data centers to carry out its heavy processing. This distributed network allows the user to finish a task in a few minutes for small areas and few days for a world-scale study.</p>
-<p>GEE provides access to numerous remotely sensed datasets and derived products, including DMSP-OLS and VIIRS DNB. Some of the data is already provided  in the platform processed and “ready-to-use”.</p>
-<div class="alert alert-success">
-<a href="https://groups.google.com/u/1/g/google-earth-engine-developers?pli=1" class="alert-link">The GEE developer forum</a> is a very helpful resource for beginners. On this forum it is possible to directly ask a question to the GEE community including GEE programmers and founders. 
-</div>
-</div>
-<div class="section" id="gee-access">
-<h2><span class="section-number">4.2. </span>GEE Access<a class="headerlink" href="#gee-access" title="Permalink to this headline">¶</a></h2>
-<p>Accessing GEE is easy. Aspiring users will first need to <a href="https://signup.earthengine.google.com/" class="alert-link">sign up to the platform</a> with their Google account. It is the same account, people use to access Youtube, Google drive, Gmail and any Google service. Google usually gives access to new users within 24 hours. Then, all a user needs to access GEE from anywhere in the world is an internet connection.</p>
-<p>Data in GEE can be analyzed in two ways:</p>
-<ul class="simple">
-<li><ol class="simple">
-<li><p>through the Javascript API via the GEE code editor, or</p></li>
-</ol>
-</li>
-<li><ol class="simple">
-<li><p>a Python API, geemap, that can be accessed through any Python environment, such as Jupyter notebooks. More on that in <a class="reference internal" href="mod2_5_GEE_PythonAPI_and_geemap.html"><span class="doc">GEE Python API and geemap (5 min)</span></a></p></li>
-</ol>
-</li>
-</ul>
-<div class="section" id="gee-code-editor">
-<h3><span class="section-number">4.2.1. </span>GEE Code editor<a class="headerlink" href="#gee-code-editor" title="Permalink to this headline">¶</a></h3>
-<p><a href="https://code.earthengine.google.com/">code.earthengine.google.com</a> is the code editor that uses JavaScript to access, transform, analyze, visualize and manage satellite data in GEE.</p>
-<div class="alert alert-success">
-The GEE platform provides <a href="https://developers.google.com/earth-engine/" class="alert-link">comprehensive documentation</a> and tutorials with videos as well as an  Application Programming Interface (API) dictionary to help users to learn how to write and use every JavaScript function in GEE.
-</div>
-</div>
-<div class="section" id="get-to-know-the-data">
-<h3><span class="section-number">4.2.2. </span>Get to know the data<a class="headerlink" href="#get-to-know-the-data" title="Permalink to this headline">¶</a></h3>
-<p>It will really help you to understand some of the exercises in this tutorial if you spend a little time getting familiar with the data in GEE.</p>
-<p>For example, take a look at the <a href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_DMSP-OLS_NIGHTTIME_LIGHTS">DMSP-OLS dataset description</a> in GEE. It provides summary information on how the data are collected and organized and what they represent as well as links to more detailed technical information on the source. You’ll also notice an “Earth Engine Snippet” (such as: <code class="docutils literal notranslate"><span class="pre">ee.ImageCollection(&quot;NOAA/DMSP-OLS/NIGHTTIME_LIGHTS&quot;)</span></code> – we will re-visit this as it is the key for pulling particular datasets in GEE.</p>
-<p>You can also review the page on <a href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_MONTHLY_V1_VCMSLCFG">VIIRS-DNB stray-light corrected monthly composites</a> in GEE.</p>
-<p>You may notice that many datasets have multiple vintages and versions. The description usually give insight into what this means (otherwise you may have to go to the source information), but it is important to understand that there can be differences in the data from particular satellite systems.</p>
+  <div class="section" id="intro-to-sentinel-2">
+<h1><span class="section-number">4. </span>Intro to Sentinel-2<a class="headerlink" href="#intro-to-sentinel-2" title="Permalink to this headline">¶</a></h1>
+<p><a href="https://sentinel.esa.int/web/sentinel/missions/sentinel-2">Sentinel-2 satellites</a> (there are 2) are part of the European Space Agency’s (ESA) Copernicus system and contain the MultiSpectral Instrument (MSI), which provides hi-resolution imagery that is useful for land use monitoring.</p>
+<p>As with other datasets in Google Earth Engine (GEE), more details and links to resources are available on the <a href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2">collection’s landing pages</a>.</p>
+<p>What is important for us is that it has several image bands across the optical electromagnetic spectrum that will be useful feature for classifying land use, particular that of built-up areas.</p>
+<p>Let’s explore this data source and get sense of it’s resolution and attributes.</p>
+<p>For visualization we’ll look at just the Red, Green and Blue channels and clip around Nepal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geemap</span><span class="o">,</span> <span class="nn">ee</span>
+
+<span class="k">try</span><span class="p">:</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+
+<span class="c1"># get our Nepal boundary</span>
+<span class="n">aoi</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s2">&quot;FAO/GAUL/2015/level0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;ADM0_NAME&#39;</span><span class="p">,</span><span class="s1">&#39;Nepal&#39;</span><span class="p">))</span>
+
+<span class="c1"># Sentinel-2 image filtered on 2019 and on Nepal</span>
+<span class="n">se2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s2">&quot;2019-01-01&quot;</span><span class="p">,</span><span class="s2">&quot;2019-12-31&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">aoi</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">rgb</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;B4&#39;</span><span class="p">,</span><span class="s1">&#39;B3&#39;</span><span class="p">,</span><span class="s1">&#39;B2&#39;</span><span class="p">]</span>
+
+<span class="c1"># set some thresholds</span>
+<span class="n">rgbViz</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;min&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span><span class="s2">&quot;bands&quot;</span><span class="p">:</span><span class="n">rgb</span><span class="p">}</span>
+
+
+<span class="c1"># initialize our map</span>
+<span class="n">map1</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">map1</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">aoi</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">map1</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">se2</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">aoi</span><span class="p">),</span> <span class="n">rgbViz</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">)</span>
+
+<span class="n">map1</span><span class="o">.</span><span class="n">addLayerControl</span><span class="p">()</span>
+<span class="n">map1</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="references">
-<h2><span class="section-number">4.3. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-tutorials/mod2_4_introduction_to_GEE-0"><dl class="citation">
-<dt class="bibtex label" id="gorelick2017google"><span class="brackets"><a class="fn-backref" href="#id1">GHD+17</a></span></dt>
-<dd><p>Noel Gorelick, Matt Hancher, Mike Dixon, Simon Ilyushchenko, David Thau, and Rebecca Moore. Google earth engine: planetary-scale geospatial analysis for everyone. <em>Remote sensing of Environment</em>, 202:18–27, 2017.</p>
-</dd>
-</dl>
-</p>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "b2e8bf5a758141b19b09c55e9701995a", "version_major": 2, "version_minor": 0}
+</script></div>
 </div>
+<p>We can see a real color image of Nepal. We reduced our Image Collection to an image representing the median of 2019 and it appears we’ve also captured some clouds around Kathmandu. We will make a cloud mask to clear the image up using Sentinel-2’s QA band. We’re modeling this (in Python) from the example used in GEE: https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2#bands</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">se2mask</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="n">quality_band</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;QA60&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># using the bit mask for clouds and cirrus clouds respectively</span>
+    <span class="n">cloudmask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span>
+    <span class="n">cirrusmask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">11</span>
+    
+    <span class="c1"># we only want clear skies</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">quality_band</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="n">cloudmask</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">quality_band</span><span class="o">.</span><span class="n">bitwiseAnd</span><span class="p">(</span><span class="n">cirrusmask</span><span class="p">)</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    
+    <span class="c1"># we&#39;ll divide by 10000 to make interpreting the reflectance values easier</span>
+    <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">updateMask</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+    
+<span class="n">se2</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span>
+    <span class="s2">&quot;2019-01-01&quot;</span><span class="p">,</span><span class="s2">&quot;2019-12-31&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">aoi</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
+    <span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">lt</span><span class="p">(</span><span class="s2">&quot;CLOUDY_PIXEL_PERCENTAGE&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">se2mask</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+
+<span class="c1"># initialize our map</span>
+<span class="n">map2</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="n">map2</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">aoi</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">map2</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">se2</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">aoi</span><span class="p">),</span> <span class="n">rgbViz</span><span class="p">,</span> <span class="s2">&quot;S2&quot;</span><span class="p">)</span>
+
+<span class="n">map2</span><span class="o">.</span><span class="n">addLayerControl</span><span class="p">()</span>
+<span class="n">map2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "85ff7c1298e848f495ccfdde6cf3c6b1", "version_major": 2, "version_minor": 0}
+</script></div>
+</div>
+<p>That cleared things up nicely!</p>
+<p>Next we’ll integrate Sentinel-2 image data with VIIRS-DNB nighttime lights.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -520,8 +512,8 @@ The GEE platform provides <a href="https://developers.google.com/earth-engine/" 
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="mod2_3_introduction_to_Jupyter_notebooks.html" title="previous page"><span class="section-number">3. </span>Introduction to Jupyter notebooks (10 min)</a>
-    <a class='right-next' id="next-link" href="mod2_5_GEE_PythonAPI_and_geemap.html" title="next page"><span class="section-number">5. </span>GEE Python API and geemap (5 min)</a>
+    <a class='left-prev' id="prev-link" href="mod6_2_supervised_learning_img_classification.html" title="previous page"><span class="section-number">3. </span>Supervised learning and image classification</a>
+    <a class='right-next' id="next-link" href="mod6_4_intro_to_GHSL.html" title="next page"><span class="section-number">5. </span>Intro to Global Human Settlement Layer</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

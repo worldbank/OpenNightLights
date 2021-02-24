@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Data overview (10 min) &#8212; Open Nighttime Lights</title>
+    <title>2. Framing the analysis &#8212; Open Nighttime Lights</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,8 +59,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Getting started with Python (10 min)" href="mod2_2_getting_started_with_Python.html" />
-    <link rel="prev" title="2. Introduction to nighttime light data (20 min)" href="mod1_2_introduction_to_nighttime_light_data.html" />
+    <link rel="next" title="3. Supervised learning and image classification" href="mod6_2_supervised_learning_img_classification.html" />
+    <link rel="prev" title="1. Overview" href="mod6_0_overview.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -119,9 +119,9 @@
   Module 2 Introduction to open data and tools
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mod2_1_data_overview.html">
    1. Data overview (10 min)
   </a>
  </li>
@@ -247,14 +247,14 @@
   Module 6 Exercise in data fusion for image classification
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="mod6_0_overview.html">
    1. Overview
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mod6_1_framing_the_analysis.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    2. Framing the analysis
   </a>
  </li>
@@ -352,7 +352,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/tutorials/mod2_1_data_overview.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/tutorials/mod6_1_framing_the_analysis.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -383,62 +383,33 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-structure">
-   1.1. Data Structure
+  <a class="reference internal nav-link" href="#what-is-the-key-inquiry">
+   2.1. What is the key inquiry?
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#raster-files">
-     1.1.1. Raster files
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vector-files">
-     1.1.2. Vector files
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#brief-comparison-of-raster-vs-vector-data-models">
-     1.1.3. Brief comparison of raster vs vector data models
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geotiffs">
-     1.1.4. GeoTIFFs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cloud-optimized-geotiffs-cogs">
-     1.1.5. Cloud-optimized geoTIFFs (COGs)
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-world-bank-s-light-every-night-dataset">
-   1.2. The World Bank’s “Light Every Night” dataset
+  <a class="reference internal nav-link" href="#what-are-possible-testable-hypotheses">
+   2.2. What are possible testable hypotheses?
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#components-of-the-len-archive">
-     1.2.1. Components of the LEN archive
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-that-is-analysis-ready">
-     1.2.2. Data that is “analysis ready”
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-access-and-tutorials">
-     1.2.3. Data access and tutorials
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   2.3. Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   2.4. Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   2.5. Conclusions
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
-   1.3. References:
+   2.6. References:
   </a>
  </li>
 </ul>
@@ -452,149 +423,79 @@
         
               <div>
                 
-  <div class="section" id="data-overview-10-min">
-<h1><span class="section-number">1. </span>Data overview (10 min)<a class="headerlink" href="#data-overview-10-min" title="Permalink to this headline">¶</a></h1>
-<p>In this module, we want to give you a little more specific information
-about the data we’ll be working with. First, it’s helpful to understand
-the basic data formats that are used with geospatial data analysis.</p>
-<div class="section" id="data-structure">
-<h2><span class="section-number">1.1. </span>Data Structure<a class="headerlink" href="#data-structure" title="Permalink to this headline">¶</a></h2>
-<p><strong>Raster vs. Vector data</strong></p>
-<p>Geospatial data from the “real world” can be stored in different types
-of formats or data types: In this course we will be working with two
-types of geospatial data stored as either a <strong>raster</strong> or a <strong>vector</strong> format.</p>
-<div class="section" id="raster-files">
-<h3><span class="section-number">1.1.1. </span>Raster files<a class="headerlink" href="#raster-files" title="Permalink to this headline">¶</a></h3>
-<div class="alert alert-info">
-Data stored in a <b>raster format</b> is arranged in a regular grid of cells, 
-without storing the coordinates of each point (namely, a cell, or a pixel). 
-The coordinates of the corner points and the spacing of the grid can 
-be used to calculate (rather than to store) the coordinates of each 
-location in the grid. Any given pixel in the grid stores one or more 
-values (in one or more bands).</div> 
-<p>A satellite image, an image you take with your camera or even a map layer
-you are looking at can be examples of geospatial data that are stored in a
-raster format. These images are composed of pixels that are organized in
-rows and columns, with values and location. The size of a given pixel
-depends on the spatial resolution of the sensor.</p>
-<p>Raster files are often composed out of multiple bands (channels).
-Each band represents, for example, the amount of electromagnetic
-radiation reflected from the surface on Earth
-along multiple regions of the electromagnetic spectrum.</p>
-<p>Raster data is typically used to represent continuous surfaces,
-where knowing the exact boundaries in high precision is of less importance.</p>
-</div>
-<div class="section" id="vector-files">
-<h3><span class="section-number">1.1.2. </span>Vector files<a class="headerlink" href="#vector-files" title="Permalink to this headline">¶</a></h3>
-<div class="alert alert-info">
-Data in a <b>vector format</b> is stored in a way that the X and Y 
-coordinates are stored for each point. Data can be represented, 
-for example, as points, lines and polygons. A point has only one coordinate 
-(X and Y), a line has two coordinates (at the start and end of the line) 
-and an area is essentially a line that closes on itself to enclose a region. 
-Polygons are usually used to represent the area and perimeter of a 
-continuous geographic features. Vector data stores features in their 
-original resolution, without aggregation.</div>
-</div>
-<div class="section" id="brief-comparison-of-raster-vs-vector-data-models">
-<h3><span class="section-number">1.1.3. </span>Brief comparison of raster vs vector data models<a class="headerlink" href="#brief-comparison-of-raster-vs-vector-data-models" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-default" id="rastervector1">
-<img alt="../_images/mod1-rastervector1.png" src="../_images/mod1-rastervector1.png" />
-</div>
-<div class="figure align-default" id="rastervector2">
-<img alt="../_images/mod1-rastervector2.png" src="../_images/mod1-rastervector2.png" />
-<p class="caption"><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Source: <a class="bibtex reference internal" href="mod5_3_vector_and_raster_data.html#joseph2014" id="id1">[Jos14]</a></span><a class="headerlink" href="#rastervector2" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="geotiffs">
-<h3><span class="section-number">1.1.4. </span>GeoTIFFs<a class="headerlink" href="#geotiffs" title="Permalink to this headline">¶</a></h3>
-<div class="alert alert-info">
-A <b>tagged Image File Format (TIFF or TIF)</b> is a file format for storing raster files. 
-A GeoTIFF is a TIFF file that follows a specific standard for structuring meta-data, 
-such as georeference information (e.g. map coordinates) for the image. Most of the 
-remote sensing data you encounter will be stored as a GeoTIFF file and we will explore to 
-read these files later in the tutorial.</div>
-<p>The meta-data stored in a TIFF is called a <code class="docutils literal notranslate"><span class="pre">tif</span> <span class="pre">tag</span></code> and GeoTIFFs often contain tags including:</p>
-<ol class="simple">
-<li><p><strong>Spatial extent:</strong> what is the area coverage of this file?</p></li>
-<li><p><strong>Coordinate reference system:</strong> what projection / coordinate reference system is used?</p></li>
-<li><p><strong>Resolution:</strong> rasters contain pixels, so what is the spatial extent of each pixel (spatial resolution)?</p></li>
-<li><p><strong>Number of layers:</strong> how many layers or bands are in the file?</p></li>
-</ol>
-<div class="alert alert-success">
-<a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/" 
-class="alert-link">This tutorial at earthdatascience.org</a> gives a good overview of GeoTIFFs as well as the libraries,
-such as Python's rasterio that are useful for accessing and manipulating this files.
-</div>
-<div class="alert alert-success">
-<a href="https://rasterio.readthedocs.io/en/latest/#" 
-class="alert-link">Rasterio</a> a Python library for reading and writing GeoTIFF files.
-</div>
-</div>
-<div class="section" id="cloud-optimized-geotiffs-cogs">
-<h3><span class="section-number">1.1.5. </span>Cloud-optimized geoTIFFs (COGs)<a class="headerlink" href="#cloud-optimized-geotiffs-cogs" title="Permalink to this headline">¶</a></h3>
-<div class="alert alert-info">
-<b>Cloud Optimized GeoTIFFS (COGs)</b>  are GeoTIFFs that have data structured in such a 
-way that you can query these files through a web service. The major advantage of this is 
-that you can query, analyze, visualize, or download just a part of a COG file online, 
-without downloading the entire file.
-</div>
-<p>It’s often the case with remote sensing analysis that you only need to view or analyze a
-particular area and the data that contains that area is in a very large file that contains a
-much larger region of the world. COGs allow you to query just the area that you’re interested
-in, saving you time and storage space.</p>
-</div>
-</div>
-<div class="section" id="the-world-bank-s-light-every-night-dataset">
-<h2><span class="section-number">1.2. </span>The World Bank’s “Light Every Night” dataset<a class="headerlink" href="#the-world-bank-s-light-every-night-dataset" title="Permalink to this headline">¶</a></h2>
-<p>Currently, this tutorial focuses on nighttime lights datasets that are available publicly (via the Google Earth Engine data catalogue); however, the “Light Every Night” (LEN) data archive is going to be launched soon.</p>
-<p>The World Bank’s Light Every Night data set is a complete archive of all nighttime imagery captured each night over the last three decades. The underlying data is sourced from the NOAA/NCEI archive. The two sensors featured are the DMSP-OLS with data from 1992-2017, and the VIIRS-DNB with data spanning 2012-2020. The World Bank worked in collaboration with NOAA/NCEI and the University of Michigan to publish the archive as an Analysis Ready Data Set. The LEN archive, which now spans nearly 250 terabytes, will be openly available on the AWS open data program published under the World Bank’s open data license.</p>
-<div class="section" id="components-of-the-len-archive">
-<h3><span class="section-number">1.2.1. </span>Components of the LEN archive<a class="headerlink" href="#components-of-the-len-archive" title="Permalink to this headline">¶</a></h3>
+  <div class="section" id="framing-the-analysis">
+<h1><span class="section-number">2. </span>Framing the analysis<a class="headerlink" href="#framing-the-analysis" title="Permalink to this headline">¶</a></h1>
+<p>The most important work in any real-world problem-solving is framing your analysis in order to provide the most meaningful insights.</p>
+<p>The scientific process and communicating about data for decision-makers are big but important topics for another tutorial, but some high level guidance for data anlysis is useful here:</p>
 <ul class="simple">
-<li><p>DMSP-OLS nightly imagery (1993-2017, all nights):</p>
-<ul>
-<li><p>visible (VIS)</p></li>
-<li><p>thermal infrared (TIR)</p></li>
-<li><p>lunar illuminance (LI)</p></li>
-<li><p>cloud mask (CM)</p></li>
-<li><p>sample position (SAM)</p></li>
-<li><p>stray light mask (SLM)</p></li>
+<li><p>What is the key inquiry?</p></li>
+<li><p>What are possible testable hypotheses?</p></li>
+<li><p>What data is needed?</p></li>
+<li><p>What methods are useful?</p></li>
+<li><p>What conclusions are possible?</p></li>
 </ul>
-</li>
-<li><p>VIIRS DNB nightly imagery (2012-2020, all nights):</p>
-<ul>
-<li><p>DNB radiance</p></li>
-<li><p>I5 (LWIR) radiance</p></li>
-<li><p>lunar illuminance</p></li>
-<li><p>sample position within DNB scan</p></li>
-<li><p>quality bitflag or “vflag” grid with on/off states for these fields:</p></li>
-<li><p>daytime/nighttime/near-terminator</p></li>
-<li><p>zero lunar illuminance</p></li>
-<li><p>viirs cloud mask</p></li>
-<li><p>nightfire detection</p></li>
-<li><p>lightning</p></li>
-<li><p>high energy particle hit</p></li>
-<li><p>stray light affected/corrected</p></li>
+<div class="section" id="what-is-the-key-inquiry">
+<h2><span class="section-number">2.1. </span>What is the key inquiry?<a class="headerlink" href="#what-is-the-key-inquiry" title="Permalink to this headline">¶</a></h2>
+<p>This is one of the most important steps of any analysis and should be done collaboratively with stakehoders. We are making some assumptions about land use and economic activity, so this is where the researcher will do extensive literature review to make sure this is a valid approach and one that, if conducted, actually helps the stakeholders gain insight or make decisions.</p>
+<p>If this is a particularly relevent research inquiry (beyond learning the skills), there is plenty of literature on the use of remote sensing to monitor changes in land use <a class="bibtex reference internal" href="#dewan2009land" id="id1">[DY09]</a>, including nighttime lights <a class="bibtex reference internal" href="#jiang2020detecting" id="id2">[JWZ+20]</a> and we draw draw attention to nighttime lights applications to economic analysis of course, <a class="reference internal" href="mod1_2_introduction_to_nighttime_light_data.html"><span class="doc">Introduction to nighttime light data (20 min)</span></a>. There are also many instances on the growing application of machine learning prediction for land use and ultimately economic development, simliar to our scope here <a class="bibtex reference internal" href="#liping2018monitoring" id="id3">[LYS18]</a>.</p>
+<p>For this exercise, we’ll assume this diligence was done and we are framing our analysis around: <strong>detecting changes in land cover that indicate changes in economic activity over the course of 4 years in the country of Nepal, from 2016 through 2019.</strong></p>
+<p>We do not yet have a full year of data for 2020 as of the writing of this tutorial, but there is a clear opportunity for you to expand on this at home.</p>
+</div>
+<div class="section" id="what-are-possible-testable-hypotheses">
+<h2><span class="section-number">2.2. </span>What are possible testable hypotheses?<a class="headerlink" href="#what-are-possible-testable-hypotheses" title="Permalink to this headline">¶</a></h2>
+<p>In many settings typically analysis needs high levels of rigor to answer if there was an observed effect. We will frame this as exploratory analysis for learning purposes, so we can be more relaxed, but it is still a good idea to clarify what we are looking for and what our threshold will be for an effect <strong>before</strong> we look at the data. We are trying to detect change and we are making an assumption that land cover can proxy economic activity in a way that is useful for our stakeholders.</p>
+<p>Our testable hypothesis will therefore be: <strong>whether or not there are significant changes in land cover in Nepal in 2019 compared to 2016.</strong></p>
+<p>The null hypothesis is that there is no change in either direction (growth or decline), a two-tailed hypothesis (with a p value below 0.05). Will a comparison of the distribution in built-up land cover in 2016 versus 2019 be able to reject that?</p>
+</div>
+<div class="section" id="data">
+<h2><span class="section-number">2.3. </span>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>There are key considerations when identifying data that will help us answer our inquiry.</p>
+<ul class="simple">
+<li><p>Spatial (and spectral) resolution are important at a high enough precision where we can distinguish changes to particular cities and towns, i.e. spatial resolution at least at the neighborhood level.</p></li>
+<li><p>Clearly temporal resolution is important as well.</p></li>
+<li><p>Uninterrupted geospatial and historical coverage of our Region of Interest in Nepal during these years is important.</p></li>
+<li><p>For remote sensing, as with many sources of big data, we will want to understand the quality of the data and any preprocessing that has been done, or which we would need to do.</p></li>
+<li><p>How accessible, affordable and available long-term (i.e. sustainable) are the data sources? And via what specific data products?</p></li>
 </ul>
-</li>
+<p>Given these considerations, for identifying land use and land cover we decide to use:</p>
+<ul class="simple">
+<li><p>VIIRS-DNB monthly composites for nighttime lights;</p></li>
+<li><p>Supplemented with Sentinel-2 daytime visible band images (monthly composites)</p></li>
+</ul>
+<p>…will provide the information we need. And as a way to define built-up areas (i.e. our training labels):</p>
+<ul class="simple">
+<li><p>Global Human Settlement Layer (GHSL), which we have available most recently in 2015.</p></li>
 </ul>
 </div>
-<div class="section" id="data-that-is-analysis-ready">
-<h3><span class="section-number">1.2.2. </span>Data that is “analysis ready”<a class="headerlink" href="#data-that-is-analysis-ready" title="Permalink to this headline">¶</a></h3>
-<p>The data architecture was designed from the ground up to be analysis-ready. The data is published in the Cloud Optimized GeoTIFF format (COG), and organized using the SpatialTemporal Asset Catalog (STAC) standard. These standards are part of the growing <a href="https://medium.com/planet-stories/analysis-ready-data-defined-5694f6f48815">Analysis Ready Data ecosystem</a> that is improving access to geospatial data sets, enabling broader audiences to readily discover, process and analyze geospatial data.</p>
-<p>Analysis ready data has already undergone the transformations and preprocessing necessary to make data (in this case observations of electromagnetic energy collected in space!) organized and coherent for general technical users and analysts.</p>
+<div class="section" id="methods">
+<h2><span class="section-number">2.4. </span>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>As with choosing data, choosing our approach should include diligence about appropriate methods.</p>
+<p>We are fortunate to have found a dataset, the GHSL data, that tells us what we want to know: settlement locations, i.e. built-up area. This is exactly what we are trying to measure, so we can use this dataset to define what constitues “built-up” or “not built-up” in terms of land cover.</p>
+<p>There is a problem; however, these data are available only as recently as 2015. We do not have GHSL data for 2016-2019 and measuring the change in built-up land use over that time is the whole point of our research.</p>
+<p>We know our remote sensing data, the VIIRS-DNB and Sentinel-2 data collections, do cover change during this period with adequate temporal precision, but these data do not explicitly define “built-up” areas.</p>
+<p>We’ll have to infer what is “built-up” from 2016 to 2019 in order to measure change. Therefore, we will use classification via a supervised learning method. <a class="reference internal" href="mod6_2_supervised_learning_img_classification.html"><span class="doc">Supervised learning and image classification</span></a></p>
+<p>Since we are using data from three separate sources (VIIRS, Sentinel-2, GHSL) we will need to integrate them into a dataset that is aligned spatially and temporally, a process sometimes described as data fusion. <a class="reference internal" href="mod6_5_data_fusion.html"><span class="doc">Data fusion: Sentinel-2, VIIRS-DNB, GHSL</span></a></p>
+<p>We will train a clssifier using VIIRS-DNB and Sentinel-2 data for 2015, the year we have GHSL validation data, to classify a pixel as being “built-up” or “not built up.” There is extensive research available on supervised learning classifier algorithms avialable, but one of the most commonly used and generally effective across a large range of domains and problems is an ensemble decision tree-based model called Random Forest (RF). RF also happens to be available as in Google Earth Engine (GEE) so we do not have to implement this algorithm from scratch. <a class="reference internal" href="mod6_6_RF_classifier.html"><span class="doc">Random Forest Classifier</span></a></p>
+<p>We will use this trained model on VIIRS-DNB and Sentinel-2 data for the years we do not have GHSL data (2016-2019) to classify pixels as “built-up” or not.</p>
+<p>Finally, we can analyze the change with some visualizations and importantly, conduct a statistical test of variance that compares our Region Of Interest (ROI) in Nepal in 2019 with the ROI in 2016 and will either reject our null hypothesis (no change) or fail to reject it. <a class="reference internal" href="mod6_7_final_analysis.html"><span class="doc">Statistical inference</span></a></p>
 </div>
-<div class="section" id="data-access-and-tutorials">
-<h3><span class="section-number">1.2.3. </span>Data access and tutorials<a class="headerlink" href="#data-access-and-tutorials" title="Permalink to this headline">¶</a></h3>
-<p>This archive will be made available very shortly and soon thereafter, we will add more content to these modules about how to access and use this data.</p>
-</div>
+<div class="section" id="conclusions">
+<h2><span class="section-number">2.5. </span>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>We should be able to communicate the findings of our statistical analysis (i.e. whether we saw change in economic activity or not).</p>
+<p>Whatever the outcome, we should also be able to justify our decisions, assumptions and approach so that it stands up to scrutiny and follow-up analysis, which is a part of any real-world decision-making process.</p>
+<p>Finally, in addition to our primary analysis, we should be prepared to describe any other insights or that might be useful. For example, in addition to the overal change in activity from 2016-2019, are there any particular trends or patterns worth noting? Further research or data needed?</p>
 </div>
 <div class="section" id="references">
-<h2><span class="section-number">1.3. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-tutorials/mod2_1_data_overview-0"><dl class="citation">
-<dt class="bibtex label" id="joseph2014"><span class="brackets"><a class="fn-backref" href="#id1">Jos14</a></span></dt>
-<dd><p>Julianna Joseph. <em>Vector and Raster Data Model Images</em>. 2014. URL: <a class="reference external" href="http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/">http://www.newdesignfile.com/post_vector-and-raster-data-model_15523/</a>.</p>
+<h2><span class="section-number">2.6. </span>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-tutorials/mod6_1_framing_the_analysis-0"><dl class="citation">
+<dt class="bibtex label" id="dewan2009land"><span class="brackets"><a class="fn-backref" href="#id1">DY09</a></span></dt>
+<dd><p>Ashraf M Dewan and Yasushi Yamaguchi. Land use and land cover change in greater dhaka, bangladesh: using remote sensing to promote sustainable urbanization. <em>Applied geography</em>, 29(3):390–401, 2009.</p>
+</dd>
+<dt class="bibtex label" id="jiang2020detecting"><span class="brackets"><a class="fn-backref" href="#id2">JWZ+20</a></span></dt>
+<dd><p>S Jiang, G Wei, Z Zhang, Y Wang, M Xu, Q Wang, P Das, and B Liu. Detecting the dynamics of urban growth in africa using dmsp/ols nighttime light data. land 2021, 10, 13. 2020.</p>
+</dd>
+<dt class="bibtex label" id="liping2018monitoring"><span class="brackets"><a class="fn-backref" href="#id3">LYS18</a></span></dt>
+<dd><p>Chen Liping, Sun Yujun, and Sajjad Saeed. Monitoring and predicting land use and land cover changes using remote sensing and gis techniques—a case study of a hilly area, jiangle, china. <em>PloS one</em>, 13(7):e0200493, 2018.</p>
 </dd>
 </dl>
 </p>
@@ -629,8 +530,8 @@ in, saving you time and storage space.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="mod1_2_introduction_to_nighttime_light_data.html" title="previous page"><span class="section-number">2. </span>Introduction to nighttime light data (20 min)</a>
-    <a class='right-next' id="next-link" href="mod2_2_getting_started_with_Python.html" title="next page"><span class="section-number">2. </span>Getting started with Python (10 min)</a>
+    <a class='left-prev' id="prev-link" href="mod6_0_overview.html" title="previous page"><span class="section-number">1. </span>Overview</a>
+    <a class='right-next' id="next-link" href="mod6_2_supervised_learning_img_classification.html" title="next page"><span class="section-number">3. </span>Supervised learning and image classification</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
