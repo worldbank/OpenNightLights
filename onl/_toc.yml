@@ -42,6 +42,18 @@
   - file: tutorials/mod5_3_vector_and_raster_data
   - file: tutorials/mod5_4_comparing_cities
 
+- part: Module 6 Exercise in data fusion for image classification
+  numbered: true
+  chapters:
+  - file: tutorials/mod6_0_overview
+  - file: tutorials/mod6_1_framing_the_analysis
+  - file: tutorials/mod6_2_supervised_learning_img_classification
+  - file: tutorials/mod6_3_intro_to_sentinel2
+  - file: tutorials/mod6_4_intro_to_GHSL
+  - file: tutorials/mod6_5_data_fusion
+  - file: tutorials/mod6_6_RF_classifier
+  - file: tutorials/mod6_7_final_analysis
+
 - part: World Bank - Light Every Night AWS data archive
   chapters:
   - file: wb-light-every-night-readme
