@@ -49,7 +49,9 @@
   - file: tutorials/mod6_1_framing_the_analysis
   - file: tutorials/mod6_2_supervised_learning_img_classification
   - file: tutorials/mod6_3_intro_to_sentinel2
-  - file: tutorials/mod6_4_merging_Sentinel_and_VIIRS-DNB
+  - file: tutorials/mod6_4_intro_to_GHSL
+  - file: tutorials/mod6_5_data_fusion
+  - file: tutorials/mod6_6_RF_classifier
 
 - part: World Bank - Light Every Night AWS data archive
   chapters:
