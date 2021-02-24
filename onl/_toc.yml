@@ -52,6 +52,7 @@
   - file: tutorials/mod6_4_intro_to_GHSL
   - file: tutorials/mod6_5_data_fusion
   - file: tutorials/mod6_6_RF_classifier
+  - file: tutorials/mod6_7_final_analysis
 
 - part: World Bank - Light Every Night AWS data archive
   chapters:

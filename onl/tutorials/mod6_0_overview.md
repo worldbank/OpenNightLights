@@ -19,9 +19,4 @@ This module presents an approach for assessing changes in built-up land cover in
 
 {doc}`mod6_6_RF_classifier`: Application of supervised learning to classify built-up land cover.
 
-
--Model evaluation
-Validating the model.
-
--Mapping annual changes in built-up land cover
-Assessing and plotting change detection.
+{doc}`mod6_7_final_analysis`: Run inference and analyze change in land cover.
