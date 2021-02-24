@@ -1,4 +1,4 @@
-# Data fusion for image classification
+# Overview
 
 After working through the previous modules of this tutorial, you should have a basic understanding of how to access, analyze and visualize satellite data. One of the best ways to improve your skills with data science and remote sensing (as with many things!) is to try hands-on examples.
 
