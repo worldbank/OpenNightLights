@@ -20,6 +20,12 @@ Tutorial organization
 
 - **Module 5: Data analysis and intercalibration**
 
+- **Module 6: Exercise on analyzing economic activity in Nepal**
+
+- **World Bank Light Every Night Archive: docs on accessing this new archive**
+
+- **Applications of nighttime lights: assessing the power grid with nighttime lights**
+
 References
 ----------
 <div class="alert alert-info">

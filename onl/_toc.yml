@@ -5,6 +5,7 @@
   chapters:
   - file: tutorials/mod1_1_introduction_to_remote_sensing
   - file: tutorials/mod1_2_introduction_to_nighttime_light_data
+  - file: tutorials/mod1_3_video
 
 - part: Module 2 Introduction to open data and tools
   numbered: true
@@ -15,6 +16,7 @@
   - file: tutorials/mod2_4_introduction_to_GEE
   - file: tutorials/mod2_5_GEE_PythonAPI_and_geemap
   - file: tutorials/mod2_6_practical_exercise-image_visualization
+  - file: tutorials/mod2_7_video
 
 - part: Module 3 Basic operations on raster files
   numbered: true
@@ -27,12 +29,14 @@
   - file: tutorials/mod3_5_expressions-PartB
   - file: tutorials/mod3_6_making_VIIRS_annual_composites
   - file: tutorials/mod3_7_import_export_data
+  - file: tutorials/mod3_8_video
 
 - part: Module 4 Charting
   numbered: true
   chapters:
   - file: tutorials/mod4_1_time_series_charts
   - file: tutorials/mod4_2_histograms
+  - file: tutorials/mod4_3_video
 
 - part: Module 5 Data analysis and intercalibration
   numbered: true
@@ -41,6 +45,7 @@
   - file: tutorials/mod5_2_rate_of_change
   - file: tutorials/mod5_3_vector_and_raster_data
   - file: tutorials/mod5_4_comparing_cities
+  - file: tutorials/mod5_5_video
 
 - part: Module 6 Exercise in data fusion for image classification
   numbered: true
