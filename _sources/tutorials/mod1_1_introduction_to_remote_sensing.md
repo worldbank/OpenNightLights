@@ -55,7 +55,7 @@ Source: {cite}`phdthesis`
 
 ## Spatial, spectral and temporal resolutions in remote sensing
 
-Remote sensing instruments are characterized by different resolutions which will impact the decision as to which data to use and for which application (this is often referred to as “Fit-for-Purpose” technologies.
+Remote sensing instruments are characterized by different resolutions which will impact the decision as to which data to use and for which application (this is often referred to as “Fit-for-Purpose” technologies).
 
 ### Spatial resolution
 
@@ -119,7 +119,7 @@ There is an inherent tradeoff between spatial, spectral and temporal resolutions
 ---
 name: res_trade-offs
 ---
-Trade-offs with spatial, spectral, and temporal resolution. The figure illustrates some of the tradeoffs in remotely sensed data.  For example, sensors that collect images in a high spatial resolution, will typically have lower spectral (less bands) and low temporal (less frequent re-visit) resolutions . On the other hand, the spatial and spectral resolution of sensors with a high temporal resolution (frequent revisit) will typically be lower than sensors that collect data in a low temporal resolution (less frequent revisit).<br>
+Trade-offs with spatial, spectral, and temporal resolution. The figure illustrates some of the tradeoffs in remotely sensed data.  For example, sensors that collect images in a high spatial resolution, will typically have lower spectral (less bands) and low temporal (less frequent re-visit) resolutions. On the other hand, the spatial and spectral resolution of sensors with a high temporal resolution (frequent revisit) will typically be lower than sensors that collect data in a low temporal resolution (less frequent revisit).<br>
 Source: {cite}`warner2009remote`
 ```
 
@@ -155,7 +155,7 @@ Area of lighting versus GDP for 200 countries of the world. (from Elvidge et al.
 ```
 
 **Comparing nighttime lights and a series of socio-economic indicators:** 
-Proville et al. (2017) {cite}`proville2017night` examined trends observed by DMSP-OLS in the period 1992-2013 and their correlation with a series of socio-economic indicators. {numref}proville They found the strongest correlations between nighttime lights, electricity consumption, CO2 emissions, and GDP, followed by population, CH4 emissions, N2O emissions, poverty and F-gas emissions.  
+Proville et al. (2017) {cite}`proville2017night` examined trends observed by DMSP-OLS in the period 1992-2013 and their correlation with a series of socio-economic indicators. {numref}`proville` They found the strongest correlations between nighttime lights, electricity consumption, CO2 emissions, and GDP, followed by population, CH4 emissions, N2O emissions, poverty and F-gas emissions.  
 
 ```{figure} img/mod1-proville.png
 ---

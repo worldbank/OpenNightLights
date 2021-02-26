@@ -139,11 +139,13 @@ In addition, the extent and intensity of lit areas cannot directly delimit urban
 
 {cite}`small2005spatial`
 
-Blooming results in from three primary phenomena: 
-- (1) the relatively coarse spatial resolution of the OLS sensor and the detection of 
-diffuse and scattered light over areas containing no light source , 
-- (2) large overlap in the footprints of adjacent OLS pixels, and 
-- (3) the accumulation of geolocation errors in the compositing process.
+Blooming results in from three primary phenomena:
+<ol>
+<li>the relatively coarse spatial resolution of the OLS sensor and the detection of 
+    diffuse and scattered light over areas containing no light source,</li> 
+<li>large overlap in the footprints of adjacent OLS pixels, and</li>
+    <li>the accumulation of geolocation errors in the compositing process.</li>
+    </ol>
 
 {cite}`elvidge2004area`
 
@@ -176,20 +178,21 @@ One use-case of the “avg_lights_x_pct” layer of the DMSP-OLS annual composit
 ---
 name: elvidge2009
 ---
-The need for intercalibration when analyzing trends using the DMSP-OLS stable lights composites is apparent in these two charts. The top chart shows derived estimates of gas flared prior to applying an intercalibration. The bottom chart shows these same estimates after applying an intercalibration. {cite}`elvidge2009fifteen`
+The need for intercalibration when analyzing trends using the DMSP-OLS stable lights composites is apparent in these two charts. The top chart shows derived estimates of gas flares prior to applying an intercalibration. The bottom chart shows these same estimates after applying an intercalibration. {cite}`elvidge2009fifteen`
 ```
 
 ## VIIRS-DNB: the follow-on sensor for the DMSP-OLS
 
 Many aspects of the VIIRS-DNB sensors are identical to the DMSP-OLS. LIke the OLS, the DNB are scanning radiometers capable of low-light imaging and are launched onboard sun-synchronous polar-orbiting platforms. They both collect 14 orbits per day, imaging the daytime and nighttime side of the earth every 24 hours. On the surface they may seem identical, but in fact almost everything about the DNB sensor itself is an improvement over the OLS.
 
-The table below details a side-by-side comparison of the two sensors. As a companion visual, Figure 2.6 shows a side-by-side comparison of DNB and OLS imagery from the same night.
+The table below details a side-by-side comparison of the two sensors. As a companion visual, {numref}`dmsp-vs-viirs` shows a side-by-side comparison of DNB and OLS imagery from the same night.
 
-Things to notice in the tabvle are that all four of the limitations discussed in the previous section about the OLS sensor have been either eliminated or reduced in the VIIRS-DNB. 
-- (1) The DNB sensors have a higher radiometric resolution (14-bit) and are capable of collecting at multiple gain settings simultaneously. These features eliminate the nighttime saturation in the DNB. 
-- (2) The DNB has onboard calibration for the daytime data that is carried through to the nighttime side, yielding nighttime pixel values in radiance units. 
-- (3) The spatial resolution of the DNB sensor is ~750m on a side, making the spatial area of the DNB footprint 44 times smaller than the OLS. 
-- (4) The blooming effect of the OLS, as discussed earlier, is reduced in the DNB. However, blooming will still occur because of the coarse spatial resolution of the DNB sensor as compared to a lighting source, and the detection of diffuse and scattered light over areas containing no light source.
+Things to notice in the table are that all four of the limitations discussed in the previous section about the OLS sensor have been either eliminated or reduced in the VIIRS-DNB.
+<ol>
+<li>The DNB sensors have a higher radiometric resolution (14-bit) and are capable of collecting at multiple gain settings simultaneously. These features eliminate the nighttime saturation in the DNB.</li>
+<li>The DNB has onboard calibration for the daytime data that is carried through to the nighttime side, yielding nighttime pixel values in radiance units.</li>
+<li>The spatial resolution of the DNB sensor is ~750m on a side, making the spatial area of the DNB footprint 44 times smaller than the OLS.</li>
+<li>The blooming effect of the OLS, as discussed earlier, is reduced in the DNB. However, blooming will still occur because of the coarse spatial resolution of the DNB sensor as compared to a lighting source, and the detection of diffuse and scattered light over areas containing no light source.</li></ol>
 
 ```{figure} img/mod1-elvidge2013.png
 ---
@@ -244,13 +247,13 @@ VIIRS-DNB composite products can be accessed from:
 ###  Limitations and Challenges of the VIIRS-DNB
 
 There are several limitations and challenges when using VIIRS-DNB:
-- (1) VIIRS-DNB  is still a fairly new sensor and <b>algorithms for turning the raw nightly data into meaningful products for the research community has not had time to fully develop.</b> The EOG group at CSM continues to produce monthly composites using the DNB, but production of annual stable lights has yet to restart. <a href="https://blackmarble.gsfc.nasa.gov/">NASA’s Black Marble</a> suite of products, which are based on the DNB, had its first release in August 2020, and while there are plans to release composite products, only nightly products are currently available {cite}`roman2018nasa`.
-
-- (2) While the DNB is a much improved version of the OLS sensor, it was still designed to be a weather satellite, with the low-light imaging capability tailored for detection of moonlit clouds, not nighttime lights. <b>There is only one panchromatic band, sensitive to wavelengths from the visible out into the near infrared </b> (0.5-0.9 microns). This includes wavelengths beyond the human eye’s range of vision.
-
-- (3) The spatial resolution of the sensor at 742m is too large for many applications, like mapping of urban morphology and detection of very small human settlements. 
+<ol>
+<li>VIIRS-DNB  is still a fairly new sensor and <b>algorithms for turning the raw nightly data into meaningful products for the research community has not had time to fully develop.</b> The EOG group at CSM continues to produce monthly composites using the DNB, but production of annual stable lights has yet to restart. <a href="https://blackmarble.gsfc.nasa.gov/">NASA’s Black Marble</a> suite of products, which are based on the DNB, had its first release in August 2020, and while there are plans to release composite products, only nightly products are currently available {cite}`roman2018nasa`.</li>
+<li>While the DNB is a much improved version of the OLS sensor, it was still designed to be a weather satellite, with the low-light imaging capability tailored for detection of moonlit clouds, not nighttime lights. <b>There is only one panchromatic band, sensitive to wavelengths from the visible out into the near infrared </b> (0.5-0.9 microns). This includes wavelengths beyond the human eye’s range of vision.</li>
+<li>The spatial resolution of the sensor at 742m is too large for many applications, like mapping of urban morphology and detection of very small human settlements.</li>
+    </ol>
 It is inevitable that someday a satellite mission tailored to the imaging of nighttime lights, like the proposed Nightsat mission {cite}`elvidge2007nightsat`, will be a reality. Until then there is a much improved sensor in the DNB to explore for the coming decades.
- 
+
 
 ## References:
 ```{bibliography} ../references.bib
