@@ -139,11 +139,13 @@ In addition, the extent and intensity of lit areas cannot directly delimit urban
 
 {cite}`small2005spatial`
 
-Blooming results in from three primary phenomena: 
-- (1) the relatively coarse spatial resolution of the OLS sensor and the detection of 
-diffuse and scattered light over areas containing no light source , 
-- (2) large overlap in the footprints of adjacent OLS pixels, and 
-- (3) the accumulation of geolocation errors in the compositing process.
+Blooming results in from three primary phenomena:
+<ol>
+<li>the relatively coarse spatial resolution of the OLS sensor and the detection of 
+    diffuse and scattered light over areas containing no light source,</li> 
+<li>large overlap in the footprints of adjacent OLS pixels, and</li>
+    <li>the accumulation of geolocation errors in the compositing process.</li>
+    </ol>
 
 {cite}`elvidge2004area`
 
@@ -245,13 +247,13 @@ VIIRS-DNB composite products can be accessed from:
 ###  Limitations and Challenges of the VIIRS-DNB
 
 There are several limitations and challenges when using VIIRS-DNB:
-- (1) VIIRS-DNB  is still a fairly new sensor and <b>algorithms for turning the raw nightly data into meaningful products for the research community has not had time to fully develop.</b> The EOG group at CSM continues to produce monthly composites using the DNB, but production of annual stable lights has yet to restart. <a href="https://blackmarble.gsfc.nasa.gov/">NASA’s Black Marble</a> suite of products, which are based on the DNB, had its first release in August 2020, and while there are plans to release composite products, only nightly products are currently available {cite}`roman2018nasa`.
-
-- (2) While the DNB is a much improved version of the OLS sensor, it was still designed to be a weather satellite, with the low-light imaging capability tailored for detection of moonlit clouds, not nighttime lights. <b>There is only one panchromatic band, sensitive to wavelengths from the visible out into the near infrared </b> (0.5-0.9 microns). This includes wavelengths beyond the human eye’s range of vision.
-
-- (3) The spatial resolution of the sensor at 742m is too large for many applications, like mapping of urban morphology and detection of very small human settlements. 
+<ol>
+<li>VIIRS-DNB  is still a fairly new sensor and <b>algorithms for turning the raw nightly data into meaningful products for the research community has not had time to fully develop.</b> The EOG group at CSM continues to produce monthly composites using the DNB, but production of annual stable lights has yet to restart. <a href="https://blackmarble.gsfc.nasa.gov/">NASA’s Black Marble</a> suite of products, which are based on the DNB, had its first release in August 2020, and while there are plans to release composite products, only nightly products are currently available {cite}`roman2018nasa`.</li>
+<li>While the DNB is a much improved version of the OLS sensor, it was still designed to be a weather satellite, with the low-light imaging capability tailored for detection of moonlit clouds, not nighttime lights. <b>There is only one panchromatic band, sensitive to wavelengths from the visible out into the near infrared </b> (0.5-0.9 microns). This includes wavelengths beyond the human eye’s range of vision.</li>
+<li>The spatial resolution of the sensor at 742m is too large for many applications, like mapping of urban morphology and detection of very small human settlements.</li>
+    </ol>
 It is inevitable that someday a satellite mission tailored to the imaging of nighttime lights, like the proposed Nightsat mission {cite}`elvidge2007nightsat`, will be a reality. Until then there is a much improved sensor in the DNB to explore for the coming decades.
- 
+
 
 ## References:
 ```{bibliography} ../references.bib
