@@ -1,6 +1,6 @@
-# VIDEO: Plots
+# VIDEO: Statistical analysis
 
-This video is from a workshop hosted as part of the Geo4Dev 2020 Symposium and Workshop and covers the material in Module 4. The relevant portion is in the first part of the video (the rest of the video covers material in Module 5).
+This video is from a workshop hosted as part of the Geo4Dev 2020 Symposium and Workshop and covers the material in Module 5. The relevant portion is in the latter part of the video (the first part covers covers material in Module 4).
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/3qfc8YPAugc/0.jpg)](http://www.youtube.com/watch?v=3qfc8YPAugc "Video Title")
 

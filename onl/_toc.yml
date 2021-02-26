@@ -45,6 +45,7 @@
   - file: tutorials/mod5_2_rate_of_change
   - file: tutorials/mod5_3_vector_and_raster_data
   - file: tutorials/mod5_4_comparing_cities
+  - file: tutorials/mod5_5_video
 
 - part: Module 6 Exercise in data fusion for image classification
   numbered: true
