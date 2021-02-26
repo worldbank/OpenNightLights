@@ -176,20 +176,21 @@ One use-case of the “avg_lights_x_pct” layer of the DMSP-OLS annual composit
 ---
 name: elvidge2009
 ---
-The need for intercalibration when analyzing trends using the DMSP-OLS stable lights composites is apparent in these two charts. The top chart shows derived estimates of gas flared prior to applying an intercalibration. The bottom chart shows these same estimates after applying an intercalibration. {cite}`elvidge2009fifteen`
+The need for intercalibration when analyzing trends using the DMSP-OLS stable lights composites is apparent in these two charts. The top chart shows derived estimates of gas flares prior to applying an intercalibration. The bottom chart shows these same estimates after applying an intercalibration. {cite}`elvidge2009fifteen`
 ```
 
 ## VIIRS-DNB: the follow-on sensor for the DMSP-OLS
 
 Many aspects of the VIIRS-DNB sensors are identical to the DMSP-OLS. LIke the OLS, the DNB are scanning radiometers capable of low-light imaging and are launched onboard sun-synchronous polar-orbiting platforms. They both collect 14 orbits per day, imaging the daytime and nighttime side of the earth every 24 hours. On the surface they may seem identical, but in fact almost everything about the DNB sensor itself is an improvement over the OLS.
 
-The table below details a side-by-side comparison of the two sensors. As a companion visual, Figure 2.6 shows a side-by-side comparison of DNB and OLS imagery from the same night.
+The table below details a side-by-side comparison of the two sensors. As a companion visual, {numref}`dmsp-vs-viirs` shows a side-by-side comparison of DNB and OLS imagery from the same night.
 
-Things to notice in the tabvle are that all four of the limitations discussed in the previous section about the OLS sensor have been either eliminated or reduced in the VIIRS-DNB. 
-- (1) The DNB sensors have a higher radiometric resolution (14-bit) and are capable of collecting at multiple gain settings simultaneously. These features eliminate the nighttime saturation in the DNB. 
-- (2) The DNB has onboard calibration for the daytime data that is carried through to the nighttime side, yielding nighttime pixel values in radiance units. 
-- (3) The spatial resolution of the DNB sensor is ~750m on a side, making the spatial area of the DNB footprint 44 times smaller than the OLS. 
-- (4) The blooming effect of the OLS, as discussed earlier, is reduced in the DNB. However, blooming will still occur because of the coarse spatial resolution of the DNB sensor as compared to a lighting source, and the detection of diffuse and scattered light over areas containing no light source.
+Things to notice in the table are that all four of the limitations discussed in the previous section about the OLS sensor have been either eliminated or reduced in the VIIRS-DNB.
+<ol>
+<li>The DNB sensors have a higher radiometric resolution (14-bit) and are capable of collecting at multiple gain settings simultaneously. These features eliminate the nighttime saturation in the DNB.</li>
+<li>The DNB has onboard calibration for the daytime data that is carried through to the nighttime side, yielding nighttime pixel values in radiance units.</li>
+<li>The spatial resolution of the DNB sensor is ~750m on a side, making the spatial area of the DNB footprint 44 times smaller than the OLS.</li>
+<li>The blooming effect of the OLS, as discussed earlier, is reduced in the DNB. However, blooming will still occur because of the coarse spatial resolution of the DNB sensor as compared to a lighting source, and the detection of diffuse and scattered light over areas containing no light source.</li></ol>
 
 ```{figure} img/mod1-elvidge2013.png
 ---
