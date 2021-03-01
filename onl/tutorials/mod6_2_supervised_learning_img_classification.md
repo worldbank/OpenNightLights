@@ -10,7 +10,7 @@ A machine learning algorith is a thing-labeler. The complexity and nuance of "th
 ## Supervised learning
 
 <div class="alert alert-info">
-**Supervised learning** is an approach that uses already-labeled data to learn associations between these labels and a given set of attributes or features, the likelihood of a particular label, such that the algorithm can predict labels on unseen data that are not labeled but have the same features.</div>
+    <b>Supervised learning</b> is an approach that uses already-labeled data to learn associations between these labels and a given set of attributes or features, the likelihood of a particular label, such that the algorithm can predict labels on unseen data that are not labeled but have the same features.</div>
 
 If the labels were continuous (e.g. the amount of rain in a given day) the approach would be regression. If the labels were categorical, including binary (e.g. whether it rains in a given day or not), the approach would be classification.
 
