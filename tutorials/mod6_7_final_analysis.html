@@ -479,7 +479,8 @@
         
               <div>
                 
-  <div class="section" id="statistical-inference">
+  <p><a class="reference external" href="https://colab.research.google.com/github/worldbank/OpenNightLights/blob/master/onl/tutorials/mod6_7_final_analysis.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="section" id="statistical-inference">
 <h1><span class="section-number">8. </span>Statistical inference<a class="headerlink" href="#statistical-inference" title="Permalink to this headline">¶</a></h1>
 <p>We will use the data and model approach we have finalized to infer built-up land cover on the enter time period of 2016 through 2019.</p>
 <div class="section" id="fit-model">
@@ -491,20 +492,22 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span>
 
+<span class="c1"># reminder that if you are installing libraries in a Google Colab instance you will be prompted to restart your kernal</span>
+
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">geemap</span><span class="o">,</span> <span class="nn">ee</span>
-<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;package not found, installing...&quot;</span><span class="p">)</span>
-    <span class="o">!</span>conda install mamba -c conda-forge -y
-    <span class="o">!</span>mamba install geemap -c conda-forge -y
-    <span class="kn">import</span> <span class="nn">geemap</span><span class="o">,</span> <span class="nn">ee</span>
-    
-<span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;package not found, installing...&quot;</span><span class="p">)</span>
-    <span class="o">!</span>conda install seaborn matplotlib -y
+    <span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">()):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;package not found, installing w/ pip in Google Colab...&quot;</span><span class="p">)</span>
+        <span class="o">!</span>pip install geemap seaborn matplotlib
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;package not found, installing w/ conda...&quot;</span><span class="p">)</span>
+        <span class="o">!</span>conda install mamba -c conda-forge -y
+        <span class="o">!</span>mamba install geemap -c conda-forge -y
+        <span class="o">!</span>conda install seaborn matplotlib -y
+    <span class="kn">import</span> <span class="nn">geemap</span><span class="o">,</span> <span class="nn">ee</span>
     <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
@@ -776,7 +779,7 @@
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a453400b8f2c404c82448673a17dda81", "version_major": 2, "version_minor": 0}
+{"model_id": "0d31d9d6014d48cd90a0a896613cb243", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <p>We see that our image is truncated (along the top) which is likely due to the re-sampling constraints (or perhaps some error in processing). This shoudlnt affect our statistical sample if it is consistent across years (it seems to be), but is an indicaton of other potential data quality issues. Even with this small region we have a lot of data to process…it is probably to much to do efficiently via Google Earth Engine.</p>
